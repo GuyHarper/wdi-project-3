@@ -3,7 +3,9 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
+mongoose.plugin(require('./lib/globalToJSON'));
 const { dbURI, port }    = require('./config/environment');
+const routes = require('./config/routes');
 
 
 const app         = express();
@@ -15,13 +17,14 @@ app.use(morgan('dev'));
 
 // setup body-parser to read JSON
 app.use(bodyParser.json());
+app.use('/api', routes);
 
 
 
 
 app.use(express.static(`${__dirname}/public`));
 
-mongoose.plugin(require('./lib/globalToJSON'));
+
 
 app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
