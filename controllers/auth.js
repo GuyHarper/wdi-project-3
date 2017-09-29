@@ -7,8 +7,7 @@ function register(req, res) {
   User
     .create(req.body)
     .then(() => res.json({ message: 'Registration successful'}))
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
       res.status(500).json({ message: 'Something went wrong'});
     });
 }
@@ -20,7 +19,7 @@ function login(req, res, next) {
       if(!user || !user.validatePassword(req.body.password)) return res.unauthorized();
 
       const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
-      return res.json({ token, message: `Welcome back ${user.firstname}` });
+      return res.json({ token, message: `Welcome back ${user.fi}` });
     })
     .catch(next);
 }

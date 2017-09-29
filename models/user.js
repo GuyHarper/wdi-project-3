@@ -5,8 +5,7 @@ const userSchema = new mongoose.Schema({
   firstname: { type: String, required: true},
   secondname: { type: String, required: true},
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  messages: [{ type: mongoose.Schema.ObjectId, ref: 'Message' }]
+  password: { type: String, required: true }
 });
 
 userSchema
@@ -16,7 +15,6 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPasswordConfirmation(next) {
-  console.log('in checkPasswordConfirmation', this._passwordConfirmation, this.password);
   if(this.isModified('password') && this._passwordConfirmation !== this.password) {
     this.invalidate('passwordConfirmation', 'does not match');
   }
