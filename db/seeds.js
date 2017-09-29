@@ -2,16 +2,12 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
 const Pet = require('../models/pet');
-const Message = require('../models/message');
 const User = require('../models/user');
-
-
-Message.collection.drop();
 
 const petData = [{
   name: 'Gio',
   type: 'dog',
-  image: 'https://imgur.com/a/gwMrg',
+  image: 'https://i.imgur.com/1xKy9CS.png',
   location: 'London',
   active: true,
   lost: true
@@ -48,12 +44,11 @@ const userData = [{
   password: 'password'
 }];
 
-
 mongoose.connect(dbURI, { useMongoClient: true })
   .then(db => db.dropDatabase())
   .then(() => Pet.create(petData))
   .then(pets => console.log(`${pets.length} pets created`))
   .then(() => User.create(userData))
-  .then((user) => console.log(`${user.length} users created!`))
+  .then(user => console.log(`${user.length} users created`))
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());
