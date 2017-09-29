@@ -1,0 +1,44 @@
+<div class="center">
+  <div class="column is-two-third">
+    <div class="field">
+      <form ng-submit="petsEdit.update()" name="petsEdit.editPetsForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <div class="control">
+            <input type="text" class="input" id="name" name="name" ng-model="petsEdit.pet.name" ng-pattern="/^[\w\s]+$/" required>
+            <div ng-messages="petsEdit.editPetsForm.name.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.name.$touched">
+              <div ng-message="required" class="red">Please enter a value for this field.</div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="type">Type</label>
+          <div class="control">
+            <input type="text" class="input" id="type" name="type" ng-model="petsEdit.pet.type" ng-pattern="//^[\w\s]+$//" required>
+            <div ng-messages="petsEdit.editPetsForm.type.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.type.$touched">
+              <div ng-message="required" class="red">Please enter a value for this field.</div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="location">Location</label>
+            <div class="control">
+              <input type="text" class="input" id="location" name="location" ng-model="petsEdit.pet.location" ng-pattern="/^[\w\s]+$/" required>
+              <div ng-messages="petsEdit.editPetsForm.location.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.location.$touched">
+                <div ng-message="required" class="red">Please enter a value for this field.</div>
+              </div>
+            </div>
+            <div class="field">
+              <label for="image">Link Image</label>
+              <div class="control">
+                <input type="text" class="input" id="image" name="image" ng-model="petsEdit.pet.image" ng-pattern="/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/" required>
+                <div ng-messages="petsEdit.editPetsForm.image.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.image.$touched">
+                  <div ng-message="required" class="red">Please enter a value for this field.</div>
+                  <div ng-message="pattern" class="red">Please enter a valid link.</div>
+                </div>
+              </div>
+              <input type="submit" class="button is-primary" value="Save">
+              <a href="/pets" class="button is-primary">Cancel</a>
+            </form>
+          </div>
+        </div>
+      </div>
