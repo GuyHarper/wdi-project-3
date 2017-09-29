@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 const { dbURI } = require('../config/environment');
 const Pet = require('../models/pet');
+const Message = require('../models/message');
+const User = require('../models/user');
+
+
+Message.collection.drop();
 
 const petData = [{
   name: 'Gio',
@@ -31,4 +36,26 @@ mongoose.connect(dbURI, { useMongoClient: true })
   .then(() => Pet.create(petData))
   .then(pets => console.log(`${pets.length} pets created`))
   .catch(err => console.log(err))
+  .finally(() => mongoose.connection.close());
+
+User
+  .create([{
+    firstname: 'Tito',
+    secondname: 'Zwane',
+    email: 'tito@ga.co',
+    password: 'password'
+  },{
+    firstname: 'Gio',
+    secondname: 'Galiero',
+    email: 'gio@ga.co',
+    password: 'password'
+  },{
+    firstname: 'Guy',
+    secondname: 'Harper',
+    email: 'guy@ga.co',
+    password: 'password'
+  }])
+  
+  .then((user) => console.log(`${user.length} users created!`))
+  .catch((err) => console.log(err))
   .finally(() => mongoose.connection.close());
