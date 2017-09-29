@@ -34,17 +34,20 @@ const userData = [{
   firstname: 'Tito',
   secondname: 'Zwane',
   email: 'tito@ga.co',
-  password: 'password'
+  password: 'password',
+  passwordConfirmation: 'password'
 },{
   firstname: 'Gio',
   secondname: 'Galiero',
   email: 'gio@ga.co',
-  password: 'password'
+  password: 'password',
+  passwordConfirmation: 'password'
 },{
   firstname: 'Guy',
   secondname: 'Harper',
   email: 'guy@ga.co',
-  password: 'password'
+  password: 'password',
+  passwordConfirmation: 'password'
 }];
 
 mongoose.connect(dbURI, { useMongoClient: true })
