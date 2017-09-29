@@ -11,4 +11,7 @@ router.route('/pets')
 router.route('/register')
   .post(auth.register);
 
+router.route('/login')
+  .post(auth.login);
+
 module.exports = router;
