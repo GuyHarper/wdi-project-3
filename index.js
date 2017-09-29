@@ -21,6 +21,8 @@ app.use(bodyParser.json());
 
 app.use(express.static(`${__dirname}/public`));
 
+mongoose.plugin(require('./lib/globalToJSON'));
+
 app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`));
 
 app.listen(port, () => console.log(`Express has started on port: ${port}`));
