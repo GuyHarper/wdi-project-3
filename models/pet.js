@@ -6,8 +6,7 @@ const petSchema = new mongoose.Schema({
   image: String,
   location: String,
   active: Boolean,
-  lost: Boolean,
-  found: Boolean
+  lost: Boolean
 });
 
 
