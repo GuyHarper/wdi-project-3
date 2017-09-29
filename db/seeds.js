@@ -31,34 +31,29 @@ const petData = [{
   lost: true
 }];
 
+const userData = [{
+  firstname: 'Tito',
+  secondname: 'Zwane',
+  email: 'tito@ga.co',
+  password: 'password'
+},{
+  firstname: 'Gio',
+  secondname: 'Galiero',
+  email: 'gio@ga.co',
+  password: 'password'
+},{
+  firstname: 'Guy',
+  secondname: 'Harper',
+  email: 'guy@ga.co',
+  password: 'password'
+}];
+
+
 mongoose.connect(dbURI, { useMongoClient: true })
   .then(db => db.dropDatabase())
   .then(() => Pet.create(petData))
   .then(pets => console.log(`${pets.length} pets created`))
-  .catch(err => console.log(err))
-  .finally(() => mongoose.connection.close());
-
-User
-  .create([{
-    firstname: 'Tito',
-    secondname: 'Zwane',
-    email: 'tito@ga.co',
-    password: 'password'
-  },{
-    firstname: 'Gio',
-    secondname: 'Galiero',
-    email: 'gio@ga.co',
-    password: 'password'
-  },{
-    firstname: 'Guy',
-    secondname: 'Harper',
-    email: 'guy@ga.co',
-    password: 'password'
-  }]);
-
-mongoose.connect(dbURI, { useMongoClient: true })
-  .then(db => db.dropDatabase())
-  .then(() => User.create(User))
+  .then(() => User.create(userData))
   .then((user) => console.log(`${user.length} users created!`))
-  .catch((err) => console.log(err))
+  .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());
