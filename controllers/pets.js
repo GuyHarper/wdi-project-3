@@ -1,6 +1,6 @@
 const Pet = require('../models/pet');
 
-///************************** -------> remember to put next inside all the functions
+///************************** -------> remember to put **next** inside all the functions <----------******************************
 function createRoute(req, res) {
   Pet
     .create(req.body)

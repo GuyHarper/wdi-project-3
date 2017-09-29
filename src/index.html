@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="petsApp">
   <head>
+    <base href="/">
     <meta charset="utf-8">
-    <title>WDI Project 3</title>
+    <title>WDI Project 3 - Lost & Found Pets</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
   </head>
   <body>
-    <h1>WDI Project 3</h1>
-  </body>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="petsIndex">Pets</a></li>
+        <li><a ui-sref="petsNew">Add a pet</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main ui-view class="container"></main>
+</body>
 </html>
