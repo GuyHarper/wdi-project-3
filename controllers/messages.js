@@ -16,7 +16,7 @@ function messagesShow(req, res) {
 
       res.json(message);
     })
-    .catch(err => req.status(500).json(err));
+    .catch(err => res.status(500).json(err));
 }
 
 
