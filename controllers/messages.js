@@ -18,7 +18,22 @@ function messagesCreate(req, res) {
     .catch(err => res.render('error', { err }));
 }
 
+function messageDelete(req, res) {
+  Message
+    .findById(req.params.id.userId)
+    .exec()
+    .then((message) => {
+      if(!message) return res.notFound();
+
+      return message.remove();
+    })
+    .then(() => res.status(204).end())
+    .catch(err => res.render('error', { err }));
+}
+
+
 module.exports = {
   new: messagesNew,
-  create: messagesCreate
+  create: messagesCreate,
+  delete: messageDelete
 };
