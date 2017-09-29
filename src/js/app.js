@@ -1,2 +1,2 @@
 angular
-  .module('petsApp', ['ui.router', 'ngResource']);
+  .module('petsApp', ['ui.router', 'ngResource', 'ngMessages']);

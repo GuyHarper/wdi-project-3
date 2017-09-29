@@ -1,7 +1,11 @@
-<div class="row">
-  <div ng-repeat="pet in petsIndex.all" class="col-md-6">
-    <img ng-src="{{ pet.image }}">
-    <a ui-sref="petsShow({ id: pet.id })"><h2>{{ pet.name }}</h2></a>
-    <p><strong>{{ pet.location }}</strong> <em>{{ pet.type }}</em></p>
+<div class="columns">
+  <div class="column is-one-third">
+    <div ng-repeat="pet in petsIndex.all" class="col-md-6">
+      <a ui-sref="petsShow({ id: pet.id })"><img ng-src="{{ pet.image }}"></a>
+      <h2>Name: {{ pet.name }}</h2>
+      <p> Location: <em>{{ pet.location }}</em></p>
+      <p>Description: <em>{{ pet.description }}</em></p>
+      <p>Status: <em>{{ pet.status }}</em></p>
+    </div>
   </div>
 </div>
