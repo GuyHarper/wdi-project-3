@@ -1,1 +1,21 @@
-// Import all of your scss files here
+.center{
+  margin: 0 auto;
+  width: 400px;
+}
+.red {
+  background-color: rgba(255, 0, 0, 0.5);;
+  border-radius: 5%;
+  text-align: center;
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.015);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
