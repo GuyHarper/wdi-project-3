@@ -6,9 +6,21 @@ function register(req, res, next) {
   User
     .create(req.body)
     .then(() => res.json({ message: 'Registration successful'}))
-    .catch(next);
+    .catch(() => res.status(500).json({ message: 'Something went wrong'}));
+}
+
+function login(req, res, next) {
+  User
+    .findOne({ email: req.body.email })
+    .then((user) => {
+      if(!user || !user.validatePassword(req.body.password)) return res.unauthorized();
+      const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
+      return res.json({ token, message: `Welcome back ${user.username}` }, token);
+    })
+    .catch(() => res.status(500).json({ message: 'Something went wrong'}));
 }
 
 module.exports = {
-  register
+  register,
+  login
 };
