@@ -8,6 +8,11 @@ router.route('/pets')
   .get(pets.index)
   .post(pets.create);
 
+router.route('/pets/:id')
+  .get(pets.show)
+  .put(pets.update)
+  .delete(pets.delete);
+
 // ==========Messages router=============
 
 router.route('/user/messages')
@@ -17,7 +22,6 @@ router.route('/user/messages')
 router.route('/user/messages/new')
   .get(messages.new)
   .delete(messages.delete);
-
 
 
 
