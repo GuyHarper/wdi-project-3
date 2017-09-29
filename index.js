@@ -1,6 +1,23 @@
 const express     = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+const { dbURI, port }    = require('./config/environment');
+
+
 const app         = express();
-const { port }    = require('./config/environment');
+mongoose.connect(dbURI, { useMongoClient: true });
+
+
+// use morgan for logging
+app.use(morgan('dev'));
+
+// setup body-parser to read JSON
+app.use(bodyParser.json());
+
+
+
 
 app.use(express.static(`${__dirname}/public`));
 
