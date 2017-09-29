@@ -15,7 +15,8 @@ router.route('/user/messages')
   .post(messages.create);
 
 router.route('/user/messages/new')
-  .get(messages.new);
+  .get(messages.new)
+  .delete(messages.delete);
 
 
 

@@ -54,8 +54,11 @@ User
     secondname: 'Harper',
     email: 'guy@ga.co',
     password: 'password'
-  }])
-  
+  }]);
+
+mongoose.connect(dbURI, { useMongoClient: true })
+  .then(db => db.dropDatabase())
+  .then(() => User.create(User))
   .then((user) => console.log(`${user.length} users created!`))
   .catch((err) => console.log(err))
   .finally(() => mongoose.connection.close());
