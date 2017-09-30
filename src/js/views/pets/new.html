@@ -23,8 +23,6 @@
           <div class="field">
             <label for="location">Location</label>
             <div class="control">
-              {{ petsNew.pet.location }}
-              {{ petsNew.pet.address }}
               <input autocomplete location="petsNew.pet.location" type="text" class="input" id="location" name="location" ng-model="petsNew.pet.address" required>
               <div ng-messages="petsNew.newPetsForm.location.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.location.$touched">
                 <div ng-message="required" class="red">Please enter a value for this field.</div>
