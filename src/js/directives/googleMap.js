@@ -8,7 +8,7 @@ function googleMap() {
     replace: true,
     template: '<div class="map">I am google map!</div>',
     link(scope, element) {
-      console.log(element[0]);
+      console.log(element);
     }
   };
 }

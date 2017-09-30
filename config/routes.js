@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const pets = require('../controllers/pets');
 const messages = require('../controllers/messages');
-const user = require('../controllers/users');
 const auth = require('../controllers/auth');
 // const secureRoute = require('../lib/secureRoute');
 
@@ -23,13 +22,15 @@ router.route('/login')
 
 // ==========Messages router=============
 
-router.route('/user/:userId/messages')
-  .get(user.show)
+router.route('/messages')
+  // .get(messages.index)
   .post(messages.create);
 
-router.route('/user/:userId/messages/new')
-  .get(messages.new)
+
+router.route('/messages/:id')
+  .get(messages.show)
   .delete(messages.delete);
+
 
 
 
