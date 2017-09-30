@@ -19,36 +19,41 @@
               <div ng-message="required" class="red">Please enter a value for this field.</div>
             </div>
           </div>
+        </div>
           <div class="field">
             <label for="location">Location</label>
             <div class="control">
-              <input type="text" class="input" id="location" name="location" ng-model="petsNew.pet.location" ng-pattern="/^[\w\s]+$/" required>
+              {{ petsNew.pet.location }}
+              {{ petsNew.pet.address }}
+              <input autocomplete location="petsNew.pet.location" type="text" class="input" id="location" name="location" ng-model="petsNew.pet.address" required>
               <div ng-messages="petsNew.newPetsForm.location.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.location.$touched">
                 <div ng-message="required" class="red">Please enter a value for this field.</div>
               </div>
             </div>
-            <div class="field">
-              <label for="image">Link Image</label>
-              <div class="control">
-                <input type="text" class="input" id="image" name="image" ng-model="petsNew.pet.image" ng-pattern="/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/" required>
-                <div ng-messages="petsNew.newPetsForm.image.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.image.$touched">
-                  <div ng-message="required" class="red">Please enter a value for this field.</div>
-                  <div ng-message="pattern" class="red">Please enter a valid link.</div>
-                </div>
+          </div>
+          <div class="field">
+            <label for="image">Link Image</label>
+            <div class="control">
+              <input type="text" class="input" id="image" name="image" ng-model="petsNew.pet.image" ng-pattern="/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/" required>
+              <div ng-messages="petsNew.newPetsForm.image.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.image.$touched">
+                <div ng-message="required" class="red">Please enter a value for this field.</div>
+                <div ng-message="pattern" class="red">Please enter a valid link.</div>
               </div>
             </div>
-            <div class="field">
-              <label for="description">Description</label>
-              <div class="control">
-                <textarea type="text" class="textarea" id="description" name="description" ng-model="petsNew.pet.description" ng-pattern="/^[\w\s]+$/" placeholder="Further information" required></textarea>
-              </div>
+          </div>
+          <div class="field">
+            <label for="description">Description</label>
+            <div class="control">
+              <textarea type="text" class="textarea" id="description" name="description" ng-model="petsNew.pet.description" ng-pattern="/^[\w\s]+$/" placeholder="Further information" required></textarea>
             </div>
-            <div class="field">
-              <label for="lost">Lost<input type="radio" name="status" value="lost" ng-model="petsNew.pet.status"></label>
-              <label for="found">Found<input type="radio" name="status" value="found" ng-model="petsNew.pet.status"></label>
-            </div>
-            <input type="submit" class="button is-info" value="Add">
-            <a href="/" class="button is-primary">Cancel</a>
-          </form>
-        </div>
+          </div>
+          <div class="field">
+            <label for="lost">Lost<input type="radio" name="status" value="lost" ng-model="petsNew.pet.status"></label>
+            <label for="found">Found<input type="radio" name="status" value="found" ng-model="petsNew.pet.status"></label>
+          </div>
+          <input type="submit" class="button is-info" value="Add">
+          <a href="/" class="button is-primary">Cancel</a>
+        </form>
       </div>
+    </div>
+  </div>
