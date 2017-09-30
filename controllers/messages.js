@@ -1,26 +1,28 @@
 const Message = require('../models/message');
-const User = require('../models/user');
-
-function messagesNew(req, res) {
-  User
-    .find()
-    .exec()
-    .then((users) => {
-      res.render('messages/new', { users });
-    })
-    .catch(err => res.render('error', { err }));
-}
 
 function messagesCreate(req, res) {
   Message
     .create(req.body)
-    .then(() => res.redirect(req.path))
-    .catch(err => res.render('error', { err }));
+    .then(messages => res.status(201).json(messages))
+    .catch(err => res.status(500).json(err));
 }
+
+function messagesShow(req, res) {
+  Message
+    .findById(req.params.id)
+    .exec()
+    .then((message) => {
+      if(!message) return res.notFound();
+
+      res.json(message);
+    })
+    .catch(err => res.status(500).json(err));
+}
+
 
 function messageDelete(req, res) {
   Message
-    .findById(req.params.id.userId)
+    .findById(req.params.id)
     .exec()
     .then((message) => {
       if(!message) return res.notFound();
@@ -33,7 +35,11 @@ function messageDelete(req, res) {
 
 
 module.exports = {
-  new: messagesNew,
+  show: messagesShow,
   create: messagesCreate,
   delete: messageDelete
 };
+
+
+
+// =======================================

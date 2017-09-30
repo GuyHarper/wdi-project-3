@@ -5,11 +5,34 @@ angular
   .controller('PetsShowCtrl', PetsShowCtrl)
   .controller('PetsEditCtrl', PetsEditCtrl);
 
-PetsIndexCtrl.$inject = ['Pet'];
-function PetsIndexCtrl(Pet) {
+PetsIndexCtrl.$inject = ['Pet', '$http', 'API'];
+function PetsIndexCtrl(Pet, $http, API) {
   const vm = this;
 
   vm.all = Pet.query();
+
+  // *************************************************************
+  //******************* geolocation ******************************
+  //**************************************************************
+
+  // if the user has geolocation enabled
+  if (navigator.geolocation) {
+    // run the getCurrentPosition function, which takes a callback and receives the position object as an argument
+    navigator.geolocation.getCurrentPosition((position) => {
+      getEvents(position.coords.latitude, position.coords.longitude);
+      console.log(position.coords.latitude, position.coords.longitude);
+    });
+  } else {
+    // if geolocation is disabled, call getEvents and pass in London coords
+    getEvents(51.02, -0.12);
+  }
+  function getEvents(lat, lng) {
+    $http
+      .get(`${API}/events`, { params: { lat, lng }})
+      .then((response) => {
+        vm.events = response.data.results;
+      });
+  }
 }
 
 PetsNewCtrl.$inject = ['Pet', '$state'];

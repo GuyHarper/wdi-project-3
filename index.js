@@ -2,6 +2,7 @@ const express     = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors       = require('cors');
 mongoose.Promise = require('bluebird');
 mongoose.plugin(require('./lib/globalToJSON'));
 const { dbURI, port }    = require('./config/environment');
@@ -14,6 +15,7 @@ mongoose.connect(dbURI, { useMongoClient: true });
 
 // use morgan for logging
 app.use(morgan('dev'));
+app.use(cors());
 
 // setup body-parser to read JSON
 app.use(bodyParser.json());
