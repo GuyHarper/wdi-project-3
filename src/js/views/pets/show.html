@@ -1,8 +1,9 @@
 <img ng-src="{{ petsShow.pet.image }}">
 
 <h2>{{ petsShow.pet.name }}</h2>
-<p><strong>{{ petsShow.pet.location }}</strong> <em>{{ petsShow.pet.type }}</em></p>
-
+<p><strong>{{ petsShow.pet.location }}</strong></p>
+<p>{{ petsShow.pet.description}}</p>
+<google-map></google-map>
 <a ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
 <button ng-click="petsShow.delete()" class="button is-danger">Delete</button>
 <a href="/" class="button is-primary">Go back</a>

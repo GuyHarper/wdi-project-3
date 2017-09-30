@@ -2,21 +2,21 @@ const router = require('express').Router();
 const pets = require('../controllers/pets');
 const messages = require('../controllers/messages');
 const auth = require('../controllers/auth');
-const secureRoute = require('../lib/secureRoute');
+// const secureRoute = require('../lib/secureRoute');
 
-
+//************ Remember to put the secureRoute to all the routes *******************
 router.route('/pets')
-  .get(secureRoute, pets.index)
-  .post(secureRoute, pets.create);
-
+  .get(pets.index)
+  .post(pets.create);
+//************ Remember to put the secureRoute to all the routes *******************
 router.route('/pets/:id')
   .get(pets.show)
-  .put(secureRoute, pets.update)
-  .delete(secureRoute, pets.delete);
-
+  .put(pets.update)
+  .delete(pets.delete);
+//************ Remember to put the secureRoute to all the routes *******************
 router.route('/register')
   .post(auth.register);
-
+//************ Remember to put the secureRoute to all the routes *******************
 router.route('/login')
   .post(auth.login);
 
@@ -30,8 +30,5 @@ router.route('/messages')
 router.route('/messages/:id')
   .get(messages.show)
   .delete(messages.delete);
-
-
-
 
 module.exports = router;
