@@ -11,7 +11,7 @@ const petData = [{
   description: 'It was a good pet! I really miss it. I hope it will come back soon.',
   location: 'London',
   active: true,
-  lost: 'lost'
+  status: 'lost'
 },{
   name: 'Guy',
   type: 'cat',
@@ -19,7 +19,7 @@ const petData = [{
   description: 'It was a good pet! I really miss it. I hope it will come back soon.',
   location: 'London',
   active: true,
-  lost: 'lost'
+  status: 'lost'
 },{
   name: 'Tito',
   type: 'dog',
@@ -27,7 +27,7 @@ const petData = [{
   description: 'It was a good pet! I really miss it. I hope it will come back soon.',
   location: 'London',
   active: true,
-  lost: 'lost'
+  status: 'lost'
 }];
 
 const userData = [{

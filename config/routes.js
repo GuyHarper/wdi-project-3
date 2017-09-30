@@ -3,33 +3,33 @@ const pets = require('../controllers/pets');
 const messages = require('../controllers/messages');
 const user = require('../controllers/users');
 const auth = require('../controllers/auth');
-const secureRoute = require('../lib/secureRoute');
+// const secureRoute = require('../lib/secureRoute');
 
-
+//************ Remember to put the secureRoute to all the routes *******************
 router.route('/pets')
-  .get(secureRoute, pets.index)
-  .post(secureRoute, pets.create);
-
+  .get(pets.index)
+  .post(pets.create);
+//************ Remember to put the secureRoute to all the routes *******************
 router.route('/pets/:id')
   .get(pets.show)
-  .put(secureRoute, pets.update)
-  .delete(secureRoute, pets.delete);
-
+  .put(pets.update)
+  .delete(pets.delete);
+//************ Remember to put the secureRoute to all the routes *******************
 router.route('/register')
   .post(auth.register);
-
+//************ Remember to put the secureRoute to all the routes *******************
 router.route('/login')
   .post(auth.login);
 
 // ==========Messages router=============
 
 router.route('/user/:userId/messages')
-  .get(secureRoute, user.show)
-  .post(secureRoute, messages.create);
+  .get(user.show)
+  .post(messages.create);
 
 router.route('/user/:userId/messages/new')
-  .get(secureRoute, messages.new)
-  .delete(secureRoute, messages.delete);
+  .get(messages.new)
+  .delete(messages.delete);
 
 
 
