@@ -31,7 +31,4 @@ router.route('/messages/:id')
   .get(messages.show)
   .delete(messages.delete);
 
-
-
-
 module.exports = router;
