@@ -2,6 +2,7 @@ const router = require('express').Router();
 const pets = require('../controllers/pets');
 const messages = require('../controllers/messages');
 const auth = require('../controllers/auth');
+const users = require('../controllers/users');
 // const secureRoute = require('../lib/secureRoute');
 
 //************ Remember to put the secureRoute to all the routes *******************
@@ -22,13 +23,19 @@ router.route('/login')
 
 // ==========Messages router=============
 
-router.route('/messages')
-  // .get(messages.index)
-  .post(messages.create);
+// router.route('/user/:userId/messages')
+//   .get(users.show)
+//   .post(messages.create);
+//
+// router.route('/user/:userId/messages/new')
+//   .get(messages.new)
+//   .delete(messages.delete);
+//
+//
+// router.route('/messages/:id')
+//   .get(messages.show)
+//   .delete(messages.delete);
 
-
-router.route('/messages/:id')
-  .get(messages.show)
-  .delete(messages.delete);
+router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;
