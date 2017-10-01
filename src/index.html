@@ -6,6 +6,7 @@
     <title>WDI Project 3 - Lost & Found Pets</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCEf0m3wUu-5PAbexCXM6UIh30irV1rayQ&libraries=places"></script>
     <!-- inject:js -->
     <!-- endinject -->
@@ -13,15 +14,24 @@
     <!-- endinject -->
   </head>
   <body ng-controller="MainCtrl as main">
-  <nav class="navbar navbar-default">
+  <nav class="nav section" id="top">
     <div class="container">
-      <ul class="nav navbar-nav">
-        <li><a ui-sref="petsIndex">Pets</a></li>
-        <li><a ui-sref="petsNew">Add a pet</a></li>
+      <div class="nav-left">
+        <h1>Lost and Found pets</h1>
+      </div>
+      <span class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <ul class="nav-right nav-menu">
+        <li><a class="button" ui-sref="petsIndex">Pets</a></li>
+        <li><a class="button" ui-sref="petsNew">Add a pet</a></li>
+        <li><a class="button">Log in</a></li>
+        <li><a class="button is-info">Sign up</a></li>
       </ul>
     </div>
   </nav>
-  <div class="notification" ng-if="main.message">{{ main.message }}</div>
   <main ui-view class="container"></main>
 </body>
 </html>
