@@ -28,5 +28,5 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'PetsEditCtrl as petsEdit'
     });
 
-  $urlRouterProvider.otherwise('/hompage');
+  $urlRouterProvider.otherwise('/pets');
 }

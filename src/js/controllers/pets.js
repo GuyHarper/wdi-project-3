@@ -5,14 +5,8 @@ angular
   .controller('PetsShowCtrl', PetsShowCtrl)
   .controller('PetsEditCtrl', PetsEditCtrl);
 
-<<<<<<< HEAD
-
-PetsIndexCtrl.$inject = ['Pet'];
-function PetsIndexCtrl(Pet) {
-=======
 PetsIndexCtrl.$inject = ['Pet', '$http', 'API'];
 function PetsIndexCtrl(Pet, $http, API) {
->>>>>>> c4dbecea5cdb0019d79562a85416efc0600cb51f
   const vm = this;
 
   vm.all = Pet.query();
