@@ -19,18 +19,18 @@ function PetsIndexCtrl(Pet, $http, API) {
   if (navigator.geolocation) {
     // run the getCurrentPosition function, which takes a callback and receives the position object as an argument
     navigator.geolocation.getCurrentPosition((position) => {
-      getEvents(position.coords.latitude, position.coords.longitude);
+      getPets(position.coords.latitude, position.coords.longitude);
       console.log(position.coords.latitude, position.coords.longitude);
     });
   } else {
-    // if geolocation is disabled, call getEvents and pass in London coords
-    getEvents(51.02, -0.12);
+    // if geolocation is disabled, call getPets and pass in London coords
+    getPets(51.02, -0.12);
   }
-  function getEvents(lat, lng) {
+  function getPets(lat, lng) {
     $http
-      .get(`${API}/events`, { params: { lat, lng }})
+      .get(`${API}/pets`, { params: { lat, lng }})
       .then((response) => {
-        vm.events = response.data.results;
+        vm.pets = response.data.results;
       });
   }
 }

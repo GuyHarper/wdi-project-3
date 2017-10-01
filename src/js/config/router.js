@@ -26,6 +26,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/pets/:id/edit',
       templateUrl: 'js/views/pets/edit.html',
       controller: 'PetsEditCtrl as petsEdit'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'js/views/auth/login.html',
+      controller: 'LoginCtrl as login'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'js/views/auth/register.html',
+      controller: 'RegisterCtrl as register'
     });
 
   $urlRouterProvider.otherwise('/pets');
