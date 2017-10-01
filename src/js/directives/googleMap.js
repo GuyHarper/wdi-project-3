@@ -16,10 +16,12 @@ function googleMap() {
       const map = new google.maps.Map($element[0], {
         // london as location
         center: { lat: 51.530017, lng: -0.123598 },
-        zoom: 4
+        zoom: 14
       });
 
+      const latLng = { lat: location.lat, lng: location.lng };
       const marker = new google.maps.Marker({
+        position: latLng,
         map: map
       });
 
