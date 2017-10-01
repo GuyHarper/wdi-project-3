@@ -1,9 +1,17 @@
 angular
   .module('petsApp')
+  .controller('HomepageCtrl', HomepageCtrl)
   .controller('PetsIndexCtrl', PetsIndexCtrl)
   .controller('PetsNewCtrl', PetsNewCtrl)
   .controller('PetsShowCtrl', PetsShowCtrl)
   .controller('PetsEditCtrl', PetsEditCtrl);
+
+HomepageCtrl.$inject = ['Homepage'];
+function HomepageCtrl(Homepage) {
+  const vm = this;
+
+  vm.all = Homepage.query();
+}
 
 PetsIndexCtrl.$inject = ['Pet', '$http', 'API'];
 function PetsIndexCtrl(Pet, $http, API) {

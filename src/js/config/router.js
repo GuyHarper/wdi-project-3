@@ -7,6 +7,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
+    .state('petshomepage', {
+      url: '/homepage',
+      templateUrl: 'js/views/pets/homepage.html',
+      controller: 'HomepageCtrl as homepageHompage'
+    })
     .state('petsIndex', {
       url: '/pets',
       templateUrl: 'js/views/pets/index.html',
@@ -38,5 +43,5 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'RegisterCtrl as register'
     });
 
-  $urlRouterProvider.otherwise('/pets');
+  $urlRouterProvider.otherwise('/hompage');
 }
