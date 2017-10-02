@@ -1,5 +1,9 @@
 <div>
-  <div>
-    <h3>{{ usersShow.user.firstname }}'s profile</h3>
+  <h3>{{ usersShow.user.firstname }}'s profile</h3>
+</div>
+<div>
+  <h2>Messages</h2>
+  <div ng-repeat="message in usersShow.user.messages" >
+    <message-display></message-display>
   </div>
 </div>
