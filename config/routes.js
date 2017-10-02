@@ -21,6 +21,9 @@ router.route('/register')
 router.route('/login')
   .post(auth.login);
 
+router.route('/users/:userId')
+  .get(users.show);
+
 // ==========Messages router=============
 
 // router.route('/user/:userId/messages')

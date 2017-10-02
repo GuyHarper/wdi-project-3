@@ -55,6 +55,7 @@ function PetsShowCtrl(Pet, $state) {
   const vm = this;
 
   vm.pet = Pet.get($state.params);
+  
 
   function petsDelete() {
     vm.pet
