@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html ng-app="petsApp">
-  <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <title>WDI Project 3 - Lost & Found Pets</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCEf0m3wUu-5PAbexCXM6UIh30irV1rayQ&libraries=places"></script>
-    <!-- <script src="/path/to/bower_components/mh-dragdrop-image/dist/mh-dragdrop-image.js"></script> -->
-    <!-- inject:js -->
-    <!-- endinject -->
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body ng-controller="MainCtrl as main">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <title>WDI Project 3 - Lost & Found Pets</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCEf0m3wUu-5PAbexCXM6UIh30irV1rayQ&libraries=places,geometry"></script>
+  <!-- <script src="/path/to/bower_components/mh-dragdrop-image/dist/mh-dragdrop-image.js"></script> -->
+  <!-- inject:js -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
+</head>
+<body ng-controller="MainCtrl as main">
   <nav class="nav section" id="top">
     <div class="container">
       <div class="nav-left">
@@ -36,5 +36,6 @@
     </div>
   </nav>
   <main ui-view class="container"></main>
+
 </body>
 </html>
