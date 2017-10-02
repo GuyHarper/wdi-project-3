@@ -4,15 +4,17 @@ const messages = require('../controllers/messages');
 const auth = require('../controllers/auth');
 const users = require('../controllers/users');
 const secureRoute = require('../lib/secureRoute');
+const imageUpload = require('../lib/imageUpload');
+
 
 //************ Remember to put the secureRoute to all the routes *******************
 router.route('/pets')
   .get(pets.index)
-  .post(secureRoute, pets.create);
+  .post(secureRoute, imageUpload, pets.create);
 //************ Remember to put the secureRoute to all the routes *******************
 router.route('/pets/:id')
   .get(pets.show)
-  .put(secureRoute, pets.update)
+  .put(secureRoute, imageUpload, pets.update)
   .delete(secureRoute, pets.delete);
 //************ Remember to put the secureRoute to all the routes *******************
 router.route('/register')

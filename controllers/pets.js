@@ -3,6 +3,7 @@ const Pet = require('../models/pet');
 ///************************** -------> remember to put **next** inside all the functions <----------******************************
 function createRoute(req, res) {
   req.body.postedBy = req.currentUser;
+  if(req.file) req.body.image = req.file.filename;
 
   Pet
     .create(req.body)

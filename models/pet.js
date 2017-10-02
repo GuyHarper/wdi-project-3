@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const s3 = require('../lib/s3');
 
 const petSchema = new mongoose.Schema({
   name: {type: String, required: true},
@@ -15,5 +16,24 @@ const petSchema = new mongoose.Schema({
   postedBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
+petSchema
+  .virtual('imageSRC')
+  .get(function getImageSRC() {
+    if(!this.image) return null;
+    if(this.image.match(/^http/)) return this.image;
+    return `https://s3-eu-west-1.amazonaws.com/${process.env.AWS_BUCKET_NAME}/${this.image}`;
+  });
+
+petSchema.pre('save', function checkPreviousImage(next) {
+  if(this.isModified('image') && this._image) {
+    return s3.deleteObject({ Key: this._image }, next);
+  }
+  next();
+});
+
+petSchema.pre('remove', function removeImage(next) {
+  if(this.image && !this.image.match(/^http/)) s3.deleteObject({ Key: this.image }, next);
+  next();
+});
 
 module.exports = mongoose.model('Pet', petSchema);

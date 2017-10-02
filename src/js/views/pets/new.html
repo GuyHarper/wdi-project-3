@@ -30,12 +30,11 @@
             </div>
           </div>
           <div class="field">
-            <label for="image">Link Image</label>
+            <label for="image">Upload Image</label>
             <div class="control">
-              <input type="text" class="input" id="image" name="image" ng-model="petsNew.pet.image" ng-pattern="/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})/" required>
-              <div ng-messages="petsNew.newPetsForm.image.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.image.$touched">
-                <div ng-message="required" class="red">Please enter a value for this field.</div>
-                <div ng-message="pattern" class="red">Please enter a valid link.</div>
+              <input base64 type="file" name="base64" id="image" ng-model="petsNew.pet.base64" required>
+              <div ng-messages="petsNew.newPetsForm.base64.$error" role="alert" ng-show="(petsNew.newPetsForm.$submitted || petsNew.newPetsForm.base64.$touched) && petsNew.newPetsForm.base64.$invalid" class="error">
+                <div ng-message="required">Image is required.</div>
               </div>
             </div>
           </div>
