@@ -26,18 +26,9 @@ router.route('/users/:userId')
 
 // ==========Messages router=============
 
-// router.route('/user/:userId/messages')
-//   .get(users.show)
-//   .post(messages.create);
-//
-// router.route('/user/:userId/messages/new')
-//   .get(messages.new)
-//   .delete(messages.delete);
-//
-//
-// router.route('/messages/:id')
-//   .get(messages.show)
-//   .delete(messages.delete);
+router.route('/users/:userId/messages')
+  .get(messages.show)
+  .post(messages.create);
 
 router.all('/*', (req, res) => res.notFound());
 
