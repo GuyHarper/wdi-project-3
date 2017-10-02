@@ -30,7 +30,7 @@ function messageDelete(req, res) {
       return message.remove();
     })
     .then(() => res.status(204).end())
-    .catch(err => res.render('error', { err }));
+    .catch(err => res.status(204).json(err));
 }
 
 

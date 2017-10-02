@@ -1,6 +1,19 @@
 const User = require('../models/user');
 const Message = require('../models/message');
 
+function showRoute(req, res) {
+  console.log(req.params.userId);
+  User
+    .findById(req.params.userId)
+    .exec()
+    .then((user) => {
+      if(!user) return res.notFound();
+
+      res.json(user);
+    })
+    .catch(err => res.status(500).json(err));
+}
+
 function usersShow(req, res) {
 
   const data = {
@@ -21,5 +34,5 @@ function usersShow(req, res) {
 }
 
 module.exports = {
-  show: usersShow
+  show: showRoute
 };

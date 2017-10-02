@@ -6,4 +6,22 @@
 <google-map center="petsShow.pet.location"></google-map>
 <a ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
 <button ng-click="petsShow.delete()" class="button is-danger">Delete</button>
-<a href="/" class="button is-primary">Go back</a>
+
+<form ng-submit="petsNew.create()" name="petsNew.newPetsForm" novalidate>
+    <div class="field">
+      <label for="Message" class="label">Message</label>
+      <div class="control">
+        <textarea type="text" class="textarea" id="message" name="message" ng-model="messagesShow.message.from"
+        placeholder="place message here"></textarea>
+      </div>
+    </div>
+    <div class="control">
+      <input ng-submit="messagesCreate.message.to" type="submit" class="button is-info" value="Add message">
+      <a href="/" class="button is-primary">Cancel</a>
+    </div>
+</form>
+
+<!-- to check if its working -->
+
+{{messagesShow}}
+{{messagesCreate}}

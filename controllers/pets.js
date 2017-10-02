@@ -2,6 +2,8 @@ const Pet = require('../models/pet');
 
 ///************************** -------> remember to put **next** inside all the functions <----------******************************
 function createRoute(req, res) {
+  // req.body.postedBy = req.currentUser; // need to connect this up
+
   Pet
     .create(req.body)
     .then(pets => res.status(201).json(pets))
@@ -25,7 +27,7 @@ function showRoute(req, res) {
 
       res.json(pet);
     })
-    .catch(err => req.status(500).json(err));
+    .catch(err => res.status(500).json(err));
 }
 
 function updateRoute(req, res) {
@@ -42,7 +44,7 @@ function updateRoute(req, res) {
       return pet.save();
     })
     .then((pet) => res.json(pet))
-    .catch(err => req.status(500).json(err));
+    .catch(err => res.status(500).json(err));
 }
 
 function deleteRoute(req, res) {
@@ -55,7 +57,7 @@ function deleteRoute(req, res) {
       return pet.remove();
     })
     .then(() => res.status(204).end())
-    .catch(err => req.status(500).json(err));
+    .catch(err => res.status(500).json(err));
 }
 
 module.exports = {
