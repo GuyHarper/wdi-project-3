@@ -5,8 +5,7 @@ const userSchema = new mongoose.Schema({
   firstname: { type: String, required: true},
   secondname: { type: String, required: true},
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  messages: [{ type: String, ref: 'Message' }]
+  password: { type: String, required: true }
 });
 
 userSchema
@@ -14,6 +13,13 @@ userSchema
     ref: 'Pet', // 'Post' is the name of the model
     localField: '_id', // use the local _id field from this schema
     foreignField: 'postedBy' // to match up with the createdBy field from the Post schema
+  });
+
+userSchema
+  .virtual('messages', {
+    ref: 'Message',
+    localField: '_id',
+    foreignField: 'from'
   });
 
 userSchema

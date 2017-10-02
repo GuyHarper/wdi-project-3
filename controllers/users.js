@@ -5,6 +5,7 @@ function showRoute(req, res) {
   console.log(req.params.userId);
   User
     .findById(req.params.userId)
+    .populate('messages')
     .exec()
     .then((user) => {
       if(!user) return res.notFound();

@@ -1,11 +1,15 @@
 const Message = require('../models/message');
 
 function messagesCreate(req, res) {
+  req.body.from = req.currentUser.id;
+  // req.body includes .to and .pet
+  console.log(req.body);
   Message
     .create(req.body)
-    .then(messages => res.status(201).json(messages))
+    .then(message => res.status(201).json(message))
     .catch(err => res.status(500).json(err));
 }
+
 
 function messagesShow(req, res) {
   Message
