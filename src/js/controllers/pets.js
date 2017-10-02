@@ -49,8 +49,8 @@ function PetsNewCtrl(Pet, $state) {
   vm.create = petsCreate;
 }
 
-PetsShowCtrl.$inject = ['Pet', '$state'];
-function PetsShowCtrl(Pet, $state) {
+PetsShowCtrl.$inject = ['Pet', 'Message', '$state'];
+function PetsShowCtrl(Pet, Message, $state) {
   const vm = this;
 
   vm.pet = Pet.get($state.params);
@@ -63,6 +63,23 @@ function PetsShowCtrl(Pet, $state) {
   }
 
   vm.delete = petsDelete;
+
+
+  vm.message = {};
+
+  function messagesCreate() {
+    vm.message.pet = vm.pet.id;
+    vm.message.to = vm.pet.postedBy;
+    Message
+      .save(vm.message)
+      .$promise
+      .then(() => {
+        $state.go('petsShow', $state.params);
+      });
+  }
+
+  vm.messagesCreate = messagesCreate;
+
 }
 
 PetsEditCtrl.$inject = ['Pet', '$state'];

@@ -2,7 +2,7 @@ const Pet = require('../models/pet');
 
 ///************************** -------> remember to put **next** inside all the functions <----------******************************
 function createRoute(req, res) {
-  // req.body.postedBy = req.currentUser; // need to connect this up
+  req.body.postedBy = req.currentUser;
 
   Pet
     .create(req.body)

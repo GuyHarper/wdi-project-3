@@ -11,8 +11,8 @@ const petSchema = new mongoose.Schema({
     lng: { type: Number } // we need to add required: true and modify the seeds because I do not think we need it
   },
   status: {type: String, enum: ['lost', 'found'] },
-  active: {type: Boolean, required: true, default: true}
-  // postedBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
+  active: {type: Boolean, required: true, default: true},
+  postedBy: { type: mongoose.Schema.ObjectId, ref: 'User', required: true }
 });
 
 
