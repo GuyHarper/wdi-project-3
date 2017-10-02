@@ -20,7 +20,6 @@ function PetsIndexCtrl(Pet, $http, API) {
     // run the getCurrentPosition function, which takes a callback and receives the position object as an argument
     navigator.geolocation.getCurrentPosition((position) => {
       getPets(position.coords.latitude, position.coords.longitude);
-      console.log(position.coords.latitude, position.coords.longitude);
     });
   } else {
     // if geolocation is disabled, call getPets and pass in London coords
@@ -55,7 +54,7 @@ function PetsShowCtrl(Pet, $state) {
   const vm = this;
 
   vm.pet = Pet.get($state.params);
-  
+
 
   function petsDelete() {
     vm.pet
