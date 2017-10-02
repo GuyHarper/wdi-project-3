@@ -1,3 +1,5 @@
+/* global google:ignore */
+
 angular
   .module('petsApp')
   .controller('PetsIndexCtrl', PetsIndexCtrl)
@@ -5,32 +7,81 @@ angular
   .controller('PetsShowCtrl', PetsShowCtrl)
   .controller('PetsEditCtrl', PetsEditCtrl);
 
-PetsIndexCtrl.$inject = ['Pet', '$http', 'API'];
-function PetsIndexCtrl(Pet, $http, API) {
+PetsIndexCtrl.$inject = ['Pet', '$http', '$scope', 'filterFilter', 'distanceFromFilter'];
+function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
   const vm = this;
 
-  vm.all = Pet.query();
+  Pet.query()
+    .$promise
+    .then((pets) => {
+      vm.all = pets;
+      // filterPets(51.5, -0.12);
+      getUserLocation();
+
+      function filterPost() {
+        const params = { name: vm.q };
+        // if(vm.useDistance) params.distance = vm.distance;
+        vm.filtered = filterFilter(vm.all, params);
+        // if the checkbox is checked, use the custom distance filter and pass in the array of pets and the range value
+        if(vm.useDistance) vm.filtered = distanceFromFilter(vm.filtered, vm.distance);
+      }
+
+      $scope.$watchGroup([
+        () => vm.useDistance,
+        () => vm.distance
+      ], filterPost);
+
+
+    });
+
+
+
 
   // *************************************************************
   //******************* geolocation ******************************
   //**************************************************************
 
   // if the user has geolocation enabled
-  if (navigator.geolocation) {
-    // run the getCurrentPosition function, which takes a callback and receives the position object as an argument
-    navigator.geolocation.getCurrentPosition((position) => {
-      getPets(position.coords.latitude, position.coords.longitude);
-    });
-  } else {
-    // if geolocation is disabled, call getPets and pass in London coords
-    getPets(51.02, -0.12);
+  function getUserLocation() {
+    if (navigator.geolocation) {
+      // run the getCurrentPosition function, which takes a callback and receives the position object as an argument
+      navigator.geolocation.getCurrentPosition(geolocationAllowed, geolocationDenied);
+    } else {
+      // if geolocation is disabled by the browser, call getPets and pass in London coords
+      // show a text search box for user to enter their location using autocomplete
+      // filterPets(51.05, -0.12);
+    }
   }
-  function getPets(lat, lng) {
-    $http
-      .get(`${API}/pets`, { params: { lat, lng }})
-      .then((response) => {
-        vm.pets = response.data.results;
-      });
+
+  // user has allowed geolocation
+  function geolocationAllowed(position) {
+    filterPets(position.coords.latitude, position.coords.longitude);
+  }
+
+  // user has disabled geolocation
+  // show a text search box for user to enter their location using autocomplete
+  function geolocationDenied(err) {
+    console.log(err);
+  }
+
+  function filterPets(lat, lng) {
+
+    console.log(lat, lng);
+
+    // loop through each pet
+    vm.all.forEach((pet) => {
+      if(!pet.location) return false;
+      // create LatLng objects that Google will accept as the correct format
+      const petLatLng = new google.maps.LatLng(pet.location);
+      const userLatLng = new google.maps.LatLng(lat, lng);
+      // used geometry library to calculate distance in meters, turn it into km to 2 decimal places
+      const distance = (google.maps.geometry.spherical.computeDistanceBetween(petLatLng, userLatLng) / 1000).toFixed(2);
+
+      // adding a new key of distance to the pet object and setting it to the calculated distance
+      pet.distance = distance;
+    });
+
+    $scope.$apply();
   }
 }
 

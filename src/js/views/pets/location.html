@@ -1,0 +1,17 @@
+<h1>Where do you want to look to?</h1>
+<form ng-submit="location.submit()" novalidate>
+  <h2>Use the geoLocation?</h2>
+  <button>yes</button>
+  <p> OR </p>
+  <div class="field">
+    <label for="location">Type in the location </label>
+    <div class="control">
+      <input autocomplete location="petsNew.pet.location" type="text" class="input" id="location" name="location" ng-model="petsNew.pet.address" required>
+      <div ng-messages="petsNew.newPetsForm.location.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.location.$touched">
+        <div ng-message="required" class="red">Please enter a value for this field.</div>
+      </div>
+    </div>
+  </div>
+  <input type="submit" class="button is-info" value="Add">
+  <a href="/" class="button is-primary">Cancel</a>
+</form>

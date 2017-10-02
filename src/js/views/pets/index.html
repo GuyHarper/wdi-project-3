@@ -1,7 +1,14 @@
+<div class="pure-u-1 pure-u-sm-1-2">
+  <div class="l-box">
+    <input type="checkbox" id="roast" ng-model="petsIndex.useDistance">
+    <label for="distance">Distance</label>
+    <input type="range" ng-model="petsIndex.distance" min="1" max="15" ng-disabled="!petsIndex.useDistance">
+  </div>
+</div>
 <div class="columns">
   <div class="column is-one-third">
     <div class="card">
-      <div ng-repeat="pet in petsIndex.all">
+      <div ng-repeat="pet in petsIndex.filtered">
         <div class="card-image">
           <figure class="image is-4by3">
             <a ui-sref="petsShow({ id: pet.id })"><img ng-src="{{ pet.image }}"></a>
@@ -22,10 +29,9 @@
           <div class="content">
             Description: <em>{{ pet.description }}</em>
             <p>Status: <em>{{ pet.status }}</em></p>
-            <p> Location: <em>{{ pet.address }}</em></p>
-            <a href="#">#css</a> <a href="#">#responsive</a>
-            <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            <p>Location: <em>{{ pet.address }}</em></p>
+            <p>Distance: <em>{{ pet.distance }}km</em></p>
+            <a href="#">#TwitterHastag in here</a>
           </div>
         </div>
       </div>
