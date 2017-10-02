@@ -5,7 +5,7 @@ angular
 MainCtrl.$inject = ['$transitions', '$rootScope', '$state', '$auth'];
 function MainCtrl($transitions, $rootScope, $state, $auth) {
   const vm = this;
-  if($auth.getPayload().userId) vm.currentUserId = $auth.getPayload().userId;
+  vm.getCurrentUserId = () => $auth.getPayload().userId;
 
 
   vm.isAuthenticated = $auth.isAuthenticated;

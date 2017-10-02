@@ -11,7 +11,7 @@ const customResponses = require('./lib/customResponses');
 const errorHandler = require('./lib/errorHandler');
 
 
-const app         = express();
+const app = express();
 mongoose.connect(dbURI, { useMongoClient: true });
 
 
