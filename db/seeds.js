@@ -34,20 +34,17 @@ const petData = [{
 }];
 
 const userData = [{
-  firstname: 'Tito',
-  secondname: 'Zwane',
+  name: 'tito',
   email: 'tito@ga.co',
   password: 'password',
   passwordConfirmation: 'password'
 },{
-  firstname: 'Gio',
-  secondname: 'Galiero',
+  name: 'gio',
   email: 'gio@ga.co',
   password: 'password',
   passwordConfirmation: 'password'
 },{
-  firstname: 'Guy',
-  secondname: 'Harper',
+  name: 'guy',
   email: 'guy@ga.co',
   password: 'password',
   passwordConfirmation: 'password'
