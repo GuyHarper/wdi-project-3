@@ -14,13 +14,13 @@
             <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password">
           </p>
         </div>
-
         <div class="field">
           <p class="control">
             <input type="submit" class="button is-primary is-fullwidth" value="Login">
           </p>
         </div>
       </form>
+      <button class="button is-info" ng-click="login.authenticate('facebook')">Login with Facebook</button>
     </div>
   </div>
 </section>
