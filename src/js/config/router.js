@@ -46,6 +46,16 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/home',
       templateUrl: 'js/views/pages/home.html',
       controller: 'HomeCtrl as home'
+    })
+    .state('HomeFoundForm', {
+      url: '/home',
+      templateUrl: 'js/views/pages/HomeFoundForm.html',
+      controller: 'HomeFoundCtrl as homeFound'
+    })
+    .state('HomeLostForm', {
+      url: '/home',
+      templateUrl: 'js/views/pages/HomeLostForm.html',
+      controller: 'HomeLostCtrl as homeLost'
     });
 
   $urlRouterProvider.otherwise('/pets');
