@@ -17,21 +17,16 @@
         </div>
         <div class="card-content">
           <div class="media">
-            <div class="media-left">
-              <figure class="image is-48x48">
-                <img src="http://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-              </figure>
-            </div>
             <div class="media-content">
-              <p class="title is-4">Name: {{ pet.name }}</p>
-              <p class="subtitle is-6">Username</p>
+              <p><strong>Pet name: </strong><em>{{ pet.name }}</em></p>
+              <p><strong>Username: </strong><em>{{ user.name }}</em></p>
             </div>
           </div>
           <div class="content">
-            Description: <em>{{ pet.description }}</em>
-            <p>Status: <em>{{ pet.status }}</em></p>
-            <p>Location: <em>{{ pet.address }}</em></p>
-            <p>Distance: <em>{{ pet.distance }}km</em></p>
+            <p><strong>Description: </strong><em>{{ pet.description }}</em></p>
+            <p><strong>Status: </strong><em>{{ pet.status }}</em></p>
+            <p><strong>Location: </strong><em>{{ pet.location }}</em></p>
+            <p><strong>Distance: </strong><em>{{ pet.distance }}km</em></p>
             <a href="#">#TwitterHastag in here</a>
           </div>
         </div>
