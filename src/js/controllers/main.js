@@ -27,10 +27,14 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
 
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;
-    vm.message = err.data.message;
 
     if(err.status === 401) {
+      vm.message = err.data.message;
       $state.go('login');
+    }
+
+    if(err.status === 422) {
+      vm.errors = err.data.errors;
     }
   });
 

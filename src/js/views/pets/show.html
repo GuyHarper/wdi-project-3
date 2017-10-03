@@ -1,12 +1,10 @@
 <img ng-src="{{ petsShow.pet.imageSRC }}">
-
 <h2>{{ petsShow.pet.name }}</h2>
 <p><strong>{{ petsShow.pet.address }}</strong></p>
 <p>{{ petsShow.pet.description}}</p>
 <google-map center="petsShow.pet.location"></google-map>
 <a ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
 <button ng-click="petsShow.delete()" class="button is-danger">Delete</button>
-
 <form ng-submit="petsShow.messagesCreate()" name="petsShow.newMessageForm" novalidate>
   <h3>That's my pet! Send an image and message to the user that posted this listing</h3>
   <div class="field">

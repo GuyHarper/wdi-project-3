@@ -14,6 +14,7 @@ function createRoute(req, res) {
 function indexRoute(req, res) {
   Pet
     .find()
+    .populate('postedBy')
     .exec()
     .then(pets => res.json(pets))
     .catch(err => res.status(500).json(err));

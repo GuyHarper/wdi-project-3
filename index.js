@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 mongoose.Promise = require('bluebird');
 mongoose.plugin(require('./lib/globalToJSON'));
+mongoose.plugin(require('mongoose-unique-validator'));
 const { dbURI, port } = require('./config/environment');
 const routes = require('./config/routes');
 const customResponses = require('./lib/customResponses');

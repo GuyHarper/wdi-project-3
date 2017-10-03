@@ -10,9 +10,7 @@ function RegisterCtrl($auth, $state) {
 
   function submit() {
     $auth.signup(vm.user)
-      .then(() => {
-        $state.go('login');
-      });
+      .then(() => $state.go('login'));
   }
   vm.submit = submit;
 }
