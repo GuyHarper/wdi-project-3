@@ -20,7 +20,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 // setup body-parser to read JSON
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '5mb' }));
 
 app.use(express.static(`${__dirname}/public`));
 

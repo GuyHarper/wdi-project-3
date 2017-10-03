@@ -3,7 +3,9 @@ const Message = require('../models/message');
 function messagesCreate(req, res) {
   req.body.from = req.currentUser.id;
   // req.body includes .to and .pet
-  console.log(req.body);
+
+  if(req.file) req.body.image = req.file.filename;
+
   Message
     .create(req.body)
     .then(message => res.status(201).json(message))

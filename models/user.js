@@ -19,7 +19,7 @@ userSchema
   .virtual('messages', {
     ref: 'Message',
     localField: '_id',
-    foreignField: 'from'
+    foreignField: 'to'
   });
 
 userSchema
