@@ -12,7 +12,7 @@
   <div class="field">
     <label for="image">Upload Image</label>
     <div class="control">
-      <input base64 type="file" name="base64" id="image" ng-model="petsShow.message.base64" required>
+      <drag-drop-img base64 ng-model="petsShow.message.base64" id="image" name="base64" required></drag-drop-img>
       <div ng-messages="petsShow.newMessageForm.base64.$error" role="alert" ng-show="(petsShow.newMessageForm.$submitted || petsShow.newMessageForm.base64.$touched) && petsShow.newMessageForm.base64.$invalid" class="error">
         <div ng-message="required">Image is required.</div>
       </div>
