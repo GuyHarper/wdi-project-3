@@ -47,12 +47,10 @@
               <textarea type="text" class="textarea" id="description" name="description" ng-model="petsEdit.pet.description" ng-pattern="/^[\w\s]+$/" placeholder="Further information" required>{{ pet.description }}</textarea>
             </div>
           </div>
-          <!-- <div class="field">
-            <form>
-            <label for="lost">Lost<input type="radio" name="status" value="lost" ng-model="petsEdit.pet.status" required></label>
+          <div class="field">
+            <label for="lost">Lost<input type="radio" name="status" value="lost" ng-model="petsEdit.pet.status"></label>
             <label for="found">Found<input type="radio" name="status" value="found" ng-model="petsEdit.pet.status"></label>
-          </form>
-          </div> -->
+          </div>
           <input type="submit" class="button is-info" value="Save">
           <a href="/pets" class="button is-primary">Cancel</a>
         </form>

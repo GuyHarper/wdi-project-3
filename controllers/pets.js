@@ -14,7 +14,7 @@ function createRoute(req, res) {
 function indexRoute(req, res) {
   Pet
     .find()
-    .populate('postedBy')
+    .populate('postedBy')// in order to show the username inside the pets Index page
     .exec()
     .then(pets => res.json(pets))
     .catch(err => res.status(500).json(err));
@@ -23,6 +23,7 @@ function indexRoute(req, res) {
 function showRoute(req, res) {
   Pet
     .findById(req.params.id)
+    .populate('postedBy')// in order to show the username inside the pets show page
     .exec()
     .then((pet) => {
       if(!pet) return res.notFound();
