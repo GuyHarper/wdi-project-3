@@ -1,0 +1,38 @@
+
+
+<div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="columns">
+          <div class="column">
+            <h1 class="title is-2">
+              Where do you want to look to?
+            </h1>
+            <h2 class="subtitle is-4">Use the geoLocation?</h2>
+
+            <input  ng-click="home.showLostForm()" ng-show="home.lostFormSelected" class="button" type="button" value="Have you lost a pet">
+            <hr>
+            <input ng-click="home.showFoundForm()" ng-show="home.foundFormSelected" class="button" type="button" value="Have you found a pet">
+            <br>
+            <br>
+          <div ng-show="form">
+            <form ng-submit="location.submit()" novalidate>
+              <h2>Use the geoLocation?</h2>
+              <button class="button">yes</button>
+              <p> OR </p>
+              <div class="field">
+                <label for="location">Type in the location </label>
+                <div class="control">
+                  <input autocomplete location="petsNew.pet.location" type="text" class="input" id="location" name="location" ng-model="petsNew.pet.address" required>
+                  <div ng-messages="petsNew.newPetsForm.location.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.location.$touched">
+                    <div ng-message="required" class="red">Please enter a value for this field.</div>
+                  </div>
+                </div>
+              </div>
+              <input type="submit" class="button is-info" value="Add">
+              <a href="/" class="button is-primary">Cancel</a>
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
