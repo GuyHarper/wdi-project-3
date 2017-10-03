@@ -33,7 +33,7 @@ router.route('/users/:userId')
 // ==========Messages router=============
 
 router.route('/users/:userId/messages')
-  .post(secureRoute, messages.create);
+  .post(secureRoute, imageUpload, messages.create);
 
 router.all('/*', (req, res) => res.notFound());
 
