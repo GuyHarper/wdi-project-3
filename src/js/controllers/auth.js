@@ -15,6 +15,8 @@ function RegisterCtrl($auth, $state) {
       });
   }
   vm.submit = submit;
+
+
 }
 
 LoginCtrl.$inject = ['$auth', '$state'];

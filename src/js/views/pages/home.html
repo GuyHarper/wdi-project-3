@@ -1,25 +1,76 @@
-<div class="hero-body">
-      <div class="container has-text-centered">
-        <div class="columns is-vcentered">
-          <div class="column is-5">
-            <figure class="image is-4by3">
-              <img src="http://s4.thingpic.com/images/zX/7xNJmHFGvpEg6ZGqYS7tfQeU.jpeg" class="cat and dog" alt="Description">
-            </figure>
-          </div>
-          <div class="column is-6 is-offset-1">
-            <h1 class="title is-2">
-              Lost of found a Pet
-            </h1>
-            <h2 class="subtitle is-4">
-              Sign up and see if you can find or locate your pet
-            </h2>
-            <br>
-            <p class="control has-addons has-text-centered">
-              <input class="input is-expanded is-large" type="text" placeholder="Check it out, you@example.org">
-              <a ng-if="!main.isAuthenticated()"><a class="button is-info" ui-sref="register" ui-sref-active="active">Sign up</a>
-              </a>
+
+
+<input  ng-click="home.showLostForm()" class="button" type="button" value="login">
+<input  ng-click="home.showFoundForm()" class="button" type="button" value="Register">
+
+<div ng-show="home.lostFormSelected">
+  <div class="columns">
+    <div class="column is-one-third">
+      <form ng-submit="login.submit()">
+        <div class="field">
+          <label class="label" for="email">Email</label>
+          <p class="control">
+            <input class="input" type="text" name="email" id="email" ng-model="login.credentials.email">
+          </p>
+        </div>
+        <div class="field">
+          <label class="label" for="password">Password</label>
+          <p class="control">
+            <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password">
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <input type="submit" class="button is-primary is-fullwidth" value="Login">
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div ng-show="home.foundFormSelected">
+  <section class="section">
+    <div class="columns">
+      <div class="column is-one-third">
+        <form ng-submit="register.submit()">
+          <div class="field">
+            <label class="label" for="firstname">Forename</label>
+            <p class="control">
+              <input class="input" type="text" name="firstname" id="firstname" ng-model="register.user.firstname">
             </p>
           </div>
-        </div>
+          <div class="field">
+            <label class="label" for="secondname">Surname/Family name</label>
+            <p class="control">
+              <input class="input" type="text" name="secondname" id="secondname" ng-model="register.user.secondname">
+            </p>
+          </div>
+          <div class="field">
+            <label class="label" for="email">Email</label>
+            <p class="control">
+              <input class="input" type="text" name="email" id="email" ng-model="register.user.email">
+            </p>
+          </div>
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <p class="control">
+              <input class="input" type="password" name="password" id="password" ng-model="register.user.password">
+            </p>
+          </div>
+          <div class="field">
+            <label class="label" for="passwordConfirmation">Password Confirmation</label>
+            <p class="control">
+              <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control">
+              <input type="submit" class="button is-primary is-fullwidth" value="Register">
+            </p>
+          </div>
+        </form>
       </div>
     </div>
+  </section>
+</div>
