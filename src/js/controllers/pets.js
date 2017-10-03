@@ -66,8 +66,6 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
 
   function filterPets(lat, lng) {
 
-    console.log(lat, lng);
-
     // loop through each pet
     vm.all.forEach((pet) => {
       if(!pet.location) return false;
