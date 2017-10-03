@@ -27,5 +27,12 @@ function LoginCtrl($auth, $state) {
       .then(() => $state.go('petsIndex'));
   }
 
+  function authenticate(provider) {
+    console.log('in authenticate function');
+    $auth.authenticate(provider)
+      .then(() => $state.go('petsIndex'));
+  }
+
+  vm.authenticate = authenticate;
   vm.submit = submit;
 }
