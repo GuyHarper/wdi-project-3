@@ -9,7 +9,8 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'js/views/statics/home.html'
+      templateUrl: 'js/views/statics/home.html',
+      controller: 'HomeCtrl as home'
     })
     .state('petsIndex', {
       url: '/pets?lat&lng&status',
@@ -50,12 +51,8 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/users/:id',
       templateUrl: 'js/views/users/show.html',
       controller: 'UsersShowCtrl as usersShow'
-    })
-    .state('Home', {
-      url: '/',
-      templateUrl: 'js/views/pages/home.html',
-      controller: 'HomeCtrl as home'
     });
+    
 
   $urlRouterProvider.otherwise('/');
 }
