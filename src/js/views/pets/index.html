@@ -19,13 +19,13 @@
           <div class="media">
             <div class="media-content">
               <p><strong>Pet name: </strong><em>{{ pet.name }}</em></p>
-              <p><strong>Username: </strong><em>{{ user.name }}</em></p>
+              <p><strong>Username: </strong><em>{{ pet.postedBy.name }}</em></p>
             </div>
           </div>
           <div class="content">
             <p><strong>Description: </strong><em>{{ pet.description }}</em></p>
             <p><strong>Status: </strong><em>{{ pet.status }}</em></p>
-            <p><strong>Location: </strong><em>{{ pet.location }}</em></p>
+            <p><strong>Location: </strong><em>{{ pet.address }}</em></p>
             <p><strong>Distance: </strong><em>{{ pet.distance }}km</em></p>
             <a href="#">#TwitterHastag in here</a>
           </div>

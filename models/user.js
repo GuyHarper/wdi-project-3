@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String },
-  facebookId: { type: String, unique: true, required: false }// for facebook login
+  name: { type: String, required: 'Name is required' },
+  email: { type: String, required: 'Email is required', unique: 'Email address already taken' },
+  password: { type: String }
+  // facebookId: { type: String, unique: true, required: false }// for facebook login
 });
 
 userSchema
@@ -29,9 +29,9 @@ userSchema
   });
 
 userSchema.pre('validate', function checkPasswordConfirmation(next) {
-  if(!this.password && !this.facebookId) this.invalidate('password', 'required');
+  if(!this.password && !this.facebookId) this.invalidate('password', 'Password is required');
   if(this.isModified('password') && this._passwordConfirmation !== this.password) {
-    this.invalidate('passwordConfirmation', 'does not match');
+    this.invalidate('passwordConfirmation', 'Passwords do not match');
   }
   next();
 });

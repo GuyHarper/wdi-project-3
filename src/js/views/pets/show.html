@@ -1,8 +1,8 @@
 <img ng-src="{{ petsShow.pet.imageSRC }}">
-
-<h2>{{ petsShow.pet.name }}</h2>
-<p><strong>{{ petsShow.pet.address }}</strong></p>
-<p>{{ petsShow.pet.description}}</p>
+<p><strong>Pet name: </strong><em>{{ petsShow.pet.name }}</em></p>
+<p><strong>Address: </strong><em>{{ petsShow.pet.address }}</em></p>
+<p><strong>Description: </strong><em>{{ petsShow.pet.description}}</em></p>
+<p><strong>Posted by: </strong><em>{{ petsShow.pet.postedBy.name }}</em></p>
 <google-map center="petsShow.pet.location"></google-map>
 <a ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
 <button ng-click="petsShow.delete()" class="button is-danger">Delete</button>

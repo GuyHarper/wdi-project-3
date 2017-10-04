@@ -41,7 +41,14 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/users/:id',
       templateUrl: 'js/views/users/show.html',
       controller: 'UsersShowCtrl as usersShow'
+    })
+    .state('Home', {
+      url: '/home',
+      templateUrl: 'js/views/pages/home.html',
+      controller: 'HomeCtrl as home'
     });
+
+
 
   $urlRouterProvider.otherwise('/pets');
 }
