@@ -10,7 +10,7 @@ angular
 PetsIndexCtrl.$inject = ['Pet', '$http', '$scope', 'filterFilter', 'distanceFromFilter', '$state'];
 function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $state) {
   const vm = this;
-  vm.status = 'lost';
+  // vm.status = null;
   const search = $state.params.lat && $state.params.lng;
 
   Pet.query()

@@ -5,13 +5,14 @@
     <input type="range" ng-model="petsIndex.distance" min="1" max="15" ng-disabled="!petsIndex.useDistance">
     <em ng-if="petsIndex.useDistance">{{ petsIndex.distance }}km</em>
   </div>
-  <div class="">
+  <div class="" >
     <label>Lost
       <input type="radio" name="status" ng-model="petsIndex.status" value="lost">
     </label>
     <label>Found
       <input type="radio" name="status" ng-model="petsIndex.status" value="found">
     </label>
+    <a class="button" ng-click="petsIndex.status = null">Clear</a>
   </div>
 </div>
 <div class="columns">
