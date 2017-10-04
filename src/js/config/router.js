@@ -43,10 +43,10 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'UsersShowCtrl as usersShow'
     })
     .state('Home', {
-      url: '/home',
+      url: '/',
       templateUrl: 'js/views/pages/home.html',
       controller: 'HomeCtrl as home'
     });
 
-  $urlRouterProvider.otherwise('/pets');
+  $urlRouterProvider.otherwise('/');
 }
