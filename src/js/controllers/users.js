@@ -39,7 +39,6 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
     }
   }
   vm.showMessagesFrom = showMessagesFrom;
-
   vm.replyActivated = false;
 
   function toggleReplyActivated() {
@@ -48,7 +47,7 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   vm.toggleReplyActivated = toggleReplyActivated;
 }
 
-// ******************************** added this ************************************
+// ******************************** filtering by location and status ************************************
 
 LocationIndexCtrl.$inject = ['User', '$scope', '$state'];
 function LocationIndexCtrl(User, $scope, $state) {
@@ -61,12 +60,10 @@ function LocationIndexCtrl(User, $scope, $state) {
 
   function search(latLng) {
     // latLng will be different depending on if you click "use my location" or "save"
-    vm.status = 'lost';
     $state.go('petsIndex', ( { lat: latLng.lat, lng: latLng.lng, status: vm.status } ));
   }
 
   vm.search = search;
-
 
   // if the user has geolocation enabled
   function getUserLocation() {
