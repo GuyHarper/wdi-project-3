@@ -1,7 +1,6 @@
 angular
   .module('petsApp')
   .controller('HomeCtrl', HomeCtrl)
-  // .controller('LoginCtrl', LoginCtrl)
   .controller('RegisterCtrl', RegisterCtrl);
 
 HomeCtrl.$inject = ['$auth', '$state'];

@@ -52,7 +52,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'UsersShowCtrl as usersShow'
     })
     .state('Home', {
-      url: '/',
+      url: '/home',
       templateUrl: 'js/views/pages/home.html',
       controller: 'HomeCtrl as home'
     });
