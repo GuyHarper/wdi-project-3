@@ -7,21 +7,29 @@ angular
   .controller('PetsShowCtrl', PetsShowCtrl)
   .controller('PetsEditCtrl', PetsEditCtrl);
 
-PetsIndexCtrl.$inject = ['Pet', '$http', '$scope', 'filterFilter', 'distanceFromFilter'];
-function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
+PetsIndexCtrl.$inject = ['Pet', '$http', '$scope', 'filterFilter', 'distanceFromFilter', '$state'];
+function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $state) {
   const vm = this;
+
+  const search = $state.params.lat && $state.params.lng;
 
   Pet.query()
     .$promise
     .then((pets) => {
       vm.all = pets;
-      // filterPets(51.5, -0.12);
-      getUserLocation();
+
+      if(search) {
+        // if there is a lat and lng in the query params
+        filterPets($state.params.lat, $state.params.lng, $state.params.status);
+      } else {
+        getUserLocation();
+      }
+
 
       function filterPost() {
-        const params = { name: vm.q };
-        // if(vm.useDistance) params.distance = vm.distance;
-        vm.filtered = filterFilter(vm.all, params);
+        console.log($state.params.status, status);
+        // if(pet.status !== status) return false;
+        vm.filtered = filterFilter(vm.all, $state.params.status);
         // if the checkbox is checked, use the custom distance filter and pass in the array of pets and the range value
         if(vm.useDistance) vm.filtered = distanceFromFilter(vm.filtered, vm.distance);
       }
@@ -63,7 +71,6 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
   }
 
   function filterPets(lat, lng) {
-    console.log('got here');
     // loop through each pet
     vm.all.forEach((pet) => {
       if(!pet.location) return false;
@@ -77,7 +84,7 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
       pet.distance = distance;
     });
 
-    $scope.$apply();
+    if(!$scope.$$phase) $scope.$apply();
   }
 }
 

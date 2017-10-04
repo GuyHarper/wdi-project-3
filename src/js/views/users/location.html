@@ -1,0 +1,24 @@
+<div class="center">
+  <div class="column is-two-third">
+    <div class="field">
+      <form ng-submit="locationIndex.search(locationIndex.latLng)" name="locationIndex.locationForm" novalidate>
+        <div class="field">
+          <label for="status">Lost</label><input type="radio" name="status" value="lost">
+          <label for="status">Found</label><input type="radio" name="status" value="found">
+        </div>
+        <label for="location">Location</label>
+        <div class="control">
+          <input autocomplete location="locationIndex.latLng" type="text" class="input" id="location" name="location" ng-model="locationIndex.user.address" required>
+          <div ng-messages="locationIndex.location.$error" role="alert" ng-if="locationIndex.locationForm.$submitted || locationIndex.locationForm.location.$touched">
+            <div ng-message="required" class="red">Please enter a value for this field.</div>
+          </div>
+          <button type="button" class="button is-info" ng-if="locationIndex.userLatLng" ng-click="locationIndex.search(locationIndex.userLatLng)">Use my location</button>
+        </div>
+        <input type="submit" class="button is-info" value="Save">
+        <a href="/" class="button is-primary">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{ locationIndex.latLng }}
