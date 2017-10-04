@@ -1,9 +1,17 @@
 <div class="pure-u-1 pure-u-sm-1-2">
-  <div class="l-box">
+  <div class="">
     <input type="checkbox" id="roast" ng-model="petsIndex.useDistance">
     <label for="distance">Distance</label>
     <input type="range" ng-model="petsIndex.distance" min="1" max="15" ng-disabled="!petsIndex.useDistance">
     <em ng-if="petsIndex.useDistance">{{ petsIndex.distance }}km</em>
+    <label>Status: </label>
+    <label>Lost
+      <input type="radio" name="status" ng-model="petsIndex.status" value="lost">
+    </label>
+    <label>Found
+      <input type="radio" name="status" ng-model="petsIndex.status" value="found">
+    </label>
+    <a class="button" ng-click="petsIndex.status = null">Clear status</a>
   </div>
 </div>
 <div class="columns">
@@ -27,7 +35,6 @@
             <p><strong>Status: </strong><em>{{ pet.status }}</em></p>
             <p><strong>Location: </strong><em>{{ pet.address }}</em></p>
             <p><strong>Distance: </strong><em>{{ pet.distance }}km</em></p>
-            <a href="#">#TwitterHastag in here</a>
           </div>
         </div>
       </div>
