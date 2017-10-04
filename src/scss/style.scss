@@ -53,3 +53,17 @@ h1, h2, p {
   padding: 13px;
   margin: 2px;
 }
+
+//********************messaging styling below**********************
+
+div{
+  &.conversation-group{
+    height: 60px;
+    width: 100%;
+    margin-top: 20px;
+    &:hover {
+      cursor: pointer;
+      background-color: #eee;
+    }
+  }
+}

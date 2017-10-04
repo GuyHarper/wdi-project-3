@@ -3,7 +3,18 @@
 </div>
 <div>
   <h2>Messages</h2>
-  <div ng-repeat="message in usersShow.user.messages" >
-    <message-display></message-display>
+  <div ng-repeat="sender in usersShow.uniqueSenders">
+    <div ng-click="usersShow.showMessagesFrom(sender)" ng-hide="usersShow.sender && usersShow.sender !== sender" class="columns conversation-group">
+      <p class="column">
+        {{ sender.name }}
+      </p>
+    </div>
+    <div ng-show="usersShow.sender === sender">
+      <div ng-repeat="message in usersShow.filteredMessages" >
+        <message-display></message-display>
+      </div>
+    </div>
   </div>
+  <button class="button" ng-show="usersShow.sender && !usersShow.replyActivated" ng-click="usersShow.toggleReplyActivated()">Reply</button>
+  <message-reply ng-show="usersShow.replyActivated"></message-reply>
 </div>

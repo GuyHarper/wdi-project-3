@@ -1,11 +1,10 @@
 const User = require('../models/user');
-const Message = require('../models/message');
 
 function showRoute(req, res) {
   console.log(req.params.userId);
   User
     .findById(req.params.userId)
-    .populate('messages')
+    .populate({ path: 'messages', populate: { path: 'from pet' }})
     .exec()
     .then((user) => {
       if(!user) return res.notFound();

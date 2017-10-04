@@ -6,7 +6,10 @@ const messageSchema = new mongoose.Schema({
   from: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   to: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
   image: {type: String, required: true},
+  pet: { type: mongoose.Schema.ObjectId, ref: 'Pet', required: true },
   read: { type: Boolean }
+}, {
+  timestamps: true
 });
 
 messageSchema
