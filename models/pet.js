@@ -14,6 +14,8 @@ const petSchema = new mongoose.Schema({
   status: {type: String, enum: ['lost', 'found'] },
   active: {type: Boolean, required: true, default: true},
   postedBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
+}, {
+  timestamps: true
 });
 
 petSchema

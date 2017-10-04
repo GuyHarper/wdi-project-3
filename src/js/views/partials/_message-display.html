@@ -1,6 +1,7 @@
-<div class="thing">
-  <div class="">
-    <h4>From: {{ message.from }}</h4>
+<div>
+  <div>
+    <h4>From: {{ message.from.name }}</h4>
+    <p>Re: {{ message.pet.name }}</p>
     <p>{{ message.text }}</p>
     <img ng-src="{{ message.imageSRC }}">
   </div>

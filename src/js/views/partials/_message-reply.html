@@ -1,0 +1,24 @@
+<div ng-controller="MessagesReplyCtrl as messagesReply">
+  <form ng-submit="messagesReply.messagesCreate(usersShow.pet, usersShow.sender)" name="messagesReply.newMessageForm" novalidate>
+    <div class="field">
+      <label for="image">Upload Image</label>
+      <div class="control">
+        <drag-drop-img base64 ng-model="messagesReply.message.base64" id="image" name="base64" required></drag-drop-img>
+        <div ng-messages="messagesReply.newMessageForm.base64.$error" role="alert" ng-show="(messagesReply.newMessageForm.$submitted || messagesReply.newMessageForm.base64.$touched) && messagesReply.newMessageForm.base64.$invalid" class="error">
+          <div ng-message="required">Image is required.</div>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="text" class="label">Message</label>
+      <div class="control">
+        <textarea type="text" class="textarea" id="text" name="text" ng-model="messagesReply.message.text"
+        placeholder="place message here"></textarea>
+      </div>
+    </div>
+    <div class="control">
+      <input type="submit" class="button is-info" value="Add message">
+      <a ng-click="" class="button is-primary">Cancel</a>
+    </div>
+  </form>
+</div>
