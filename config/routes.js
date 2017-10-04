@@ -22,7 +22,7 @@ router.route('/register')
 
 router.route('/login')
   .post(auth.login);
-  
+
 router.route('/oauth/facebook')
   .post(oauth.facebook);
 

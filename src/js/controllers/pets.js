@@ -7,16 +7,24 @@ angular
   .controller('PetsShowCtrl', PetsShowCtrl)
   .controller('PetsEditCtrl', PetsEditCtrl);
 
-PetsIndexCtrl.$inject = ['Pet', '$http', '$scope', 'filterFilter', 'distanceFromFilter'];
-function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
+PetsIndexCtrl.$inject = ['Pet', '$http', '$scope', 'filterFilter', 'distanceFromFilter', '$state'];
+function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $state) {
   const vm = this;
+
+  const search = $state.params.lat && $state.params.lng;
 
   Pet.query()
     .$promise
     .then((pets) => {
       vm.all = pets;
-      // filterPets(51.5, -0.12);
-      getUserLocation();
+
+      if(search) {
+        // if there is a lat and lng in the query params
+        filterPets($state.params.lat, $state.params.lng);
+      } else {
+        getUserLocation();
+      }
+
 
       function filterPost() {
         const params = { name: vm.q };
@@ -47,7 +55,7 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
     if (navigator.geolocation) {
       // run the getCurrentPosition function, which takes a callback and receives the position object as an argument
       navigator.geolocation.getCurrentPosition(geolocationAllowed, geolocationDenied);
-    } 
+    }
   }
 
   // user has allowed geolocation
@@ -63,7 +71,6 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
   }
 
   function filterPets(lat, lng) {
-    console.log('got here');
     // loop through each pet
     vm.all.forEach((pet) => {
       if(!pet.location) return false;
@@ -77,7 +84,7 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
       pet.distance = distance;
     });
 
-    $scope.$apply();
+    if(!$scope.$$phase) $scope.$apply();
   }
 }
 
