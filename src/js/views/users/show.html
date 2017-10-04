@@ -1,11 +1,13 @@
-<div>
+<div class="content">
   <h1>Your Profile</h1>
 </div>
 <div class="columns">
   <section class="column is-one-third">
     <div>
-      <h2 ng-if="usersShow.user.posts.length > 1">Your posts</h2>
-      <h2 ng-if="usersShow.user.posts.length === 1">Your post</h2>
+      <div class="content">
+        <h2 ng-if="usersShow.user.posts.length > 1">Your posts</h2>
+        <h2 ng-if="usersShow.user.posts.length === 1">Your post</h2>
+      </div>
       <div ng-repeat="post in usersShow.user.posts" class="columns">
         <a ui-sref="petsShow({ id: post.id })" class="column is-half">
           <div class="card">
@@ -17,7 +19,7 @@
             <div class="card-content">
               <div class="content">
                 <h3>{{ post.name }}</h3>
-                <p>Posted on {{ post.createdAt | date : "MM/dd/yyyy"}}</p>
+                <p>Posted on {{ post.createdAt | date : "dd/MM/yyyy"}}</p>
               </div>
             </div>
           </div>
@@ -25,21 +27,19 @@
       </div>
     </div>
   </section>
-  <section class="column is-two-thirds">
+  <section class="column is-two-thirds content">
     <h2>Your messages</h2>
-    <div ng-repeat="sender in usersShow.uniqueSenders">
-      <div ng-click="usersShow.showMessagesFrom(sender)" ng-hide="usersShow.sender && usersShow.sender !== sender" class="columns conversation-group">
-        <p class="column">
-          {{ sender.name }}
+    <div ng-repeat="contact in usersShow.uniqueContacts">
+      <div ng-click="usersShow.showMessagesWith(contact)" ng-hide="usersShow.contact && usersShow.contact !== contact" class="conversation-group">
+        <p>
+          {{ contact.name }}
         </p>
       </div>
-      <div ng-show="usersShow.sender === sender">
-        <div ng-repeat="message in usersShow.filteredMessages" >
-          <message-display></message-display>
-        </div>
+      <div ng-show="usersShow.contact === contact">
+        <message-display ng-repeat="message in usersShow.filteredMessages | orderBy : 'createdAt' : reverse " ></message-display>
       </div>
     </div>
-    <button class="button" ng-show="usersShow.sender && !usersShow.replyActivated" ng-click="usersShow.toggleReplyActivated()">Reply</button>
+    <button class="button" ng-show="usersShow.contact && !usersShow.replyActivated" ng-click="usersShow.toggleReplyActivated()">Reply</button>
     <message-reply ng-show="usersShow.replyActivated"></message-reply>
   </section>
 </div>
