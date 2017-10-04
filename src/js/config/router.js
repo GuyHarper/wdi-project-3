@@ -48,7 +48,5 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       controller: 'HomeCtrl as home'
     });
 
-
-
   $urlRouterProvider.otherwise('/pets');
 }
