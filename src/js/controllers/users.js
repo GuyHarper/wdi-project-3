@@ -14,37 +14,51 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   User.get($state.params)
     .$promise
     .then((user) => {
-      const uniqueSenderIds = [];
-      const uniqueSenders = [];
+      const uniqueContactIds = [];
+      const uniqueContacts = [];
 
       user.messages.forEach(message => {
-        if(uniqueSenderIds.indexOf( message.from.id ) === -1) {
-          uniqueSenderIds.push(message.from.id);
-          uniqueSenders.push(message.from);
+        if(uniqueContactIds.indexOf( message.from.id ) === -1) {
+          uniqueContactIds.push(message.from.id);
+          uniqueContacts.push(message.from);
         }
-        vm.uniqueSenders = uniqueSenders;
+      });
+
+      user.sentMessages.forEach(message => {
+        console.log(message);
+        if(uniqueContactIds.indexOf( message.to.id ) === -1) {
+          uniqueContactIds.push(message.to.id);
+          uniqueContacts.push(message.to);
+        }
+        vm.uniqueContacts = uniqueContacts;
       });
     });
 
-  function showMessagesFrom(sender) {
-    if(vm.sender === sender) {
-      vm.sender = null;
+  function showMessagesWith(contact) {
+    if(vm.contact === contact) {
+      vm.contact = null;
       vm.replyActivated = false;
     } else {
-      const params = { from: { id: sender.id } };
-      const filteredMessages = filterFilter(vm.user.messages, params);
+      const filteredMessages = filterFilter(vm.user.messages, { from: { id: contact.id } }).concat(filterFilter(vm.user.sentMessages, { to: { id: contact.id } }));
       vm.filteredMessages = filteredMessages;
-      vm.sender = sender;
+      vm.contact = contact;
       vm.pet = filteredMessages[filteredMessages.length - 1].pet.id;
     }
   }
-  vm.showMessagesFrom = showMessagesFrom;
+  vm.showMessagesWith = showMessagesWith;
+
   vm.replyActivated = false;
 
   function toggleReplyActivated() {
     vm.replyActivated = !vm.replyActivated;
   }
   vm.toggleReplyActivated = toggleReplyActivated;
+
+  function toggleModal(modalId) {
+    console.log('got here');
+    angular.element( document.querySelector( `#modal-${modalId}` ) ).toggleClass('is-active');
+  }
+  vm.toggleModal = toggleModal;
 }
 
 // ******************************** filtering by location and status ************************************
