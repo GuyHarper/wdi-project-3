@@ -1,6 +1,6 @@
 
 .column.home {
-  
+
 
 }
 
@@ -11,6 +11,20 @@
 }
 
 .homeButton {
-  margin: 2px, 2px;
-  padding: 2px, 2px;
+  border-radius: 0px;
+  color: #000000;
+  font-size: 22px;
+  background: #ffffff;
+  padding: 3px 4px 3px 4px;
+  border: solid #1f628d 3px;
+  text-decoration: none;
+}
+.homeButton:hover {
+  background: #1e7eba;
+  text-decoration: none;
+}
+
+.homeContainer {
+  min-height: 100vh;
+  background-color: red;
 }
