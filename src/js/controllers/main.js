@@ -6,7 +6,7 @@ MainCtrl.$inject = ['$transitions', '$rootScope', '$state', '$auth'];
 function MainCtrl($transitions, $rootScope, $state, $auth) {
   const vm = this;
   vm.getCurrentUserId = () => $auth.getPayload().userId;
-
+  
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
@@ -20,6 +20,8 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
   $transitions.onSuccess({}, (transition) => {
     vm.menuIsOpen = false;
     vm.pageName = transition.$to().name;
+
+    if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
 
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;

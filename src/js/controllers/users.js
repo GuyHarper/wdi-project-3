@@ -6,6 +6,8 @@ angular
 UsersShowCtrl.$inject = ['User', 'Message', '$auth', '$state', 'filterFilter'];
 function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   const vm = this;
+  if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+  if(vm.currentUserId !== $state.params.id) $state.go('login');
 
   vm.user = User.get($state.params);
 
