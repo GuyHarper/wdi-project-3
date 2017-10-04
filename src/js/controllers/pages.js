@@ -17,7 +17,7 @@ function HomeCtrl($auth, $state){
 
   function submit() {
     $auth.login(vm.credentials)
-      .then(() => $state.go('petsIndex'));
+      .then(() => $state.go('location'));
   }
   function register() {
     $auth.signup(vm.user)
