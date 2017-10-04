@@ -4,10 +4,13 @@
 <p><strong>Description: </strong><em>{{ petsShow.pet.description}}</em></p>
 <p><strong>Posted by: </strong><em>{{ petsShow.pet.postedBy.name }}</em></p>
 <google-map center="petsShow.pet.location"></google-map>
-<a ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
-<button ng-click="petsShow.delete()" class="button is-danger">Delete</button>
+<a ng-if="petsShow.myPet" ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
+<button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-danger">Delete</button>
 
-<h3>That's my pet! Send an image and message to the user that posted this listing</h3>
-<message-create></message-create>
-
-<!-- to check if its working -->
+<div class="messaging-area" ng-show="!petsShow.myPet">
+  <button class="button" ng-click="petsShow.toggleMessageActivated()" ng-hide="petsShow.messageActivated">That's my pet!</button>
+  <div ng-show="petsShow.messageActivated">
+    <h3>Claim your pet by sending the user that posted this listing another photo of your pet</h3>
+    <message-create></message-create>
+  </div>
+</div>

@@ -47,7 +47,7 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
     if (navigator.geolocation) {
       // run the getCurrentPosition function, which takes a callback and receives the position object as an argument
       navigator.geolocation.getCurrentPosition(geolocationAllowed, geolocationDenied);
-    } 
+    }
   }
 
   // user has allowed geolocation
@@ -96,12 +96,22 @@ function PetsNewCtrl(Pet, $state) {
   vm.create = petsCreate;
 }
 
-PetsShowCtrl.$inject = ['Pet', '$state'];
-function PetsShowCtrl(Pet, $state) {
+PetsShowCtrl.$inject = ['Pet', '$state', '$auth'];
+function PetsShowCtrl(Pet, $state, $auth) {
   const vm = this;
 
-  vm.pet = Pet.get($state.params);
+  Pet.get($state.params)
+    .$promise
+    .then((pet) => {
+      vm.pet = pet;
+      checkPet();
+    });
 
+  if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+
+  function checkPet() {
+    if(vm.pet.postedBy.id === vm.currentUserId) vm.myPet = true;
+  }
 
   function petsDelete() {
     vm.pet
@@ -111,7 +121,12 @@ function PetsShowCtrl(Pet, $state) {
 
   vm.delete = petsDelete;
 
+  vm.messageActivated = false;
 
+  function toggleMessageActivated() {
+    vm.messageActivated = !vm.messageActivated;
+  }
+  vm.toggleMessageActivated = toggleMessageActivated;
 
 }
 
