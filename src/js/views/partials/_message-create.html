@@ -1,7 +1,7 @@
 <div ng-controller="MessagesNewCtrl as messagesNew">
   <form ng-submit="messagesNew.messagesCreate()" name="messagesNew.newMessageForm" novalidate>
     <div class="field">
-      <label for="image">Upload Image</label>
+      <label for="image">Upload a photo of your pet</label>
       <div class="control">
         <drag-drop-img base64 ng-model="messagesNew.message.base64" id="image" name="base64" required></drag-drop-img>
         <div ng-messages="messagesNew.newMessageForm.base64.$error" role="alert" ng-show="(messagesNew.newMessageForm.$submitted || messagesNew.newMessageForm.base64.$touched) && messagesNew.newMessageForm.base64.$invalid" class="error">
@@ -12,13 +12,10 @@
     <div class="field">
       <label for="text" class="label">Message</label>
       <div class="control">
-        <textarea type="text" class="textarea" id="text" name="text" ng-model="messagesNew.message.text"
-        placeholder="place message here"></textarea>
+        <textarea type="text" class="textarea" id="text" name="text" ng-model="messagesNew.message.text" placeholder="Type your message here"></textarea>
       </div>
     </div>
-    <div class="control">
-      <input type="submit" class="button is-info" value="Add message">
-      <a ng-click="" class="button is-primary">Cancel</a>
-    </div>
+    <button type="submit" class="button is-info">Send message</button>
+    <button type="button" ng-click="petsShow.toggleMessageActivated()" class="button is-primary">Cancel</button>
   </form>
 </div>
