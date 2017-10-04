@@ -3,8 +3,8 @@
     <div class="field">
       <form ng-submit="locationIndex.search(locationIndex.latLng)" name="locationIndex.locationForm" novalidate>
         <div class="field">
-          <label for="status">Lost</label><input type="radio" name="status" value="lost">
-          <label for="status">Found</label><input type="radio" name="status" value="found">
+          <label for="status">Lost</label><input type="radio" ng-model="locationIndex.status" value="found">
+          <label for="status">Found</label><input type="radio" ng-model="locationIndex.status" value="lost">
         </div>
         <label for="location">Location</label>
         <div class="control">
@@ -20,5 +20,3 @@
     </div>
   </div>
 </div>
-
-{{ locationIndex.latLng }}
