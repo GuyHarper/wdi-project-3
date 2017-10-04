@@ -1,8 +1,12 @@
 <div>
-  <h3>{{ usersShow.user.name }}'s profile</h3>
+  <h1>Profile</h1>
 </div>
 <div>
-  <h2>Messages</h2>
+  <h2>Your posts</h2>
+  
+</div>
+<div>
+  <h2>Your messages</h2>
   <div ng-repeat="sender in usersShow.uniqueSenders">
     <div ng-click="usersShow.showMessagesFrom(sender)" ng-hide="usersShow.sender && usersShow.sender !== sender" class="columns conversation-group">
       <p class="column">
