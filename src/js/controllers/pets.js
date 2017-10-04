@@ -20,16 +20,16 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
 
       if(search) {
         // if there is a lat and lng in the query params
-        filterPets($state.params.lat, $state.params.lng);
+        filterPets($state.params.lat, $state.params.lng, $state.params.status);
       } else {
         getUserLocation();
       }
 
 
       function filterPost() {
-        const params = { name: vm.q };
-        // if(vm.useDistance) params.distance = vm.distance;
-        vm.filtered = filterFilter(vm.all, params);
+        console.log($state.params.status, status);
+        // if(pet.status !== status) return false;
+        vm.filtered = filterFilter(vm.all, $state.params.status);
         // if the checkbox is checked, use the custom distance filter and pass in the array of pets and the range value
         if(vm.useDistance) vm.filtered = distanceFromFilter(vm.filtered, vm.distance);
       }

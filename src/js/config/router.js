@@ -12,7 +12,7 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'js/views/statics/home.html'
     })
     .state('petsIndex', {
-      url: '/pets?lat&lng',
+      url: '/pets?lat&lng&status',
       templateUrl: 'js/views/pets/index.html',
       controller: 'PetsIndexCtrl as petsIndex'
     })

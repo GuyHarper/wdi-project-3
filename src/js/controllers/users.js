@@ -1,4 +1,3 @@
-/* global google */
 angular
   .module('petsApp')
   .controller('UsersShowCtrl', UsersShowCtrl)
