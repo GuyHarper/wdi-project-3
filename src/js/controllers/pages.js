@@ -1,7 +1,6 @@
 angular
   .module('petsApp')
-  .controller('HomeCtrl', HomeCtrl)
-  .controller('RegisterCtrl', RegisterCtrl);
+  .controller('HomeCtrl', HomeCtrl);
 
 HomeCtrl.$inject = ['$auth', '$state'];
 function HomeCtrl($auth, $state){
@@ -14,14 +13,19 @@ function HomeCtrl($auth, $state){
   }
 
   vm.showLostForm = showLostForm;
-
   vm.credentials = {};
 
   function submit() {
     $auth.login(vm.credentials)
       .then(() => $state.go('petsIndex'));
   }
-
+  function register() {
+    $auth.signup(vm.user)
+      .then(() => {
+        $state.go('login');
+      });
+  }
+  vm.register = register;
   vm.submit = submit;
 
   function showFoundForm() {
@@ -38,22 +42,5 @@ function HomeCtrl($auth, $state){
   vm.authenticate = authenticate;
 
   vm.showFoundForm = showFoundForm;
-
-}
-
-
-RegisterCtrl.$inject = ['$auth', '$state'];
-function RegisterCtrl($auth, $state) {
-  const vm = this;
-  vm.user = {};
-
-  function submit() {
-    $auth.signup(vm.user)
-      .then(() => {
-        $state.go('login');
-      });
-  }
-  vm.submit = submit;
-
 
 }
