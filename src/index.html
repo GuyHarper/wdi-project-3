@@ -14,30 +14,26 @@
   <!-- endinject -->
 </head>
 <body ng-controller="MainCtrl as main">
-  <nav class="nav section" id="top">
-    <div class="container">
-      <div class="nav-left">
-        <h1>Lost and Found pets</h1>
+  <div class="nav-bar">
+    <nav>
+      <div class="container">
+        <div class="nav-left">
+          <h1>Lost and Found pets</h1>
+          <ul class="nav-right">
+            <li><a class="button" ui-sref="petsIndex">Pets</a></li>
+            <li ng-if="main.isAuthenticated()"><a class="button" ui-sref="petsNew">Add a pet</a></li>
+            <li ng-if="!main.isAuthenticated()"><a class="button" ui-sref="login" ui-sref-active="active">Log in</a></li>
+            <li ng-if="!main.isAuthenticated()"><a class="button is-info" ui-sref="register" ui-sref-active="active">Sign up</a></li>
+            <li ng-if="main.isAuthenticated()"><a class="button" ui-sref="usersShow({ id: main.getCurrentUserId() })">Profile</a></li>
+            <li ng-if="main.isAuthenticated()"><a class="button" ng-click="main.logout()">Logout</a></li>
+          </ul>
+        </div>
       </div>
-      <span class="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
-      <ul class="nav-right nav-menu">
-        <li><a class="button" ui-sref="petsIndex">Pets</a></li>
-        <li ng-if="main.isAuthenticated()"><a class="button" ui-sref="petsNew">Add a pet</a></li>
-        <li ng-if="!main.isAuthenticated()"><a class="button" ui-sref="login" ui-sref-active="active">Log in</a></li>
-        <li ng-if="!main.isAuthenticated()"><a class="button is-info" ui-sref="register" ui-sref-active="active">Sign up</a></li>
-        <li ng-if="main.isAuthenticated()"><a class="button" ui-sref="usersShow({ id: main.getCurrentUserId() })">Profile</a></li>
-        <li ng-if="main.isAuthenticated()"><a class="button" ng-click="main.logout()">Logout</a></li>
-      </ul>
+    </nav>
+    <div class="message" ng-if="main.message">
+      <p>{{ main.message }}</p>
     </div>
-  </nav>
-  <div class="message" ng-if="main.message">
-    <p>{{ main.message }}</p>
-  </div>
-  <main ui-view class="container"></main>
+    <main ui-view class="container"></main>
 
 </body>
 </html>
