@@ -11,9 +11,8 @@ function MessagesNewCtrl(Pet, Message, $state) {
   vm.pet = Pet.get($state.params);
 
   function messagesCreate() {
-
     vm.message.pet = vm.pet.id;
-    vm.message.to = vm.pet.postedBy;
+    vm.message.to = vm.pet.postedBy.id;
 
     Message
       .save(vm.message)
