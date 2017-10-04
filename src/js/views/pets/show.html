@@ -6,28 +6,8 @@
 <google-map center="petsShow.pet.location"></google-map>
 <a ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
 <button ng-click="petsShow.delete()" class="button is-danger">Delete</button>
-<form ng-submit="petsShow.messagesCreate()" name="petsShow.newMessageForm" novalidate>
-  <h3>That's my pet! Send an image and message to the user that posted this listing</h3>
-  <div class="field">
-    <label for="image">Upload Image</label>
-    <div class="control">
-      <drag-drop-img base64 ng-model="petsShow.message.base64" id="image" name="base64" required></drag-drop-img>
-      <div ng-messages="petsShow.newMessageForm.base64.$error" role="alert" ng-show="(petsShow.newMessageForm.$submitted || petsShow.newMessageForm.base64.$touched) && petsShow.newMessageForm.base64.$invalid" class="error">
-        <div ng-message="required">Image is required.</div>
-      </div>
-    </div>
-  </div>
-  <div class="field">
-      <label for="text" class="label">Send a message to <em>{{ petsShow.pet.postedBy.name }}</em></label>
-      <div class="control">
-        <textarea type="text" class="textarea" id="text" name="text" ng-model="petsShow.message.text"
-        placeholder="place message here"></textarea>
-      </div>
-    </div>
-    <div class="control">
-      <input type="submit" class="button is-info" value="Send">
-      <a href="/" class="button is-primary">Cancel</a>
-    </div>
-</form>
+
+<h3>That's my pet! Send an image and message to the user that posted this listing</h3>
+<message-create></message-create>
 
 <!-- to check if its working -->

@@ -13,6 +13,8 @@ function RegisterCtrl($auth, $state) {
       .then(() => $state.go('login'));
   }
   vm.submit = submit;
+
+
 }
 
 LoginCtrl.$inject = ['$auth', '$state'];
