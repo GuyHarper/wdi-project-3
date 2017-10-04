@@ -32,22 +32,25 @@
           <div class="field">
             <label for="image">Upload Image</label>
             <div class="control">
-              <input base64 type="file" name="base64" id="image" ng-model="petsNew.pet.base64" required>
+              <drag-drop-img base64 ng-model="petsNew.pet.base64" id="image" name="base64" required></drag-drop-img>
               <div ng-messages="petsNew.newPetsForm.base64.$error" role="alert" ng-show="(petsNew.newPetsForm.$submitted || petsNew.newPetsForm.base64.$touched) && petsNew.newPetsForm.base64.$invalid" class="error">
-                <div ng-message="required">Image is required.</div>
+                <div ng-message="required" class="red">Image is required.</div>
               </div>
             </div>
           </div>
           <div class="field">
             <label for="description">Description</label>
             <div class="control">
-              <textarea type="text" class="textarea" id="description" name="description" ng-model="petsNew.pet.description" ng-pattern="/^[\w\s]+$/" placeholder="Further information" required></textarea>
+              <textarea type="text" class="textarea" id="description" name="description" ng-model="petsNew.pet.description" ng-pattern="/^[\w\s'&]+$/" placeholder="Further information" required></textarea>
+              <div ng-messages="petsNew.newPetsForm.description.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.description.$touched">
+                <div ng-message="required" class="red">Please enter a value for this field.</div>
+              </div>
             </div>
           </div>
-          <div class="field">
-            <label for="lost">Lost<input type="radio" name="status" value="lost" ng-model="petsNew.pet.status"></label>
+          <!-- <div class="field">
+            <label for="lost">Lost<input type="radio" name="status" value="lost" ng-model="petsNew.pet.status" required></label>
             <label for="found">Found<input type="radio" name="status" value="found" ng-model="petsNew.pet.status"></label>
-          </div>
+          </div> -->
           <input type="submit" class="button is-info" value="Add">
           <a href="/" class="button is-primary">Cancel</a>
         </form>

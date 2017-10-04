@@ -43,14 +43,11 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
 
   // if the user has geolocation enabled
   function getUserLocation() {
+    console.log(navigator.geolocation);
     if (navigator.geolocation) {
       // run the getCurrentPosition function, which takes a callback and receives the position object as an argument
       navigator.geolocation.getCurrentPosition(geolocationAllowed, geolocationDenied);
-    } else {
-      // if geolocation is disabled by the browser, call getPets and pass in London coords
-      // show a text search box for user to enter their location using autocomplete
-      // filterPets(51.05, -0.12);
-    }
+    } 
   }
 
   // user has allowed geolocation
@@ -62,10 +59,11 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter) {
   // show a text search box for user to enter their location using autocomplete
   function geolocationDenied(err) {
     console.log(err);
+    filterPets(51.521296, -0.127012);
   }
 
   function filterPets(lat, lng) {
-
+    console.log('got here');
     // loop through each pet
     vm.all.forEach((pet) => {
       if(!pet.location) return false;

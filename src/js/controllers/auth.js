@@ -10,9 +10,7 @@ function RegisterCtrl($auth, $state) {
 
   function submit() {
     $auth.signup(vm.user)
-      .then(() => {
-        $state.go('login');
-      });
+      .then(() => $state.go('login'));
   }
   vm.submit = submit;
 
@@ -29,5 +27,12 @@ function LoginCtrl($auth, $state) {
       .then(() => $state.go('petsIndex'));
   }
 
+  function authenticate(provider) {
+    console.log('in authenticate function');
+    $auth.authenticate(provider)
+      .then(() => $state.go('petsIndex'));
+  }
+
+  vm.authenticate = authenticate;
   vm.submit = submit;
 }

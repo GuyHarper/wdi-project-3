@@ -1,44 +1,41 @@
-<section class="section">
-  <div class="columns">
-    <div class="column is-one-third">
-      <form ng-submit="register.submit()">
-        <div class="field">
-          <label class="label" for="firstname">Forename</label>
-          <p class="control">
-            <input class="input" type="text" name="firstname" id="firstname" ng-model="register.user.firstname">
-          </p>
-        </div>
-        <div class="field">
-          <label class="label" for="secondname">Surname/Family name</label>
-          <p class="control">
-            <input class="input" type="text" name="secondname" id="secondname" ng-model="register.user.secondname">
-          </p>
-        </div>
-        <div class="field">
-          <label class="label" for="email">Email</label>
-          <p class="control">
-            <input class="input" type="text" name="email" id="email" ng-model="register.user.email">
-          </p>
-        </div>
-        <div class="field">
-          <label class="label" for="password">Password</label>
-          <p class="control">
-            <input class="input" type="password" name="password" id="password" ng-model="register.user.password">
-          </p>
-        </div>
-        <div class="field">
-          <label class="label" for="passwordConfirmation">Password Confirmation</label>
-          <p class="control">
-            <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
-          </p>
-        </div>
-
-        <div class="field">
-          <p class="control">
-            <input type="submit" class="button is-primary is-fullwidth" value="Register">
-          </p>
-        </div>
-      </form>
+<div class="center">
+  <section class="section">
+    <div class="columns">
+      <div class="column is-two-third">
+        <form ng-submit="register.submit()">
+          <div class="field">
+            <label class="label" for="name">Name</label>
+            <p class="control">
+              <input class="input" type="text" name="name" id="name" ng-model="register.user.name">
+            </p>
+          </div>
+          <div class="field">
+            <label class="label" for="email">Email</label>
+            <p class="control">
+              <input class="input" type="text" name="email" id="email" ng-model="register.user.email">
+            </p>
+            <small class="red" ng-if="main.errors.email">{{ main.errors.email }}</small>
+          </div>
+          <div class="field">
+            <label class="label" for="password">Password</label>
+            <p class="control">
+              <input class="input" type="password" name="password" id="password" ng-model="register.user.password">
+            </p>
+          </div>
+          <div class="field">
+            <label class="label" for="passwordConfirmation">Password Confirmation</label>
+            <p class="control">
+              <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
+            </p>
+            <small ng-if="main.errors.passwordConfirmation">{{ main.errors.passwordConfirmation }}</small>
+          </div>
+          <div class="field">
+            <p class="control">
+              <input type="submit" class="button is-primary is-fullwidth" value="Register">
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

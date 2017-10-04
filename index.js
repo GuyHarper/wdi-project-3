@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 mongoose.Promise = require('bluebird');
 mongoose.plugin(require('./lib/globalToJSON'));
+mongoose.plugin(require('mongoose-unique-validator'));
 const { dbURI, port } = require('./config/environment');
 const routes = require('./config/routes');
 const customResponses = require('./lib/customResponses');
@@ -20,7 +21,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 // setup body-parser to read JSON
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '5mb' }));
 
 app.use(express.static(`${__dirname}/public`));
 
