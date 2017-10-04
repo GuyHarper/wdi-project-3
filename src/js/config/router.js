@@ -7,8 +7,12 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: 'js/views/statics/home.html'
+    })
     .state('petsIndex', {
-      url: '/pets',
+      url: '/pets?lat&lng&status',
       templateUrl: 'js/views/pets/index.html',
       controller: 'PetsIndexCtrl as petsIndex'
     })
@@ -16,6 +20,11 @@ function Router($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/pets/new',
       templateUrl: 'js/views/pets/new.html',
       controller: 'PetsNewCtrl as petsNew'
+    })
+    .state('location', {
+      url: '/location',
+      templateUrl: 'js/views/users/location.html',
+      controller: 'LocationIndexCtrl as locationIndex'
     })
     .state('petsShow', {
       url: '/pets/:id',
