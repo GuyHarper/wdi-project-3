@@ -7,6 +7,7 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
   const vm = this;
   vm.getCurrentUserId = () => $auth.getPayload().userId;
 
+  vm.menuIsOpen = false;
 
   vm.isAuthenticated = $auth.isAuthenticated;
 
