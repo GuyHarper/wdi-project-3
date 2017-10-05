@@ -35,8 +35,6 @@ function findPets(newPet) {
 
 function sendInvites(pets) {
   console.log(pets);
-  // const petsUser = [{ name: 'Pet name', status: 'lost', postedBy: { name: pets.postedBy.name, email: pets.postedBy.email }}];
-  // console.lo
   // when you are ready, switch testPets for pets
   async.each(pets, sendInvite, handleError);
 }
