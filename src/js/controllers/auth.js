@@ -15,8 +15,8 @@ function RegisterCtrl($auth, $state) {
   vm.submit = submit;
 }
 
-LoginCtrl.$inject = ['$auth', '$state'];
-function LoginCtrl($auth, $state) {
+LoginCtrl.$inject = ['$auth', '$state','$rootScope'];
+function LoginCtrl($auth, $state, $rootScope) {
   const vm = this;
   vm.credentials = {};
 
@@ -30,6 +30,19 @@ function LoginCtrl($auth, $state) {
     $auth.authenticate(provider)
       .then(() => $state.go('petsIndex'));
   }
+  $rootScope.$on('error', (e, err) => {
+    vm.stateHasChanged = false;
+
+    if(err.status === 401) {
+      vm.message = err.data.message;
+      $state.go('login');
+    }
+
+    if(err.status === 422) {
+      vm.errors = err.data.errors;
+      console.log(vm.errors);
+    }
+  });
 
   vm.authenticate = authenticate;
   vm.submit = submit;

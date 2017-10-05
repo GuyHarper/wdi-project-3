@@ -18,7 +18,10 @@
     </div>
   </div>
   <div class="columns is-multiline">
-    <div ng-repeat="pet in petsIndex.filtered | orderBy : 'distance'" class="column is-one-quarter">
+    <p ng-if="petsIndex.all.$resolved && !petsIndex.filtered.length">
+      0 results - please adjust the filters above
+    </p>
+    <div ng-repeat="pet in petsIndex.filtered" class="column is-one-quarter">
       <div class="card is-fullheight">
         <div class="card-image">
           <a ui-sref="petsShow({ id: pet.id })">
