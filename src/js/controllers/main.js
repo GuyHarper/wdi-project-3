@@ -37,6 +37,7 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
 
     if(err.status === 422) {
       vm.errors = err.data.errors;
+      console.log(vm.errors);
     }
   });
 
