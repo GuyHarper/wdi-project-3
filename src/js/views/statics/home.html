@@ -22,6 +22,7 @@
                             <i class="fa fa-envelope"></i>
                           </span>
                         </p>
+                        <small class="red" ng-if="main.errors.email">{{ main.errors.email }}</small>
                       </div>
                       <div class="field">
                         <label class="label" for="password">Password</label>
@@ -31,6 +32,7 @@
                             <i class="fa fa-lock"></i>
                           </span>
                         </p>
+                        <small class="red" ng-if="main.errors.password">{{ main.errors.password }}</small>
                       </div>
                       <div class="field">
                         <p class="control">
@@ -52,6 +54,7 @@
                           <i class="fa fa-user-circle" aria-hidden="true"></i>
                         </span>
                       </p>
+                      <small class="red" ng-if="main.errors.name">{{ main.errors.name }}</small>
                     </div>
                     <div class="field">
                       <label class="label" for="email">Email</label>
@@ -71,6 +74,7 @@
                           <i class="fa fa-lock"></i>
                         </span>
                       </p>
+                      <small class="red" ng-if="main.errors.password">{{ main.errors.password }}</small>
                     </div>
                     <div class="field">
                       <label class="label" for="passwordConfirmation">Password Confirmation</label>
@@ -80,7 +84,7 @@
                           <i class="fa fa-lock"></i>
                         </span>
                       </p>
-                      <small ng-if="main.errors.passwordConfirmation">{{ main.errors.passwordConfirmation }}</small>
+                      <small class="red" ng-if="main.errors.passwordConfirmation">{{ main.errors.passwordConfirmation }}</small>
                     </div>
                     <div class="field">
                       <p class="control">

@@ -2,18 +2,20 @@
   <section class="section">
     <div class="columns">
       <div class="column is-two-third">
-        <form ng-submit="login.submit()">
+        <form ng-submit="login.submit()" novalidate>
           <div class="field">
             <label class="label" for="email">Email</label>
             <p class="control">
-              <input class="input" type="text" name="email" id="email" ng-model="login.credentials.email">
+              <input class="input" type="text" name="email" id="email" ng-model="login.credentials.email" required>
             </p>
+            <small class="red" ng-if="main.errors.email">{{ main.errors.email }}</small>
           </div>
           <div class="field">
             <label class="label" for="password">Password</label>
             <p class="control">
-              <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password">
+              <input class="input" type="password" name="password" id="password" ng-model="login.credentials.password" required>
             </p>
+            <small class="red" ng-if="main.errors.password">{{ main.errors.password }}</small>
           </div>
           <div class="field">
             <p class="control">
