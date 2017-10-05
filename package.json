@@ -19,13 +19,15 @@
       "js": "src/js/",
       "scss": "src/scss/",
       "fonts": "src/fonts/",
-      "images": "src/images/"
+      "images": "src/images/",
+      "videos": "src/videos/"
     },
     "dest": {
       "js": "public/js/",
       "css": "public/css/",
       "fonts": "public/fonts/",
-      "images": "public/images/"
+      "images": "public/images/",
+      "videos": "public/videos/"
     },
     "main": {
       "js": "app.js",
@@ -50,6 +52,7 @@
       "scss": "**/*.scss",
       "html": "**/*.html",
       "images": "**/*.{png,jpg,jpeg,gif,ico}",
+      "videos": "**/*.{mp4,ogv,webm}",
       "fonts": "**/*.{eot,svg,ttf,woff,woff2}"
     }
   },

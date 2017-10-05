@@ -19,13 +19,13 @@ const serve = () => {
     ignore: [config.destDir, config.srcDir],
     env: { NODE_ENV: 'development' }
   })
-  .on('start', () => {
-    if (!started) {
-      browserSync.reload();
-    } else {
-      started = false;
-    }
-  });
+    .on('start', () => {
+      if (!started) {
+        browserSync.reload();
+      } else {
+        started = false;
+      }
+    });
 };
 
 gulp.task('serve', serve);

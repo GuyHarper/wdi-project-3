@@ -1,6 +1,9 @@
 
 .column.home {
-
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
 }
 
@@ -11,12 +14,12 @@
 }
 
 .homeButton {
-  border-radius: 0px;
+  border-radius: 2px;
   color: #000000;
-  font-size: 22px;
+  font-size: 16px;
   background: #ffffff;
-  padding: 3px 4px 3px 4px;
-  border: solid #1f628d 3px;
+  padding: 9px 38px;
+  border: solid white 2px;
   text-decoration: none;
 }
 .homeButton:hover {
@@ -26,5 +29,20 @@
 
 .homeContainer {
   min-height: 100vh;
-  background-color: red;
+
+}
+
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('/images/puppies.png') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
 }

@@ -1,5 +1,10 @@
 @import "partials/home";
 @import "partials/profile";
+@import "partials/index";
+
+a{
+  color: white;
+}
 
 // **************** google map class ********************
 .map {
@@ -43,6 +48,13 @@
 
 h1, h2, p {
   font-family: 'Nunito', sans-serif;
+}
+
+.siteName {
+  font-family: 'Kalam', cursive;
+  font-size: 43px;
+  color: white;
+
 }
 
 .button {
