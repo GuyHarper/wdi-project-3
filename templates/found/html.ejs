@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lost & Found Pets</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <p>
+      Hello <%= pet.postedBy.name %>
+    </p>
+    <p>
+      This pet has just been found  <img src="<%= newPet.imageSRC %>" /> <%= newPet.name %> in <%= newPet.address %>
+    </p>
+  </body>
+</html>

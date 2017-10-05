@@ -1,4 +1,5 @@
 const Pet = require('../models/pet');
+const emails = require('./emails');
 
 ///************************** -------> remember to put **next** inside all the functions <----------******************************
 function createRoute(req, res) {
@@ -7,7 +8,10 @@ function createRoute(req, res) {
 
   Pet
     .create(req.body)
-    .then(pets => res.status(201).json(pets))
+    .then(pet => {
+      emails.send(pet);
+      return res.status(201).json(pet);
+    })
     .catch(err => res.status(500).json(err));
 }
 
