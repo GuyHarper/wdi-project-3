@@ -13,6 +13,20 @@
    display: inline-block;
 }
 // *******************************
+.drag-drop-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #607D8B;
+    height: 100px;
+    width: 221px;
+    text-align: center;
+    position: relative;
+}
+label{
+  text-align: center;
+  margin-right: 100px;
+}
 
 
 // ****************** form classes below ********************
