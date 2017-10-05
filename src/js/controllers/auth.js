@@ -22,13 +22,12 @@ function LoginCtrl($auth, $state, $rootScope) {
 
   function submit() {
     $auth.login(vm.credentials)
-      .then(() => $state.go('petsIndex'));
+      .then(() => $state.go('location'));
   }
 
   function authenticate(provider) {
-    console.log('in authenticate function');
     $auth.authenticate(provider)
-      .then(() => $state.go('petsIndex'));
+      .then(() => $state.go('location'));
   }
   $rootScope.$on('error', (e, err) => {
     vm.stateHasChanged = false;

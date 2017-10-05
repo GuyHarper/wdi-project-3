@@ -9,6 +9,9 @@
 
 body{
   font-family: 'Nunito' sans-serif;
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 
 html, body {
@@ -94,13 +97,6 @@ label{
 .section {
     padding: 0rem 1.5rem;
     margin: 14px;
-}
-
-body {
-  font-family: 'Nunito', sans-serif;
-  &.modal-open {
-    overflow: hidden;
-  }
 }
 
 .fa-facebook-square{
