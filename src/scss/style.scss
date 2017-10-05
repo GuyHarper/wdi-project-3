@@ -2,7 +2,11 @@
 @import "partials/profile";
 @import "partials/index";
 @import "partials/petsShow";
-
+@import "partials/navbar";
+@import "partials/footer";
+body{
+  font-family: 'Nunito' sans-serif;
+}
 .sitename {
   color: white;
 }
@@ -28,7 +32,10 @@ label{
   text-align: center;
   margin-right: 100px;
 }
-
+.login{
+  background-color: white;
+  border-radius: 8%;
+}
 
 // ****************** form classes below ********************
 .center{
@@ -61,15 +68,20 @@ label{
     margin: 14px;
 }
 
-h1, h2, p {
-  font-family: 'Nunito', sans-serif;
+// h1, h2, p {
+//   font-family: 'Nunito', sans-serif;
+// }
+.fa-facebook-square{
+  margin-right: 10px;
 }
 
 .siteName {
   font-family: 'Kalam', cursive;
   font-size: 43px;
+  color: black;
+}
+.siteName:hover{
   color: white;
-
 }
 
 .button {
