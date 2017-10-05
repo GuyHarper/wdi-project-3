@@ -1,5 +1,5 @@
 <div ng-controller="MessagesReplyCtrl as messagesReply">
-  <form ng-submit="messagesReply.messagesCreate(usersShow.pet, usersShow.sender)" name="messagesReply.newMessageForm" novalidate>
+  <form ng-submit="messagesReply.messagesCreate(usersShow.pet, usersShow.contact, usersShow.filteredMessages)" name="messagesReply.newMessageForm" novalidate>
     <div class="field">
       <label for="image">Upload Image</label>
       <div class="control">
@@ -14,8 +14,8 @@
       </div>
     </div>
     <div class="control">
-      <input type="submit" class="button is-info" value="Add message">
-      <a ng-click="" class="button is-primary">Cancel</a>
+      <input type="submit" class="button is-info" value="Send message">
+      <a ng-click="usersShow.toggleMessageModal()" class="button is-primary">Cancel</a>
     </div>
   </form>
 </div>

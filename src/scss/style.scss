@@ -61,8 +61,23 @@ label{
     margin: 14px;
 }
 
-h1, h2, p {
+body {
   font-family: 'Nunito', sans-serif;
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.1em;
 }
 
 .siteName {
@@ -80,18 +95,4 @@ h1, h2, p {
 .nav-left {
   padding: 13px;
   margin: 2px;
-}
-
-//********************messaging styling below**********************
-
-div{
-  &.conversation-group{
-    height: 60px;
-    width: 100%;
-    margin-top: 20px;
-    &:hover {
-      cursor: pointer;
-      background-color: #eee;
-    }
-  }
 }

@@ -25,7 +25,6 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
       });
 
       user.sentMessages.forEach(message => {
-        console.log(message);
         if(uniqueContactIds.indexOf( message.to.id ) === -1) {
           uniqueContactIds.push(message.to.id);
           uniqueContacts.push(message.to);
@@ -35,15 +34,12 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
     });
 
   function showMessagesWith(contact) {
-    if(vm.contact === contact) {
-      vm.contact = null;
-      vm.replyActivated = false;
-    } else {
-      const filteredMessages = filterFilter(vm.user.messages, { from: { id: contact.id } }).concat(filterFilter(vm.user.sentMessages, { to: { id: contact.id } }));
-      vm.filteredMessages = filteredMessages;
-      vm.contact = contact;
-      vm.pet = filteredMessages[filteredMessages.length - 1].pet.id;
-    }
+    const filteredMessages = filterFilter(vm.user.messages, { from: { id: contact.id } }).concat(filterFilter(vm.user.sentMessages, { to: { id: contact.id } }));
+    vm.filteredMessages = filteredMessages;
+    vm.contact = contact;
+    vm.pet = filteredMessages[filteredMessages.length - 1].pet.id;
+    angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
+    angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
   }
   vm.showMessagesWith = showMessagesWith;
 
@@ -54,10 +50,17 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   }
   vm.toggleReplyActivated = toggleReplyActivated;
 
+  function toggleMessageModal() {
+    angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
+    angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
+  }
+  vm.toggleMessageModal = toggleMessageModal;
+
   function toggleModal(modalId) {
     angular.element( document.querySelector( `#modal-${modalId}` ) ).toggleClass('is-active');
   }
   vm.toggleModal = toggleModal;
+
 }
 
 // ******************************** filtering by location and status ************************************

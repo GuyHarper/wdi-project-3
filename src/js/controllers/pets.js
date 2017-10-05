@@ -130,20 +130,15 @@ function PetsShowCtrl(Pet, $state, $auth) {
 
   function toggleImageModal() {
     angular.element( document.querySelector( '#image-modal' ) ).toggleClass('is-active');
+    angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
   }
   vm.toggleImageModal = toggleImageModal;
 
   function toggleMessageModal() {
     angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
+    angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
   }
   vm.toggleMessageModal = toggleMessageModal;
-
-  vm.messageSent = false;
-  function sendMessageConfirmation() {
-    angular.element( document.querySelector( '.message-form' ) ).toggleClass('hidden');
-    vm.messageSent = true;
-  }
-  vm.sendMessageConfirmation = sendMessageConfirmation;
 
 }
 
