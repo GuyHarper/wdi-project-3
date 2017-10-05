@@ -1,9 +1,12 @@
 body.petsIndex{
-  background-color: white;
+  background-size: cover;
+  min-height: 100vh;
+  background-image: url('/images/background.jpg');
 }
-
-.statusBarIndex {
-  border: 2px solid #fdfdfa;
-  border-radius: 30px;
-  background-color: rgba(199, 204, 151, 0.05)
+.border{
+  border: 1px solid #d15f00;
+  border-radius: 5%;
+  background-color: #d15f00;
+  color: black;
+  // margin-left: 790px;
 }
