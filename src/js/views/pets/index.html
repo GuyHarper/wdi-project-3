@@ -18,12 +18,12 @@
     </div>
   </div>
   <div class="columns is-multiline">
-    <div ng-repeat="pet in petsIndex.filtered | orderBy : '-distance'" class="column is-one-quarter">
-      <a ui-sref="petsShow({ id: pet.id })">
+    <div ng-repeat="pet in petsIndex.filtered | orderBy : 'distance'" class="column is-one-quarter">
         <div class="card is-fullheight">
           <div class="card-image">
+            <a ui-sref="petsShow({ id: pet.id })">
             <figure style="background-image: url('{{ pet.imageSRC }}'); background-size: cover; background-repeat: no-repeat; background-position: center;" class="image is-4by3">
-            </figure>
+            </figure></a>
           </div>
           <div class="card-content">
             <div class="media">
@@ -39,4 +39,3 @@
       </div>
     </div>
   </div>
-</div>
