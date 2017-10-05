@@ -1,6 +1,23 @@
 @import "partials/home";
 @import "partials/profile";
 @import "partials/index";
+@import "partials/location";
+@import "partials/newPage";
+
+.button.is-info {
+  border-color: transparent;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  color: #84796d;
+  background-color: rgb(255, 255, 255);
+}
+
+.button.is-primary {
+    background-color: #d15f00;
+    border-color: transparent;
+    color: #fff;
+}
 
 a{
   color: white;
@@ -21,7 +38,7 @@ a{
   width: 400px;
 }
 .red {
-  background-color: rgba(255, 0, 0, 0.5);;
+  background-color: rgba(255, 0, 0, 0.5);
   border-radius: 5%;
   text-align: center;
   animation: pulse 1s infinite;
@@ -51,9 +68,10 @@ h1, h2, p {
 }
 
 .siteName {
-  font-family: 'Kalam', cursive;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
   font-size: 43px;
-  color: white;
+  color: #84796d;
 
 }
 
