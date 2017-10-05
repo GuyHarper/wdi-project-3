@@ -1,5 +1,5 @@
 <div class="container show">
-  <h1>{{petsShow.pet.status}}: {{ petsShow.pet.name }}</h1>
+  <h1>{{ petsShow.pet.name }}: {{petsShow.pet.status}}</h1>
   <div class="columns">
     <div class="column is-5">
       <div class="card">
@@ -27,11 +27,11 @@
           <google-map center="petsShow.pet.location"></google-map>
         </div>
       </div>
-        <button class="button" ng-click="petsShow.toggleMessageModal()">That's my pet!</button>
-      </div>
       <a ng-if="petsShow.myPet" ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
       <button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-danger">Delete</button>
+      <button class="button" ng-if="!petsShow.myPet" ng-click="petsShow.toggleMessageModal()">That's my pet!</button>
     </div>
+  </div>
   </div>
   <div class="modal" id="image-modal" ng-click="petsShow.toggleImageModal()" >
     <div class="modal-background"></div>

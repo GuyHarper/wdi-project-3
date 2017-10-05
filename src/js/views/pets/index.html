@@ -26,19 +26,20 @@
         <div class="card-image">
           <a ui-sref="petsShow({ id: pet.id })">
             <figure style="background-image: url('{{ pet.imageSRC }}'); background-size: cover; background-repeat: no-repeat; background-position: center;" class="image is-4by3">
-            </figure></a>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p><strong>Pet name: </strong><em>{{ pet.name }}</em></p>
-                <p><strong>Status: </strong><em>{{ pet.status }}</em></p>
-                <p><strong>Location: </strong><em>{{ pet.address }}</em></p>
-                <p><strong>Distance: </strong><em>{{ pet.distance }}km</em></p>
-              </div>
+            </figure>
+          </a>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p><strong>Pet name: </strong><em>{{ pet.name }}</em></p>
+              <p><strong>Status: </strong><em>{{ pet.status }}</em></p>
+              <p><strong>Location: </strong><em>{{ pet.address }}</em></p>
+              <p><strong>Distance: </strong><em>{{ pet.distance }}km</em></p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

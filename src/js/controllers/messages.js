@@ -22,7 +22,7 @@ function MessagesNewCtrl(Pet, Message, $state) {
         setTimeout(() => {
           console.log($state.params);
           angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
-        }, 2000);
+        }, 1500);
       });
   }
 
@@ -43,16 +43,19 @@ function MessagesReplyCtrl(User, Message, $state) {
   vm.from = User.get($state.params);
 
 
-  function messagesCreate(pet, sender) {
+  function messagesCreate(pet, sender, messagesDisplay) {
     vm.message.pet = pet;
     vm.message.to = sender.id;
 
     Message
       .save(vm.message)
       .$promise
-      .then(() => {
-        $state.go('petsIndex');
+      .then((message) => {
+        messagesDisplay.push(message);
+        vm.messagesDisplay = messagesDisplay;
+        angular.element( document.querySelector( 'textarea' ) ).val('');
       });
+
   }
 
   vm.messagesCreate = messagesCreate;
