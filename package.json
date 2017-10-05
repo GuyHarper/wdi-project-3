@@ -62,6 +62,8 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.18.2",
     "cors": "^2.8.3",
+    "ejs": "^2.5.7",
+    "email-templates": "2",
     "express": "^4.14.0",
     "jsonwebtoken": "^8.0.1",
     "mongoose": "^4.11.13",
