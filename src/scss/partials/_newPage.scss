@@ -1,14 +1,4 @@
-.columnNew {
-  background-blend-mode: color;
-  background-color: rgba(27, 19, 19, 0.18);
-  background-size: cover;
-  min-height: 100vh;
-  padding: 1.75rem;
-  background-image: url('/images/manSitting.png');
-  color: white;
-}
-
-form {
-  padding: 50px;
-  padding-right: 170px;
+body.petsNew{
+   background-image: url('/images/manSitting.png');
+   color: white;
 }

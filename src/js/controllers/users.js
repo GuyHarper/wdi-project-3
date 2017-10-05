@@ -55,7 +55,6 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   vm.toggleReplyActivated = toggleReplyActivated;
 
   function toggleModal(modalId) {
-    console.log('got here');
     angular.element( document.querySelector( `#modal-${modalId}` ) ).toggleClass('is-active');
   }
   vm.toggleModal = toggleModal;

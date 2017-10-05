@@ -1,0 +1,19 @@
+.container {
+  &.show {
+    figure {
+      &:hover {
+        cursor: zoom-in;
+      }
+    }
+  }
+}
+.show {
+  .drag-drop-img {
+    background-size: contain;
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.hidden {
+  display: none;
+}

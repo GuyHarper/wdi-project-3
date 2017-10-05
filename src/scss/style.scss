@@ -3,6 +3,14 @@
 @import "partials/index";
 @import "partials/location";
 @import "partials/newPage";
+@import "partials/petsShow";
+@import "partials/navbar";
+@import "partials/footer";
+
+body{
+  font-family: 'Nunito' sans-serif;
+}
+
 
 .button.is-info {
   border-color: transparent;
@@ -19,7 +27,7 @@
     color: #fff;
 }
 
-a{
+.sitename {
   color: white;
 }
 
@@ -30,7 +38,24 @@ a{
    display: inline-block;
 }
 // *******************************
-
+.drag-drop-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #607D8B;
+    height: 100px;
+    width: 221px;
+    text-align: center;
+    position: relative;
+}
+label{
+  text-align: center;
+  margin-right: 100px;
+}
+.login{
+  background-color: white;
+  border-radius: 8%;
+}
 
 // ****************** form classes below ********************
 .center{
@@ -63,16 +88,21 @@ a{
     margin: 14px;
 }
 
-h1, h2, p {
-  font-family: 'Nunito', sans-serif;
+// h1, h2, p {
+//   font-family: 'Nunito', sans-serif;
+// }
+.fa-facebook-square{
+  margin-right: 10px;
 }
 
 .siteName {
   font-weight: 300;
   font-family: 'Work Sans', sans-serif;
   font-size: 43px;
-  color: #84796d;
-
+  color: black;
+}
+.siteName:hover{
+  color: white;
 }
 
 .button {

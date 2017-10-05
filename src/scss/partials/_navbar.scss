@@ -1,0 +1,10 @@
+a.navbar-item:hover {
+    background-color: transparent;
+    color: white;
+}
+
+body.home {
+  .loginNavbar, .registerNavbar {
+    display: none;
+  }
+}

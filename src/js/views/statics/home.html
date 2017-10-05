@@ -1,77 +1,95 @@
 <div class="fullscreen-bg">
-    <video loop muted autoplay poster="images/puppies.png" class="fullscreen-bg__video">
-      <source src="/videos/backgroundPuppies.webm" type="video/webm">
+  <video loop muted autoplay poster="images/puppies.png" class="fullscreen-bg__video">
+    <source src="/videos/backgroundPuppies.webm" type="video/webm">
       <source src="/videos/backgroundPuppies.mp4" type="video/mp4">
-      <source src="/videos/backgroundPuppies.ogv" type="video/ogg">
-  </video>
-</div>
-<div class="homeContainer">
-  <div class="column home">
-    <input ng-click="home.showLostForm()" class="homeButton" type="button" value="login">
-    <input ng-click="home.showFoundForm()" class="homeButton" type="button" value="Register">
-    <section class="section">
-      <div class="columns">
-        <div class="column">
-          <div ng-show="home.lostFormSelected">
-            <form ng-submit="home.submit()">
-              <div class="field">
-                <label class="label" for="email">Email</label>
-                <p class="control">
-                  <input class="input" type="text" name="email" id="email" ng-model="home.credentials.email">
-                </p>
+        <source src="/videos/backgroundPuppies.ogv" type="video/ogg">
+        </video>
+      </div>
+      <div class="homeContainer">
+        <div class="column home">
+          <input ng-if="!main.isAuthenticated()" ng-click="home.showLostForm()" class="homeButton" type="button" value="login">
+          <input ng-if="!main.isAuthenticated()" ng-click="home.showFoundForm()" class="homeButton" type="button" value="Register">
+          <div class="center">
+            <section class="section">
+              <div class="columns">
+                <div class="column login" ng-show="home.lostFormSelected">
+                    <form ng-submit="home.submit()">
+                      <div class="field">
+                        <label class="label" for="email">Email</label>
+                        <p class="control has-icons-left has-icons-right">
+                          <input class="input" type="text" name="email" ng-model="home.credentials.email">
+                          <span class="icon is-small is-left">
+                            <i class="fa fa-envelope"></i>
+                          </span>
+                        </p>
+                      </div>
+                      <div class="field">
+                        <label class="label" for="password">Password</label>
+                        <p class="control has-icons-left has-icons-right">
+                          <input class="input" type="password" name="password" ng-model="home.credentials.password">
+                          <span class="icon is-small is-left">
+                            <i class="fa fa-lock"></i>
+                          </span>
+                        </p>
+                      </div>
+                      <div class="field">
+                        <p class="control">
+                          <input type="submit" class="button is-primary is-fullwidth" value="Login">
+                        </p>
+                      </div>
+                    </form>
+                    <br /><p  class="label" style="text-align: center">Or</p><br />
+                    <button class="button is-info is-fullwidth" ng-click="home.authenticate('facebook')"><i class="fa fa-facebook-square" aria-hidden="true"></i>Login with facebook</button>
+                  </div>
               </div>
-              <div class="field">
-                <label class="label" for="password">Password</label>
-                <p class="control">
-                  <input class="input" type="password" name="password" id="password" ng-model="home.credentials.password">
-                </p>
-              </div>
-              <div class="field">
-                <p class="control">
-                  <input type="submit" class="button is-primary is-fullwidth" value="Login">
-                </p>
-              </div>
-            </form>
-            <br /><p style="text-align: center">Or</p><br />
-            <button class="button is-info is-fullwidth" ng-click="home.authenticate('facebook')">Login with Facebook</button>
+                <div class="column login" ng-show="home.foundFormSelected">
+                  <form ng-submit="home.register()">
+                    <div class="field">
+                      <label class="label" for="name">Name</label>
+                      <p class="control has-icons-left">
+                        <input class="input" type="text" name="name" id="name" ng-model="home.user.name">
+                        <span class="icon is-small is-left">
+                          <i class="fa fa-user-circle" aria-hidden="true"></i>
+                        </span>
+                      </p>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="email">Email</label>
+                      <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="text" name="email" id="email" ng-model="home.user.email">
+                        <span class="icon is-small is-left">
+                          <i class="fa fa-envelope"></i>
+                        </span>
+                      </p>
+                      <small class="red" ng-if="main.errors.email">{{ main.errors.email }}</small>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="password">Password</label>
+                      <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="password" name="password" id="password" ng-model="home.user.password">
+                        <span class="icon is-small is-left">
+                          <i class="fa fa-lock"></i>
+                        </span>
+                      </p>
+                    </div>
+                    <div class="field">
+                      <label class="label" for="passwordConfirmation">Password Confirmation</label>
+                      <p class="control has-icons-left has-icons-right">
+                        <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="home.user.passwordConfirmation">
+                        <span class="icon is-small is-left">
+                          <i class="fa fa-lock"></i>
+                        </span>
+                      </p>
+                      <small ng-if="main.errors.passwordConfirmation">{{ main.errors.passwordConfirmation }}</small>
+                    </div>
+                    <div class="field">
+                      <p class="control">
+                        <input type="submit" class="button is-primary is-fullwidth" value="Register">
+                      </p>
+                    </div>
+                  </form>
+                </div>
+            </section>
           </div>
         </div>
       </div>
-      <div ng-show="home.foundFormSelected">
-        <form ng-submit="home.register()">
-          <div class="field">
-            <label class="label" for="name">Name</label>
-            <p class="control">
-              <input class="input" type="text" name="name" id="name" ng-model="home.user.name">
-            </p>
-          </div>
-          <div class="field">
-            <label class="label" for="email">Email</label>
-            <p class="control">
-              <input class="input" type="text" name="email" id="email" ng-model="home.user.email">
-            </p>
-            <small class="red" ng-if="main.errors.email">{{ main.errors.email }}</small>
-          </div>
-          <div class="field">
-            <label class="label" for="password">Password</label>
-            <p class="control">
-              <input class="input" type="password" name="password" id="password" ng-model="home.user.password">
-            </p>
-          </div>
-          <div class="field">
-            <label class="label" for="passwordConfirmation">Password Confirmation</label>
-            <p class="control">
-              <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="home.user.passwordConfirmation">
-            </p>
-            <small ng-if="main.errors.passwordConfirmation">{{ main.errors.passwordConfirmation }}</small>
-          </div>
-          <div class="field">
-            <p class="control">
-              <input type="submit" class="button is-primary is-fullwidth" value="Register">
-            </p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-</div>

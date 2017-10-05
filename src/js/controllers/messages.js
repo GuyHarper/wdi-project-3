@@ -18,11 +18,22 @@ function MessagesNewCtrl(Pet, Message, $state) {
       .save(vm.message)
       .$promise
       .then(() => {
-        $state.go('petsIndex');
+        sendMessageConfirmation();
+        setTimeout(() => {
+          console.log($state.params);
+          angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
+        }, 2000);
       });
   }
 
   vm.messagesCreate = messagesCreate;
+
+  vm.messageSent = false;
+  function sendMessageConfirmation() {
+    angular.element( document.querySelector( '.message-form' ) ).toggleClass('hidden');
+    vm.messageSent = true;
+  }
+  vm.sendMessageConfirmation = sendMessageConfirmation;
 }
 
 MessagesReplyCtrl.$inject = ['User', 'Message', '$state'];
@@ -33,7 +44,6 @@ function MessagesReplyCtrl(User, Message, $state) {
 
 
   function messagesCreate(pet, sender) {
-    console.log(pet, sender.id);
     vm.message.pet = pet;
     vm.message.to = sender.id;
 

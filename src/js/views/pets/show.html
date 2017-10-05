@@ -1,16 +1,57 @@
-<img ng-src="{{ petsShow.pet.imageSRC }}">
-<p><strong>Pet name: </strong><em>{{ petsShow.pet.name }}</em></p>
-<p><strong>Address: </strong><em>{{ petsShow.pet.address }}</em></p>
-<p><strong>Description: </strong><em>{{ petsShow.pet.description}}</em></p>
-<p><strong>Posted by: </strong><em>{{ petsShow.pet.postedBy.name }}</em></p>
-<google-map center="petsShow.pet.location"></google-map>
-<a ng-if="petsShow.myPet" ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
-<button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-danger">Delete</button>
-
-<div class="messaging-area" ng-show="!petsShow.myPet">
-  <button class="button" ng-click="petsShow.toggleMessageActivated()" ng-hide="petsShow.messageActivated">That's my pet!</button>
-  <div ng-show="petsShow.messageActivated">
-    <h3>Claim your pet by sending the user that posted this listing another photo of your pet</h3>
-    <message-create></message-create>
+<div class="container show">
+  <h1>{{petsShow.pet.status}}: {{ petsShow.pet.name }}</h1>
+  <div class="columns">
+    <div class="column is-5">
+      <div class="card">
+        <div class="card-image">
+          <figure style="background-image: url('{{ petsShow.pet.imageSRC }}'); background-size: cover; background-repeat: no-repeat; background-position: center;" class="image is-4by3" ng-click="petsShow.toggleImageModal()">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p><strong>Pet name: </strong><em>{{ petsShow.pet.name }}</em></p>
+              <p><strong>Locality: </strong><em>{{ petsShow.pet.address }}</em></p>
+              <p><strong>Status: </strong><em>{{ petsShow.pet.status }}</em></p>
+              <p><strong>Description: </strong><em>{{ petsShow.pet.description}}</em></p>
+              <p><strong>Posted by: </strong><em>{{ petsShow.pet.postedBy.name }}</em></p>
+              <p><strong>Posted on: </strong><em>{{ petsShow.pet.createdAt | date : "dd/MM/yyyy"}}</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column is-one-third">
+      <div class="columns">
+        <div class="column">
+          <google-map center="petsShow.pet.location"></google-map>
+        </div>
+      </div>
+        <button class="button" ng-click="petsShow.toggleMessageModal()">That's my pet!</button>
+      </div>
+      <a ng-if="petsShow.myPet" ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
+      <button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-danger">Delete</button>
+    </div>
+  </div>
+  <div class="modal" id="image-modal" ng-click="petsShow.toggleImageModal()" >
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <p class="image">
+        <img ng-src="{{ petsShow.pet.imageSRC }}" alt="">
+      </p>
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <div class="modal show" id="message-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <section class="modal-card-body">
+        <div class="level">
+          <div class="level-left"><strong>That's my pet!</strong></div>
+          <button class="delete level-right" aria-label="close" ng-click="petsShow.toggleMessageModal()"></button>
+        </div>
+        <message-create></message-create>
+      </section>
+    </div>
   </div>
 </div>
