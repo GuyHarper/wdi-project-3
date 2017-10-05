@@ -11,6 +11,17 @@ body{
   font-family: 'Nunito' sans-serif;
 }
 
+html, body {
+  min-height: 100vh;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper {
+  flex: 1 0 auto;
+}
+
 
 .button.is-info {
   border-color: transparent;

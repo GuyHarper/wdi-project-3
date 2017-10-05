@@ -16,49 +16,53 @@
   <!-- endinject -->
 </head>
 <body ng-controller="MainCtrl as main" ng-class="main.pageName">
-  <div class="nav-bar">
-    <nav>
-      <div class="container">
-        <div class="nav-left">
-          <h1><a ui-sref="home" class="siteName">Lost and Found pets</a></h1>
-          <ul class="nav-right">
-            <li><a href="/pets" class="navbar-item">Pets</a></li>
-            <li ng-if="main.isAuthenticated()"><a class="navbar-item" ui-sref="petsNew">Add a pet</a></li>
-            <li ng-if="!main.isAuthenticated()" class="loginNavbar"><a class="navbar-item" ui-sref="login" ui-sref-active="active">Log in</a></li>
-            <li ng-if="!main.isAuthenticated()" class="registerNavbar"><a class="navbar-item" ui-sref="register" ui-sref-active="active">Sign up</a></li>
-            <li ng-if="main.isAuthenticated()"><a class="navbar-item" ui-sref="usersShow({ id: main.getCurrentUserId()})">Profile</a></li>
-            <li ng-if="main.isAuthenticated()"><a class="navbar-item" ng-click="main.logout()">Logout</a></li>
-          </ul>
+  <div class="wrapper">
+    <div class="nav-bar">
+      <nav>
+        <div class="container">
+          <div class="nav-left">
+            <h1><a ui-sref="home" class="siteName">Lost and Found pets</a></h1>
+            <ul class="nav-right">
+              <li><a href="/pets" class="navbar-item">Pets</a></li>
+              <li ng-if="main.isAuthenticated()"><a class="navbar-item" ui-sref="petsNew">Add a pet</a></li>
+              <li ng-if="!main.isAuthenticated()" class="loginNavbar"><a class="navbar-item" ui-sref="login" ui-sref-active="active">Log in</a></li>
+              <li ng-if="!main.isAuthenticated()" class="registerNavbar"><a class="navbar-item" ui-sref="register" ui-sref-active="active">Sign up</a></li>
+              <li ng-if="main.isAuthenticated()"><a class="navbar-item" ui-sref="usersShow({ id: main.getCurrentUserId()})">Profile</a></li>
+              <li ng-if="main.isAuthenticated()"><a class="navbar-item" ng-click="main.logout()">Logout</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
+    <div class="message" ng-if="main.message">
+      <p>{{ main.message }}</p>
+    </div>
+    <main ui-view></main>
   </div>
-  <div class="message" ng-if="main.message">
-    <p>{{ main.message }}</p>
-  </div>
-  <main ui-view></main>
-  <footer class="hero-foot container">
-    <div class="columns is-text-centered">
-      <div class="column has-text-centered">
-        <strong>Lost & Found Pets</strong> by <a href="#">2G & T</a>
-      </div>
-      <div class="column has-text-centered">
-        <p>Made with <i class="fa fa-heartbeat"></i> at <a href="https://generalassemb.ly/locations/london" target="_blank">GA</a> WDI #29</p>
-      </div>
-      <div class="column has-text-centered">
-        <a class="icon" href="https://github.com/Gio85" target="_blank">
-          <i class="fa fa-github"> Giovanni Galiero</i>
-        </a>
-      </div>
-      <div class="column has-text-centered">
-        <a class="icon" href="https://github.com/GuyHarper" target="_blank">
-          <i class="fa fa-github"> Guy Harper</i>
-        </a>
-      </div>
-      <div class="column has-text-centered">
-        <a class="icon" href="https://github.com/PullingStrings" target="_blank">
-          <i class="fa fa-github"> Sibusiso Zwane</i>
-        </a>
+  <footer class="hero-foot">
+    <div class="container">
+      <div class="columns is-text-centered">
+        <div class="column has-text-centered">
+          <strong>Lost & Found Pets</strong> by <a href="#">2G & T</a>
+        </div>
+        <div class="column has-text-centered">
+          <p>Made with <i class="fa fa-heartbeat"></i> at <a href="https://generalassemb.ly/locations/london" target="_blank">GA</a> WDI #29</p>
+        </div>
+        <div class="column has-text-centered">
+          <a href="https://github.com/Gio85" target="_blank">
+            <i class="fa fa-github"></i> Giovanni Galiero
+          </a>
+        </div>
+        <div class="column has-text-centered">
+          <a href="https://github.com/GuyHarper" target="_blank">
+            <i class="fa fa-github"></i> Guy Harper
+          </a>
+        </div>
+        <div class="column has-text-centered">
+          <a href="https://github.com/PullingStrings" target="_blank">
+            <i class="fa fa-github"></i> Sibusiso Zwane
+          </a>
+        </div>
       </div>
     </div>
   </footer>
