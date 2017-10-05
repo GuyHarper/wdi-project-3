@@ -1,4 +1,5 @@
 <div class="container show">
+  <h1>{{petsShow.pet.status}}: {{ petsShow.pet.name }}</h1>
   <div class="columns">
     <div class="column is-5">
       <div class="card">
@@ -26,13 +27,7 @@
           <google-map center="petsShow.pet.location"></google-map>
         </div>
       </div>
-
-      <div class="messaging-area" ng-show="!petsShow.myPet">
-        <button class="button" ng-click="petsShow.toggleMessageActivated()" ng-hide="petsShow.messageActivated">That's my pet!</button>
-        <div ng-show="petsShow.messageActivated">
-          <h3>Claim your pet by sending the user that posted this listing another photo of your pet</h3>
-          <message-create></message-create>
-        </div>
+        <button class="button" ng-click="petsShow.toggleMessageModal()">That's my pet!</button>
       </div>
       <a ng-if="petsShow.myPet" ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
       <button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-danger">Delete</button>
@@ -46,5 +41,17 @@
       </p>
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <div class="modal show" id="message-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <section class="modal-card-body">
+        <div class="level">
+          <div class="level-left"><strong>That's my pet!</strong></div>
+          <button class="delete level-right" aria-label="close" ng-click="petsShow.toggleMessageModal()"></button>
+        </div>
+        <message-create></message-create>
+      </section>
+    </div>
   </div>
 </div>
