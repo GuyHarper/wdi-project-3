@@ -17,27 +17,26 @@
       </div>
     </div>
   </div>
-</div>
-<div class="columns">
-  <div class="column is-one-third">
-    <div class="card">
-      <div ng-repeat="pet in petsIndex.filtered | orderBy : '-distance'">
-        <div class="card-image">
-          <figure class="image is-4by3">
-            <a ui-sref="petsShow({ id: pet.id })"><img ng-src="{{ pet.imageSRC }}"></a>
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p><strong>Pet name: </strong><em>{{ pet.name }}</em></p>
-            </div>
+  <div class="columns is-multiline">
+    <div ng-repeat="pet in petsIndex.filtered | orderBy : '-distance'" class="column is-one-quarter">
+      <a ui-sref="petsShow({ id: pet.id })">
+        <div class="card is-fullheight">
+          <div class="card-image">
+            <figure style="background-image: url('{{ pet.imageSRC }}'); background-size: cover; background-repeat: no-repeat; background-position: center;" class="image is-4by3">
+            </figure>
           </div>
-          <div class="content">
-            <p><strong>Status: </strong><em>{{ pet.status }}</em></p>
-            <p><strong>Location: </strong><em>{{ pet.address }}</em></p>
-            <p><strong>Distance: </strong><em>{{ pet.distance }}km</em></p>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p><strong>Pet name: </strong><em>{{ pet.name }}</em></p>
+                <p><strong>Status: </strong><em>{{ pet.status }}</em></p>
+                <p><strong>Location: </strong><em>{{ pet.address }}</em></p>
+                <p><strong>Distance: </strong><em>{{ pet.distance }}km</em></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
+</div>
