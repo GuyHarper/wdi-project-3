@@ -6,6 +6,9 @@
 @import "partials/petsShow";
 @import "partials/navbar";
 @import "partials/footer";
+@import "partials/login";
+@import "partials/register";
+
 
 body{
   font-family: 'Nunito' sans-serif;
@@ -63,10 +66,7 @@ label{
   text-align: center;
   margin-right: 2px;
 }
-.login{
-  background-color: white;
-  border-radius: 8%;
-}
+
 
 // ****************** form classes below ********************
 .center{
@@ -133,11 +133,8 @@ h3 {
 .siteName {
   font-weight: 300;
   font-family: 'Work Sans', sans-serif;
-  font-size: 34px;
+  font-size: 24px;
   color: rgba(25, 16, 16, 0.77);;
-}
-.siteName:hover{
-  color: rgba(0, 0, 0, 0.24);;
 }
 
 .button {

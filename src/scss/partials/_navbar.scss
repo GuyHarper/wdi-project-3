@@ -1,12 +1,12 @@
-a.navbar-item:hover {
-    background-color: transparent;
-    color: #d15f00;
-    font-size: 18px;
-    // text-decoration: underline;
-}
-
 body.home {
   .loginNavbar, .registerNavbar {
     display: none;
   }
+  .navbar {
+    background-color: rgba(255,255,255,0.3);
+  }
+}
+
+.navbar {
+  background-color: transparent;
 }
