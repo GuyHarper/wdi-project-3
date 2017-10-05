@@ -27,9 +27,6 @@ body{
     color: #fff;
 }
 
-.sitename {
-  color: white;
-}
 
 // **************** google map class ********************
 .map {
@@ -102,7 +99,7 @@ label{
   color: black;
 }
 .siteName:hover{
-  color: white;
+  color: rgba(0, 0, 0, 0.24);;
 }
 
 .button {

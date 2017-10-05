@@ -3,11 +3,11 @@
     <div class="column">
       <form ng-submit="locationIndex.search(locationIndex.latLng)" name="locationIndex.locationForm" novalidate>
         <div class="lostFoundButtons">
-          <label for="status">Lost</label><input type="radio" ng-model="locationIndex.status" value="found">
-          <label for="status">Found</label><input type="radio" ng-model="locationIndex.status" value="lost">
+          <label for="status">Lost a Pet</label><input type="radio" ng-model="locationIndex.status" value="found">
+          <label for="status">Or found one?</label><input type="radio" ng-model="locationIndex.status" value="lost">
         </div>
         <div class="column location">
-          <label for="location" class="locationName">Location</label>
+          <label for="location" class="locationName">When last did you see it?</label>
 
           <div class="control">
               <input autocomplete location="locationIndex.latLng" type="text" class="input" id="location" name="location" ng-model="locationIndex.user.address" required>
