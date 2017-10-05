@@ -1,7 +1,7 @@
 <div class="container index">
   <div class="column index">
     <div class="column">
-      <div class="statusBarIndex">
+      <div>
         <input type="checkbox" id="roast" ng-model="petsIndex.useDistance">
         <label for="distance">Distance</label>
         <input type="range" ng-model="petsIndex.distance" min="1" max="15" ng-disabled="!petsIndex.useDistance">
@@ -13,7 +13,7 @@
         <label>Found
           <input type="radio" name="status" ng-model="petsIndex.status" value="found">
         </label>
-        <a ng-click="petsIndex.status = null">Clear status</a>
+        <a class="border" ng-click="petsIndex.status = null">Clear status</a>
       </div>
     </div>
   </div>
