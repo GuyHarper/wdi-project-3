@@ -13,7 +13,7 @@ function createRoute(req, res) {
 
 function indexRoute(req, res) {
   Pet
-    .find()
+    .find({ active: true })
     .populate('postedBy')// in order to show the username inside the pets Index page
     .exec()
     .then(pets => res.json(pets))
