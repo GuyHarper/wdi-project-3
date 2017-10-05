@@ -2,32 +2,34 @@
   <section class="section">
     <div class="columns">
       <div class="column is-two-third">
-        <form ng-submit="register.submit()">
+        <form ng-submit="register.submit()" novalidate>
           <div class="field">
             <label class="label" for="name">Name</label>
             <p class="control">
-              <input class="input" type="text" name="name" id="name" ng-model="register.user.name">
+              <input class="input" type="text" name="name" id="name" ng-model="register.user.name" required>
             </p>
+            <small class="red" ng-if="main.errors.name">{{ main.errors.name }}</small>
           </div>
           <div class="field">
             <label class="label" for="email">Email</label>
             <p class="control">
-              <input class="input" type="text" name="email" id="email" ng-model="register.user.email">
+              <input class="input" type="text" name="email" id="email" ng-model="register.user.email" required>
             </p>
             <small class="red" ng-if="main.errors.email">{{ main.errors.email }}</small>
           </div>
           <div class="field">
             <label class="label" for="password">Password</label>
             <p class="control">
-              <input class="input" type="password" name="password" id="password" ng-model="register.user.password">
+              <input class="input" type="password" name="password" id="password" ng-model="register.user.password" required>
             </p>
+            <small class="red" ng-if="main.errors.password">{{ main.errors.password }}</small>
           </div>
           <div class="field">
             <label class="label" for="passwordConfirmation">Password Confirmation</label>
             <p class="control">
-              <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation">
+              <input class="input" type="password" name="passwordConfirmation" id="passwordConfirmation" ng-model="register.user.passwordConfirmation" required>
             </p>
-            <small ng-if="main.errors.passwordConfirmation">{{ main.errors.passwordConfirmation }}</small>
+            <small class="red" ng-if="main.errors.passwordConfirmation">{{ main.errors.passwordConfirmation }}</small>
           </div>
           <div class="field">
             <p class="control">

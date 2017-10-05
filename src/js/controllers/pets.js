@@ -7,8 +7,8 @@ angular
   .controller('PetsShowCtrl', PetsShowCtrl)
   .controller('PetsEditCtrl', PetsEditCtrl);
 
-PetsIndexCtrl.$inject = ['Pet', '$http', '$scope', 'filterFilter', 'distanceFromFilter', '$state'];
-function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $state) {
+PetsIndexCtrl.$inject = ['Pet', '$http', '$scope', 'filterFilter', 'distanceFromFilter', '$state', 'orderByFilter'];
+function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $state, orderByFilter) {
   const vm = this;
   // vm.status = null;
   const search = $state.params.lat && $state.params.lng;
@@ -25,17 +25,6 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
         getUserLocation();
       }
 
-      function filterPost() {
-        // if(pet.status !== status) return false;
-        vm.filtered = filterFilter(vm.all, $state.params.status);
-        // console.log(vm.filtered);
-        // if the checkbox is checked, use the custom distance filter and pass in the array of pets and the range value
-        if(vm.useDistance) vm.filtered = distanceFromFilter(vm.filtered, vm.distance);
-        if(vm.status) vm.filtered = filterFilter(vm.filtered, vm.status);
-        console.log(vm.filtered);
-        // if(vm.useStatus) vm.filtered = statusFromFilter(vm.filtered, vm.status);
-      }
-
       $scope.$watchGroup([
         () => vm.useDistance,
         () => vm.distance,
@@ -44,6 +33,20 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
 
 
     });
+
+  function filterPost() {
+    console.log('hererrererere');
+    // if(pet.status !== status) return false;
+    vm.filtered = filterFilter(vm.all, $state.params.status);
+    // console.log(vm.filtered);
+    // if the checkbox is checked, use the custom distance filter and pass in the array of pets and the range value
+    if(vm.useDistance) vm.filtered = distanceFromFilter(vm.filtered, vm.distance);
+    if(vm.status) vm.filtered = filterFilter(vm.filtered, vm.status);
+    console.log(vm.filtered);
+    vm.filtered = orderByFilter(vm.filtered, 'distance');
+    console.log(vm.filtered);
+    // if(vm.useStatus) vm.filtered = statusFromFilter(vm.filtered, vm.status);
+  }
 
   // *************************************************************
   //******************* geolocation ******************************
@@ -60,6 +63,7 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
 
   // user has allowed geolocation
   function geolocationAllowed(position) {
+    console.log(position);
     filterPets(position.coords.latitude, position.coords.longitude);
   }
 
@@ -81,9 +85,10 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
       const distance = (google.maps.geometry.spherical.computeDistanceBetween(petLatLng, userLatLng) / 1000).toFixed(2);
 
       // adding a new key of distance to the pet object and setting it to the calculated distance
-      pet.distance = distance;
+      pet.distance = parseFloat(distance);
     });
-
+    
+    filterPost();
     if(!$scope.$$phase) $scope.$apply();
   }
 }

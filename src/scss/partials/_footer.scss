@@ -1,0 +1,20 @@
+.fa-github{
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+footer {
+  display: flex;
+  background-color: #455a64;
+  align-items: center;
+  height: 50px;
+  margin-top: 25px;
+  color: white;
+  strong {
+    color: white;
+  }
+  .columns {
+    width: 100%;
+  }
+}

@@ -1,21 +1,28 @@
-<div class="center">
-  <div class="column is-two-third">
-    <div class="field">
+<div class="containerLocation">
+  <div class="columns">
+    <div class="column">
       <form ng-submit="locationIndex.search(locationIndex.latLng)" name="locationIndex.locationForm" novalidate>
-        <div class="field">
-          <label for="status">Lost</label><input type="radio" ng-model="locationIndex.status" value="found">
-          <label for="status">Found</label><input type="radio" ng-model="locationIndex.status" value="lost">
+        <div class="lostFoundButtons">
+          <label for="status">Lost a Pet</label><input type="radio" ng-model="locationIndex.status" value="found">
+          <label for="status">Or found one?</label><input type="radio" ng-model="locationIndex.status" value="lost">
         </div>
-        <label for="location">Location</label>
-        <div class="control">
-          <input autocomplete location="locationIndex.latLng" type="text" class="input" id="location" name="location" ng-model="locationIndex.user.address" required>
-          <div ng-messages="locationIndex.location.$error" role="alert" ng-if="locationIndex.locationForm.$submitted || locationIndex.locationForm.location.$touched">
-            <div ng-message="required" class="red">Please enter a value for this field.</div>
+        <div class="column location">
+          <label for="location" class="locationName">When last did you see it?</label>
+
+          <div class="control">
+              <input autocomplete location="locationIndex.latLng" type="text" class="input" id="location" name="location" ng-model="locationIndex.user.address" required>
+
+            <div ng-messages="locationIndex.location.$error" role="alert" ng-if="locationIndex.locationForm.$submitted || locationIndex.locationForm.location.$touched">
+              <div ng-message="required" class="red">Please enter a value for this field.</div>
+            </div>
+
+            <button type="button" class="button is-info" ng-if="locationIndex.userLatLng" ng-click="locationIndex.search(locationIndex.userLatLng)">Use my location</button>
           </div>
-          <button type="button" class="button is-info" ng-if="locationIndex.userLatLng" ng-click="locationIndex.search(locationIndex.userLatLng)">Use my location</button>
         </div>
-        <input type="submit" class="button is-info" value="Save">
-        <a href="/" class="button is-primary">Cancel</a>
+        <div class="locationSaveOrCancal">
+          <input type="submit" class="button is-info" value="Save">
+          <a href="/pets" class="button is-primary">Cancel</a>
+        </div>
       </form>
     </div>
   </div>

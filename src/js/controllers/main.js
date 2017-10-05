@@ -22,7 +22,7 @@ function MainCtrl($transitions, $rootScope, $state, $auth) {
     vm.pageName = transition.$to().name;
 
     if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
-
+    vm.errors = null;
     if(vm.stateHasChanged) vm.message = null;
     if(!vm.stateHasChanged) vm.stateHasChanged = true;
   });
