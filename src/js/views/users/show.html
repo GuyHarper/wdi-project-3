@@ -5,8 +5,9 @@
   <section class="column is-one-third">
     <div>
       <div class="content">
-        <h2 ng-if="usersShow.user.posts.length > 1">Your posts</h2>
-        <h2 ng-if="usersShow.user.posts.length === 1">Your post</h2>
+        <h2 ng-if="usersShow.user.posts.length >= 1">Your Listings</h2>
+        <h2 ng-if="usersShow.user.posts.length === 0">You have no listings</h2>
+
       </div>
       <div ng-repeat="post in usersShow.user.posts" class="columns">
         <a ui-sref="petsShow({ id: post.id })" class="column is-two-thirds">
