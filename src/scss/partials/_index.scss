@@ -1,18 +1,7 @@
-body.petsIndex{
-  background-color: linen;
+.container .index {
+
 }
 
-.container {
-  &.index {
-    .card {
-      transition-duration: .25s;
-      opacity: 0.85;
-      &.is-fullheight {
-        height: 100%
-      }
-      &:hover {
-        opacity: 1;
-      }
-    }
-  }
+.index .card {
+  
 }
