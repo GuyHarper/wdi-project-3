@@ -17,14 +17,16 @@
   border-radius: 2px;
   color: #000000;
   font-size: 16px;
-  background: #ffffff;
+  background-color: transparent;
   padding: 9px 38px;
   border: solid white 2px;
   text-decoration: none;
+
 }
 .homeButton:hover {
-  background: #1e7eba;
   text-decoration: none;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.24);
 }
 
 .homeContainer {
