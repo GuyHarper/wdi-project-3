@@ -1,15 +1,15 @@
-<div ng-controller="MessagesReplyCtrl as messagesReply">
-  <form ng-submit="messagesReply.messagesCreate(usersShow.pet, usersShow.contact, usersShow.filteredMessages)" name="messagesReply.newMessageForm" novalidate>
+<div>
+  <form ng-submit="usersShow.messagesReply()" name="usersShow.newMessageForm" novalidate>
     <div class="field">
       <label for="image">Upload Image</label>
       <div class="control">
-        <drag-drop-img base64 ng-model="messagesReply.message.base64" id="image" name="base64"></drag-drop-img>
+        <drag-drop-img base64 ng-model="usersShow.message.base64" id="image" name="base64"></drag-drop-img>
       </div>
     </div>
     <div class="field">
       <label for="text" class="label">Message</label>
       <div class="control">
-        <textarea type="text" class="textarea" id="text" name="text" ng-model="messagesReply.message.text"
+        <textarea type="text" class="textarea" id="text" name="text" ng-model="usersShow.message.text"
         placeholder="place message here"></textarea>
       </div>
     </div>

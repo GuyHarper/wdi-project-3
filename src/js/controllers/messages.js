@@ -1,7 +1,6 @@
 angular
   .module('petsApp')
-  .controller('MessagesNewCtrl', MessagesNewCtrl)
-  .controller('MessagesReplyCtrl', MessagesReplyCtrl);
+  .controller('MessagesNewCtrl', MessagesNewCtrl);
 
 
 MessagesNewCtrl.$inject = ['Pet', 'Message', '$state'];
@@ -34,29 +33,4 @@ function MessagesNewCtrl(Pet, Message, $state) {
     vm.messageSent = true;
   }
   vm.sendMessageConfirmation = sendMessageConfirmation;
-}
-
-MessagesReplyCtrl.$inject = ['User', 'Message', '$state'];
-function MessagesReplyCtrl(User, Message, $state) {
-  const vm = this;
-  vm.message = {};
-  vm.from = User.get($state.params);
-
-
-  function messagesCreate(pet, sender, messagesDisplay) {
-    vm.message.pet = pet;
-    vm.message.to = sender.id;
-
-    Message
-      .save(vm.message)
-      .$promise
-      .then((message) => {
-        messagesDisplay.push(message);
-        vm.messagesDisplay = messagesDisplay;
-        angular.element( document.querySelector( 'textarea' ) ).val('');
-      });
-
-  }
-
-  vm.messagesCreate = messagesCreate;
 }

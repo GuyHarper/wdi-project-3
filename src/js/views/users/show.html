@@ -41,7 +41,6 @@
               <h3 class="columns">Your message history with {{ contact.name }}</h3>
               <div ng-show="usersShow.contact === contact" >
                 <message-display ng-repeat="message in usersShow.filteredMessages | orderBy : 'createdAt' : reverse " ></message-display>
-                <message-display ng-repeat="message in MessagesReplyCtrl.messagesDisplay | orderBy : 'createdAt' : reverse " ></message-display>
               </div>
               <message-reply ng-if="usersShow.contact === contact"></message-reply>
             </section>
@@ -49,6 +48,5 @@
         </div>
       </div>
     </section>
-
   </div>
 </div>

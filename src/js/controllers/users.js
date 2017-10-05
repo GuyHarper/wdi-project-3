@@ -10,32 +10,34 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   if(vm.currentUserId !== $state.params.id) $state.go('login');
 
   vm.user = User.get($state.params);
+  vm.additionalMessages = [];
+
 
   User.get($state.params)
     .$promise
     .then((user) => {
+
       const uniqueContactIds = [];
       const uniqueContacts = [];
-
       user.messages.forEach(message => {
         if(uniqueContactIds.indexOf( message.from.id ) === -1) {
           uniqueContactIds.push(message.from.id);
           uniqueContacts.push(message.from);
         }
       });
-
       user.sentMessages.forEach(message => {
         if(uniqueContactIds.indexOf( message.to.id ) === -1) {
           uniqueContactIds.push(message.to.id);
           uniqueContacts.push(message.to);
         }
-        vm.uniqueContacts = uniqueContacts;
       });
+      vm.uniqueContacts = uniqueContacts;
+
     });
 
   function showMessagesWith(contact) {
     const filteredMessages = filterFilter(vm.user.messages, { from: { id: contact.id } }).concat(filterFilter(vm.user.sentMessages, { to: { id: contact.id } }));
-    vm.filteredMessages = filteredMessages;
+    vm.filteredMessages = filteredMessages.concat(vm.additionalMessages);
     vm.contact = contact;
     vm.pet = filteredMessages[filteredMessages.length - 1].pet.id;
     angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
@@ -51,6 +53,7 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   vm.toggleReplyActivated = toggleReplyActivated;
 
   function toggleMessageModal() {
+    if(vm.additionalMessages.length > 0) $state.go('usersShow');
     angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
     angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
   }
@@ -61,6 +64,24 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   }
   vm.toggleModal = toggleModal;
 
+
+  function messagesReply() {
+    vm.message.pet = vm.pet;
+    vm.message.to = vm.contact.id;
+
+    Message
+      .save(vm.message)
+      .$promise
+      .then((message) => {
+        message.to = vm.contact;
+        vm.filteredMessages.push(message);
+        vm.additionalMessages.push(message);
+        angular.element( document.querySelector( 'textarea' ) ).val('');
+      });
+
+  }
+
+  vm.messagesReply = messagesReply;
 }
 
 // ******************************** filtering by location and status ************************************
