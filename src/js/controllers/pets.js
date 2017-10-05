@@ -135,6 +135,11 @@ function PetsShowCtrl(Pet, $state, $auth) {
   }
   vm.toggleMessageActivated = toggleMessageActivated;
 
+  function toggleImageModal() {
+    angular.element( document.querySelector( '#image-modal' ) ).toggleClass('is-active');
+  }
+  vm.toggleImageModal = toggleImageModal;
+
 }
 
 PetsEditCtrl.$inject = ['Pet', '$state'];
