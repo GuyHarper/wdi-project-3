@@ -30,10 +30,9 @@
             <span></span>
           </div>
         </div>
-
         <div class="navbar-menu" ng-class="{ 'is-active': main.menuIsOpen }">
           <div class="navbar-end">
-            <a ui-sref="petsIndex" class="navbar-item">Pets <i class="fa fa-paw" aria-hidden="true"></i></a>
+            <a href="/pets" class="navbar-item">Pets <i class="fa fa-paw" aria-hidden="true"></i></a>
             <a class="navbar-item" ui-sref="petsNew" ng-if="main.isAuthenticated()">Add a pet <i class="fa fa-plus" aria-hidden="true"></i></a>
             <a class="navbar-item loginNavbar" ui-sref="login" ui-sref-active="active" ng-if="!main.isAuthenticated()">Log in <i class="fa fa-sign-in" aria-hidden="true"></i></a>
             <a class="navbar-item registerNavbar" ui-sref="register" ui-sref-active="active" ng-if="!main.isAuthenticated()">Sign up <i class="fa fa-sign-in" aria-hidden="true"></i></a>
@@ -52,7 +51,7 @@
     <div class="container">
       <div class="columns is-text-centered">
         <div class="column has-text-centered">
-          <p><strong>Lost & Found Pets</strong> by 2G & T<p>
+          <p><strong>Lost & Found Pets</strong> by 2G & T</p>
         </div>
         <div class="column has-text-centered">
           <p>Made with <i class="fa fa-heartbeat"></i> at <a href="https://generalassemb.ly/locations/london" target="_blank">GA</a> WDI #29</p>

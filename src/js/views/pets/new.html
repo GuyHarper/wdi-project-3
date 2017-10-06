@@ -1,16 +1,13 @@
 <div class="center">
-  <div class="column">
+  <div class="column form-container">
     <div class="field">
       <form ng-submit="petsNew.create()" name="petsNew.newPetsForm" novalidate>
         <div class="field">
           <label for="name">Name</label>
           <div class="control">
-            <input type="text" class="input" id="name" name="name" ng-model="petsNew.pet.name" ng-pattern="/^[\w\s]+$/" required>
-            <div ng-messages="petsNew.newPetsForm.name.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.name.$touched">
-              <div ng-message="required" class="red">Please enter a value for this field.</div>
+            <input type="text" class="input" id="name" name="name" ng-model="petsNew.pet.name" ng-pattern="/^[\w\s]+$/">
             </div>
           </div>
-        </div>
         <div class="field">
           <label for="type">Type</label>
           <div class="control">

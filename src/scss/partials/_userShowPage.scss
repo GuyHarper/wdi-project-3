@@ -1,0 +1,30 @@
+body.usersShow {
+  background-image: url('../images/puppySmiling.png');
+  color: white;
+  background-size: cover;
+  width: auto;
+  height: auto;
+  background-blend-mode: color;
+  background-color: rgba(121, 67, 30, 0);
+
+}
+
+.nameShowListing {
+  background-color: rgba(255, 255, 255, 0.88);
+  border-radius: 3px;
+  margin: 3px;
+  width: max-content;
+}
+
+.column.is-half {
+  background-color: rgba(255, 255, 255, 0.88);
+  border-radius: 3px;
+}
+
+.profileName {
+  background-color: rgba(255, 255, 255, 0.88);
+  width: max-content;
+  border-radius: 3px;
+  margin: 3px;
+  margin-bottom: 1px;
+}
