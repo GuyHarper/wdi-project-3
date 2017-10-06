@@ -13,6 +13,10 @@
   margin-left: 24%;
   margin-right: 24%;
 }
+.disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
 
 .locationSaveOrCancal{
   padding-left: 45%;
