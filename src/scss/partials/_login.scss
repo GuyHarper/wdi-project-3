@@ -1,7 +1,22 @@
 body.login{
-   background-image: url('/images/puppies.png');
-   color: #665346;;
-   background-size: cover;
-   width: auto;
-   height: auto;
+  background-image: url('/images/puppies.png');
+  color: #333;
+  background-size: cover;
+  width: auto;
+  height: auto;
+  .button.facebook {
+    background-color: #3b5998;
+    color: #fff;
+  }
+  i.fa.fa-facebook-official {
+    font-size: 1.3em;
+    margin-right: 10px;
+  }
+}
+
+.form-container {
+  background-color: #fafafa;
+  margin-top: 5vh;
+  border-radius: 4px;
+  padding: 30px;
 }

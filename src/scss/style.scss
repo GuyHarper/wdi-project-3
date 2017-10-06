@@ -9,9 +9,9 @@
 @import "partials/login";
 @import "partials/register";
 
-
 body{
-  font-family: 'Nunito' sans-serif;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
   &.modal-open {
     overflow: hidden;
   }
@@ -29,21 +29,27 @@ body {
 }
 
 
+.button.is-primary {
+  border-color: transparent;
+  font-size: 16px;
+  color: #fcfcfc;
+  background-color: #e66700;
+  &:hover {
+    background-color: #d15f00;
+  }
+}
+
 .button.is-info {
   border-color: transparent;
-  font-weight: 300;
-  font-family: 'Work Sans', sans-serif;
-  font-size: 16px;
-  color: #84796d;
-  background-color: rgb(255, 255, 255);
+  color: #ff811a;
+  border: 1px solid #eee;
+  background-color: #fcfcfc;
+  &:hover {
+    color: #d15f00;
+    background-color: #fcfcfc;
+    border: 1px solid #ddd;
+  }
 }
-
-.button.is-primary {
-    background-color: #d15f00;
-    border-color: transparent;
-    color: #fff;
-}
-
 
 // **************** google map class ********************
 .map {
@@ -56,13 +62,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-color: #607D8B;
+    background-color: #ddd;
     height: 100px;
     width: 221px;
     text-align: center;
     position: relative;
 }
-label{
+label {
   text-align: center;
   margin-right: 2px;
 }
@@ -99,9 +105,6 @@ label{
     margin: 14px;
 }
 
-.fa-facebook-square{
-  margin-right: 10px;
-}
 .fa-sign-in{
   margin-left: 10px;
 }
@@ -118,6 +121,17 @@ label{
   margin-left: 10px;
 }
 
+h1, h2, h3, p, label {
+  color: #ff811a;
+  &.distance-label {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  &.distance-display {
+    margin-left: 8px;
+  }
+}
+
 h1 {
   font-size: 3em;
 }
@@ -130,11 +144,22 @@ h3 {
   font-size: 1.1em;
 }
 
+label.label {
+  font-weight: 400;
+}
+
+a:hover {
+  color: #d15f00;
+}
+
 .siteName {
   font-weight: 300;
   font-family: 'Work Sans', sans-serif;
   font-size: 24px;
-  color: rgba(25, 16, 16, 0.77);;
+  color: #333;
+  &:hover {
+    color: #d15f00;
+  }
 }
 
 .button {
@@ -145,4 +170,8 @@ h3 {
 .nav-left {
   padding: 13px;
   margin: 2px;
+}
+
+strong {
+  font-weight: 500;
 }

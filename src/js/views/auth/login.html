@@ -1,7 +1,14 @@
+<div class="fullscreen-bg">
+  <video loop muted autoplay poster="images/puppies.png" class="fullscreen-bg__video">
+    <source src="/videos/backgroundPuppies.webm" type="video/webm">
+    <source src="/videos/backgroundPuppies.mp4" type="video/mp4">
+    <source src="/videos/backgroundPuppies.ogv" type="video/ogg">
+  </video>
+</div>
 <div class="center">
   <section class="section">
     <div class="columns">
-      <div class="column is-two-third">
+      <div class="column form-container">
         <form ng-submit="login.submit()" novalidate>
           <div class="field">
             <label class="label" for="email">Email</label>
@@ -24,7 +31,7 @@
           </div>
         </form>
         <br /><p style="text-align: center">Or</p><br />
-        <button class="button is-info is-fullwidth" ng-click="login.authenticate('facebook')">Login with Facebook</button>
+        <button class="button facebook is-fullwidth" ng-click="login.authenticate('facebook')"><i class="fa fa-facebook-official" aria-hidden="true"></i>Login with Facebook</button>
       </div>
     </div>
   </section>

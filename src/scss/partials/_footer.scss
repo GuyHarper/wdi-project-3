@@ -1,23 +1,27 @@
 .fa-github{
-  color: white;
   cursor: pointer;
   text-decoration: none;
 }
 
 footer {
   display: flex;
-  background-color: #455a64;
+  background-color: #333;
   align-items: center;
   height: 50px;
   margin-top: 25px;
-  color: white;
+  p {
+    color: #fafafa;
+  }
   strong {
     color: white;
   }
   .columns {
     width: 100%;
   }
-  a:hover{
-    color: #d15f00;
+  a {
+    color: #fafafa;
+    &:hover{
+      color: #d15f00;
+    }
   }
 }

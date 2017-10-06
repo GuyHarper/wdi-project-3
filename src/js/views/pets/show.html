@@ -28,8 +28,8 @@
         </div>
       </div>
       <a ng-if="petsShow.myPet" ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
-      <button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-danger">Delete</button>
-      <button class="button" ng-if="!petsShow.myPet" ng-click="petsShow.toggleMessageModal()">That's my pet!</button>
+      <button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-primary">Delete</button>
+      <button class="button is-info" ng-if="!petsShow.myPet" ng-click="petsShow.toggleMessageModal()">That's my pet!</button>
     </div>
   </div>
   </div>

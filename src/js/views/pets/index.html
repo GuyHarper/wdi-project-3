@@ -2,18 +2,25 @@
   <div class="column index">
     <div class="column">
       <div>
-        <input type="checkbox" id="roast" ng-model="petsIndex.useDistance">
-        <label for="distance">Distance</label>
-        <input type="range" ng-model="petsIndex.distance" min="1" max="15" ng-disabled="!petsIndex.useDistance">
-        <em ng-if="petsIndex.useDistance">{{ petsIndex.distance }}km</em>
-        <label>Status: </label>
-        <label>Lost
-          <input type="radio" name="status" ng-model="petsIndex.status" value="lost">
-        </label>
-        <label>Found
-          <input type="radio" name="status" ng-model="petsIndex.status" value="found">
-        </label>
-        <a class="border" ng-click="petsIndex.status = null">Clear status</a>
+        <div class="index-filters">
+          <label class="button is-info">Lost
+            <input type="radio" name="status" ng-model="petsIndex.status" value="lost" hidden>
+          </label>
+          <label class="button is-info">Found
+            <input type="radio" name="status" ng-model="petsIndex.status" value="found" hidden>
+          </label>
+          <label class="button is-info">All
+            <input type="radio" name="status" ng-model="petsIndex.status" value="" hidden>
+          </label>
+        </div>
+        <div class="level">
+          <div class="level-left">
+            <input type="checkbox" id="roast" ng-model="petsIndex.useDistance">
+            <label for="distance" class="distance-label">Distance</label>
+            <input type="range" ng-model="petsIndex.distance" min="1" max="15" ng-disabled="!petsIndex.useDistance">
+            <p ng-if="petsIndex.useDistance" class="distance-display">{{ petsIndex.distance }}km</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

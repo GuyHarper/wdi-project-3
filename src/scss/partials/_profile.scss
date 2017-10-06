@@ -20,4 +20,43 @@
   .level {
     margin-bottom: 0;
   }
+  .individual-message {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 5px;
+    .column {
+    }
+    p {
+      color: #d15f00;
+      &.small {
+        color: #ccc;
+        font-size: 0.8em;
+      }
+    }
+  }
+  .message-image {
+    height: 150px;
+    width: 150px;
+    &:hover {
+      cursor: zoom-in;
+    }
+  }
+  .modal {
+    .level {
+      margin-bottom: 40px;
+      &.timestamp {
+        margin-bottom: 0;
+      }
+    }
+    .messages-area {
+      padding-right: 30px;
+    }
+    .message-image {
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 4px;
+      background-position: center;
+    }
+  }
 }

@@ -1,13 +1,17 @@
 <div class="fullscreen-bg">
   <video loop muted autoplay poster="images/puppies.png" class="fullscreen-bg__video">
     <source src="/videos/backgroundPuppies.webm" type="video/webm">
-      <source src="/videos/backgroundPuppies.mp4" type="video/mp4">
-        <source src="/videos/backgroundPuppies.ogv" type="video/ogg">
-        </video>
-      </div>
-      <div class="homeContainer">
-        <div class="column home">
-          <a class="button" ui-sref="login" ng-if="!main.isAuthenticated()" ui-sref-active="active">Log in</a>
-          <a class="button" ui-sref="register" ng-if="!main.isAuthenticated()" ui-sref-active="active">Register</a>
-        </div>
-      </div>
+    <source src="/videos/backgroundPuppies.mp4" type="video/mp4">
+    <source src="/videos/backgroundPuppies.ogv" type="video/ogg">
+  </video>
+</div>
+<div class="container home">
+  <div class="columns is-centered">
+    <div class="column is-2">
+      <a class="button is-info" ui-sref="login" ng-if="!main.isAuthenticated()" ui-sref-active="active">Log in</a>
+    </div>
+    <div class="column is-2">
+      <a class="button is-info" ui-sref="register" ng-if="!main.isAuthenticated()" ui-sref-active="active">Register</a>
+    </div>
+  </div>
+</div>

@@ -1,21 +1,25 @@
 <div class="columns">
-  <div class="column is-two-thirds">
+  <div class="column {{ usersShow.checkSide(contact, message.to) }}"></div>
+  <div class="column is-10 individual-message">
     <div class="columns">
-      <div ng-click="usersShow.toggleModal(message.id)" class="column is-one-third" ng-if="message.imageSRC" style="background-image: url('{{ message.imageSRC }}'); background-size: contain; background-repeat: no-repeat; width: 200px; height: 200px;"></div>
-      <div class="column is-two-thirds">
-        <h4>From: {{ message.from.name }} To: {{ message.to.name }}</h4>
-        <p>Re: {{ message.pet.name }}</p>
-        <p>Sent: {{ message.createdAt | date : "HH:mm"}} on {{ message.createdAt | date : "dd/MM/yyyy" }}</p>
-        <p>{{ message.text }}</p>
-      </div>
-      <div class="modal" id="modal-{{ message.id }}" ng-click="usersShow.toggleModal(message.id)" >
-        <div class="modal-background"></div>
-        <div class="modal-content">
-          <p class="image">
-            <img ng-src="{{ message.imageSRC }}" alt="">
-          </p>
+      <div class="column">
+        <div class="columns">
+          <div ng-click="usersShow.toggleModal(message.id)" class="column is-one-third message-image" ng-if="message.imageSRC" style="background-image: url('{{ message.imageSRC }}');"></div>
+          <div class="column">
+            <p class="small">{{ message.createdAt | date : "HH:mm"}} on {{ message.createdAt | date : "dd/MM/yyyy" }}</p>
+            <p><strong>Re: {{ message.pet.name }}</strong></p>
+            <p>{{ message.text }}</p>
+          </div>
+          <div class="modal" id="modal-{{ message.id }}" ng-click="usersShow.toggleModal(message.id)" >
+            <div class="modal-background"></div>
+            <div class="modal-content">
+              <p class="image">
+                <img ng-src="{{ message.imageSRC }}" alt="">
+              </p>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+          </div>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
       </div>
     </div>
   </div>

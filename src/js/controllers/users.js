@@ -82,6 +82,15 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   }
 
   vm.messagesReply = messagesReply;
+
+  function checkSide(contact, recipient) {
+    if(contact.id === recipient.id) {
+      return 'is-2';
+    } else {
+      return 'is-narrow';
+    }
+  }
+  vm.checkSide = checkSide;
 }
 
 // ******************************** filtering by location and status ************************************

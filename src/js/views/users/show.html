@@ -38,8 +38,11 @@
           <div class="modal-background" ng-click="usersShow.toggleMessageModal()"></div>
           <div class="modal-card">
             <section class="modal-card-body">
-              <h3 class="columns">Your message history with {{ contact.name }}</h3>
-              <div ng-show="usersShow.contact === contact" >
+              <div class="level">
+                <h3 class="level-left">Your message history with {{ contact.name }}</h3>
+                <button class="delete level-right" aria-label="close" ng-click="usersShow.toggleMessageModal()"></button>
+              </div>
+              <div ng-show="usersShow.contact === contact" class="messages-area">
                 <message-display ng-repeat="message in usersShow.filteredMessages | orderBy : 'createdAt' : reverse " ></message-display>
               </div>
               <message-reply ng-if="usersShow.contact === contact"></message-reply>

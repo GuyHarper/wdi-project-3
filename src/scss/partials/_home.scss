@@ -1,37 +1,15 @@
 
-.column.home {
-  padding-left: 250px;
-  padding-right: 250px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-
-}
-
-.buttons.home {
-  padding-left: 391px;
-  padding-top: 78px;
-
-}
-
-.homeButton {
-  border-radius: 2px;
-  color: #000000;
-  font-size: 16px;
-  background-color: transparent;
-  padding: 9px 38px;
-  border: solid white 2px;
-  text-decoration: none;
-
-}
-.homeButton:hover {
-  text-decoration: none;
-  background-color: transparent;
-  color: white;
-}
-
-.homeContainer {
+.home.container {
   min-height: 80vh;
-
+  .column {
+    display: flex;
+    justify-content: center;
+    margin-top: 20vh;
+  }
+  .button {
+    padding: 20px;
+    font-size: 1.1em;
+  }
 }
 
 video {
