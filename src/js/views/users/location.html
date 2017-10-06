@@ -1,22 +1,27 @@
 <div class="containerLocation">
   <div class="columns">
-    <div class="column">
+    <div class="column form-container">
       <form ng-submit="locationIndex.search(locationIndex.latLng)" name="locationIndex.locationForm" novalidate>
-        <div class="lostFoundButtons">
-          <label for="status">Lost a Pet</label><input type="radio" ng-model="locationIndex.status" value="found">
-          <label for="status">Or found one?</label><input type="radio" ng-model="locationIndex.status" value="lost">
+        <div class="columns is-centered">
+          <label class="button is-info">Lost
+            <input type="radio" name="status" ng-model="locationIndex.status" value="found" hidden>
+          </label>
+          <label class="button is-info">Found
+            <input type="radio" name="status" ng-model="locationIndex.status" value="lost" hidden>
+          </label>
         </div>
         <div class="column location">
           <label for="location" class="locationName">When last did you see it?</label>
-
           <div class="control">
-              <input autocomplete location="locationIndex.latLng" type="text" class="input" id="location" name="location" ng-model="locationIndex.user.address" required>
-
+            <input autocomplete location="locationIndex.latLng" type="text" class="input" id="location" name="location" ng-model="locationIndex.user.address" required>
             <div ng-messages="locationIndex.location.$error" role="alert" ng-if="locationIndex.locationForm.$submitted || locationIndex.locationForm.location.$touched">
               <div ng-message="required" class="red">Please enter a value for this field.</div>
             </div>
-
-            <button type="button" class="button is-primary" ng-if="locationIndex.userLatLng" ng-click="locationIndex.search(locationIndex.userLatLng)">Use my location</button>
+            <div class="columns is-centered">
+              <div class="is-narrow">
+                <a type="button" id="locationButton" class="button is-primary" ng-if="locationIndex.userLatLng" ng-click="locationIndex.search(locationIndex.userLatLng)">Use my location</a>
+              </div>
+            </div>
           </div>
         </div>
         <div class="columns is-centered">
