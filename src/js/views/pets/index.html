@@ -4,11 +4,9 @@
       <div>
         <div class="index-filters">
           <input id="lost-radio" type="radio" name="status" ng-model="petsIndex.status" value="lost" hidden>
-          <label for="lost-radio" class="button is-info">Lost</label>
+          <label for="lost-radio" class="button is-info" ng-click="petsIndex.checkBoxFilter" >Lost</label>
           <input id="found-radio" type="radio" name="status" ng-model="petsIndex.status" value="found" hidden>
-          <label for="found-radio" class="button is-info">Found</label>
-          <input id="all-radio" type="radio" name="status" ng-model="petsIndex.status" value="" hidden>
-          <label for="all-radio" class="button is-info">All</label>
+          <label for="found-radio" class="button is-info" ng-click="petsIndex.checkBoxFilter" >Found</label>
         </div>
         <div class="level">
           <div class="level-left">

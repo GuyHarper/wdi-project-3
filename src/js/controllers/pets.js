@@ -35,16 +35,21 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
     });
 
   function filterPost() {
-    console.log('hererrererere');
     // if(pet.status !== status) return false;
-    vm.filtered = filterFilter(vm.all, $state.params.status);
+    if(vm.status) {
+      // if(vm.status === 'clear') {
+      //   vm.filtered = vm.all;
+      // } else {
+      vm.filtered = filterFilter(vm.all, vm.status);
+      // }
+    } else {
+      vm.filtered = filterFilter(vm.all, $state.params.status);
+    }
     // console.log(vm.filtered);
     // if the checkbox is checked, use the custom distance filter and pass in the array of pets and the range value
     if(vm.useDistance) vm.filtered = distanceFromFilter(vm.filtered, vm.distance);
     if(vm.status) vm.filtered = filterFilter(vm.filtered, vm.status);
-    console.log(vm.filtered);
     vm.filtered = orderByFilter(vm.filtered, 'distance');
-    console.log(vm.filtered);
     // if(vm.useStatus) vm.filtered = statusFromFilter(vm.filtered, vm.status);
   }
 
@@ -60,6 +65,8 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
       navigator.geolocation.getCurrentPosition(geolocationAllowed, geolocationDenied);
     }
   }
+
+
 
   // user has allowed geolocation
   function geolocationAllowed(position) {
@@ -91,6 +98,17 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
     filterPost();
     if(!$scope.$$phase) $scope.$apply();
   }
+
+  function checkboxFilter() {
+    vm.filtered = filterFilter(vm.all, vm.status);
+  }
+  vm.checkboxFilter = checkboxFilter;
+
+  function statusClear() {
+    vm.status = 'clear';
+    filterPost();
+  }
+  vm.statusClear = statusClear;
 }
 
 PetsNewCtrl.$inject = ['Pet', '$state'];
