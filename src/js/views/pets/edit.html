@@ -1,58 +1,60 @@
-<div class="center">
-  <div class="column is-two-third">
-    <div class="field">
-      <form ng-submit="petsEdit.update()" name="petsEdit.editPetsForm" novalidate>
+<div class="container">
+  <div class="columns">
+    <div class="column is-half">
         <div class="field">
-          <label for="name">Name</label>
-          <div class="control">
-            <input type="text" class="input" id="name" name="name" ng-model="petsEdit.pet.name" ng-pattern="/^[\w\s]+$/" required>
-            <div ng-messages="petsEdit.editPetsForm.name.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.name.$touched">
-              <div ng-message="required" class="red">Please enter a value for this field.</div>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label for="type">Type</label>
-          <div class="control">
-            <input autocomplete type="text" class="input" id="type" name="type" ng-model="petsEdit.pet.type" ng-pattern="//^[\w\s]+$//" required>
-            <div ng-messages="petsEdit.editPetsForm.type.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.type.$touched">
-              <div ng-message="required" class="red">Please enter a value for this field.</div>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <label for="location">Location</label>
-          <div class="control">
-            <input autocomplete location="petsEdit.pet.location" type="text" class="input" id="location" name="location" ng-model="petsEdit.pet.address" required>
-            <div ng-messages="petsEdit.editPetsForm.location.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.location.$touched">
-              <div ng-message="required" class="red">Please enter a value for this field.</div>
-            </div>
-          </div>
-        </div>
-          <!-- this should be repleced with the uploadImage -->
-          <div class="field">
-            <label for="image">Upload Image</label>
-            <div class="control">
-              <drag-drop-img base64 ng-model="petsEdit.pet.base64" id="image" name="base64" required></drag-drop-img>
-              <div ng-messages="petsEdit.editPetsForm.base64.$error" role="alert" ng-show="(petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.base64.$touched) && petsEdit.editPetsForm.base64.$invalid" class="error">
-                <div ng-message="required">Image is required.</div>
+          <form class="formLeft" ng-submit="petsEdit.update()" name="petsEdit.editPetsForm" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <div class="control">
+                <input type="text" class="input" id="name" name="name" ng-model="petsEdit.pet.name" ng-pattern="/^[\w\s]+$/" required>
+                <div ng-messages="petsEdit.editPetsForm.name.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.name.$touched">
+                  <div ng-message="required" class="red">Please enter a value for this field.</div>
+                </div>
               </div>
             </div>
-          </div>
-          <!-- **************************** -->
-          <div class="field">
-            <label for="description">Description</label>
-            <div class="control">
-              <textarea type="text" class="textarea" id="description" name="description" ng-model="petsEdit.pet.description" ng-pattern="/^[\w\s]+$/" placeholder="Further information" required>{{ pet.description }}</textarea>
+            <div class="field">
+              <label for="type">Type</label>
+              <div class="control">
+                <input autocomplete type="text" class="input" id="type" name="type" ng-model="petsEdit.pet.type" ng-pattern="//^[\w\s]+$//" required>
+                <div ng-messages="petsEdit.editPetsForm.type.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.type.$touched">
+                  <div ng-message="required" class="red">Please enter a value for this field.</div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <label for="lost">Lost<input type="radio" name="status" value="lost" ng-model="petsEdit.pet.status"></label>
-            <label for="found">Found<input type="radio" name="status" value="found" ng-model="petsEdit.pet.status"></label>
-          </div>
-          <input type="submit" class="button is-info" value="Save">
-          <a href="/pets" class="button is-primary">Cancel</a>
-        </form>
+            <div class="field">
+              <label for="location">Location</label>
+              <div class="control">
+                <input autocomplete location="petsEdit.pet.location" type="text" class="input" id="location" name="location" ng-model="petsEdit.pet.address" required>
+                <div ng-messages="petsEdit.editPetsForm.location.$error" role="alert" ng-if="petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.location.$touched">
+                  <div ng-message="required" class="red">Please enter a value for this field.</div>
+                </div>
+              </div>
+            </div>
+            <!-- this should be repleced with the uploadImage -->
+            <div class="field">
+              <label for="image">Upload Image</label>
+              <div class="control">
+                <drag-drop-img base64 ng-model="petsEdit.pet.base64" id="image" name="base64" required></drag-drop-img>
+                <div ng-messages="petsEdit.editPetsForm.base64.$error" role="alert" ng-show="(petsEdit.editPetsForm.$submitted || petsEdit.editPetsForm.base64.$touched) && petsEdit.editPetsForm.base64.$invalid" class="error">
+                  <div ng-message="required">Image is required.</div>
+                </div>
+              </div>
+            </div>
+            <!-- **************************** -->
+            <div class="field">
+              <label for="description">Description</label>
+              <div class="control">
+                <textarea type="text" class="textarea" id="description" name="description" ng-model="petsEdit.pet.description" ng-pattern="/^[\w\s]+$/" placeholder="Further information" required>{{ pet.description }}</textarea>
+              </div>
+            </div>
+            <div class="field">
+              <label for="lost">Lost<input type="radio" name="status" value="lost" ng-model="petsEdit.pet.status"></label>
+              <label for="found">Found<input type="radio" name="status" value="found" ng-model="petsEdit.pet.status"></label>
+            </div>
+            <input type="submit" class="button is-info" value="Save">
+            <a ui-sref="usersShow ({id: petsEdit.pet.postedBy.id})" class="button is-primary">Cancel</a>
+          </form>
+        </div>
       </div>
-    </div>
   </div>
+</div>
