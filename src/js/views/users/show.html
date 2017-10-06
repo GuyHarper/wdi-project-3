@@ -1,11 +1,11 @@
 <div class="container profile">
-  <div>
+  <div class="profileName">
     <h1>Profile - {{usersShow.user.name}}</h1>
   </div>
   <div class="columns">
     <section class="column is-one-third">
       <div>
-        <div>
+        <div class="nameShowListing">
           <h2 ng-if="usersShow.user.posts.length >= 1">Your Listings</h2>
           <h2 ng-if="usersShow.user.posts.length === 0">You have no listings</h2>
         </div>
