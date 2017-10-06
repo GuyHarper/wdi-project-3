@@ -143,15 +143,41 @@ function PetsShowCtrl(Pet, $state, $auth) {
 
   vm.delete = petsDelete;
 
+  function toggleResolveModal() {
+    angular.element( document.querySelector( '#resolve-modal' ) ).toggleClass('is-active');
+  }
+
+  vm.toggleResolveModal = toggleResolveModal;
+
+  function deactivate() {
+    vm.pet
+      .$remove()
+      .then(() => {
+        resolvedConfirmation();
+        setTimeout(() => {
+          $state.go('petsIndex');
+        }, 1500);
+      } );
+  }
+
+  vm.petResolved = false;
+  function resolvedConfirmation() {
+    vm.petResolved = true;
+  }
+
+  function petsResolve() {
+    deactivate();
+  }
+
+  vm.petsResolve = petsResolve;
+
   function toggleImageModal() {
     angular.element( document.querySelector( '#image-modal' ) ).toggleClass('is-active');
-    angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
   }
   vm.toggleImageModal = toggleImageModal;
 
   function toggleMessageModal() {
     angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
-    angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
   }
   vm.toggleMessageModal = toggleMessageModal;
 
