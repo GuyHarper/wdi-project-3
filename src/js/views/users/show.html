@@ -29,24 +29,26 @@
       </div>
     </section>
     <section class="column is-half">
-      <h2>Your messages</h2>
-      <div ng-repeat="contact in usersShow.uniqueContacts" class="level">
-        <div ng-click="usersShow.showMessagesWith(contact)" class="conversation-group level-item">
-          <h3>Your message history with {{ contact.name }}</h3>
-        </div>
-        <div class="modal profile" id="message-modal">
-          <div class="modal-background" ng-click="usersShow.toggleMessageModal()"></div>
-          <div class="modal-card">
-            <section class="modal-card-body">
-              <div class="level">
-                <h3 class="level-left">Your message history with {{ contact.name }}</h3>
-                <button class="delete level-right" aria-label="close" ng-click="usersShow.toggleMessageModal()"></button>
-              </div>
-              <div ng-show="usersShow.contact === contact" class="messages-area">
-                <message-display ng-repeat="message in usersShow.filteredMessages | orderBy : 'createdAt' : reverse " ></message-display>
-              </div>
-              <message-reply ng-if="usersShow.contact === contact"></message-reply>
-            </section>
+      <div class="messages">
+        <h2>Your messages</h2>
+        <div ng-repeat="contact in usersShow.uniqueContacts" class="level">
+          <div ng-click="usersShow.showMessagesWith(contact)" class="conversation-group level-item">
+            <h3>Your message history with {{ contact.name }}</h3>
+          </div>
+          <div class="modal profile" id="message-modal">
+            <div class="modal-background" ng-click="usersShow.toggleMessageModal()"></div>
+            <div class="modal-card">
+              <section class="modal-card-body">
+                <div class="level">
+                  <h3 class="level-left">Your message history with {{ contact.name }}</h3>
+                  <button class="delete level-right" aria-label="close" ng-click="usersShow.toggleMessageModal()"></button>
+                </div>
+                <div ng-show="usersShow.contact === contact" class="messages-area">
+                  <message-display ng-repeat="message in usersShow.filteredMessages | orderBy : 'createdAt' : reverse " ></message-display>
+                </div>
+                <message-reply ng-if="usersShow.contact === contact"></message-reply>
+              </section>
+            </div>
           </div>
         </div>
       </div>
