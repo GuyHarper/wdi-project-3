@@ -55,7 +55,6 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   function toggleMessageModal() {
     if(vm.additionalMessages.length > 0) $state.go('usersShow');
     angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
-    angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
   }
   vm.toggleMessageModal = toggleMessageModal;
 
@@ -101,8 +100,11 @@ function LocationIndexCtrl(User, $scope, $state) {
   getUserLocation();
   // assigned using geolocation
   vm.userLatLng = null;
+  vm.userLatLngError = false;
   // assinged using autocomplete
   vm.latLng = null;
+
+  vm.buttonText = 'Finding your location...';
 
   function search(latLng) {
     // latLng will be different depending on if you click "use my location" or "save"
@@ -122,6 +124,7 @@ function LocationIndexCtrl(User, $scope, $state) {
   // user has allowed geolocation
   function geolocationAllowed(position) {
     vm.userLatLng = { lat: position.coords.latitude, lng: position.coords.longitude };
+    vm.buttonText = 'Use my location';
     $scope.$apply();
   }
 
@@ -129,6 +132,8 @@ function LocationIndexCtrl(User, $scope, $state) {
   // show a text search box for user to enter their location using autocomplete
   function geolocationDenied(err) {
     console.log(err);
+    vm.buttonText = 'Unable to find your location';
+    $scope.$apply();
   }
 
 }

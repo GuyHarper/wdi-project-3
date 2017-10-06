@@ -1,3 +1,10 @@
+body.petsShow{
+  background-image: url('/images/puppySofa.png');
+  background-size: cover;
+  width: auto;
+  height: auto;
+}
+
 .container {
   &.show {
     figure {
