@@ -1,31 +1,31 @@
 body.usersShow {
-  background-image: url('../images/puppySmiling.png');
+  background-image: url('../images/smallKitten.png');
   color: white;
   background-size: cover;
   width: auto;
   height: auto;
   background-blend-mode: color;
-  background-color: rgba(121, 67, 30, 0);
+  background-color: rgba(0, 0, 0, 0.21);
 
 }
 
 .nameShowListing {
-  background-color: rgba(255, 255, 255, 0.88);
+  // background-color: rgba(255, 255, 255, 0.88);
   border-radius: 3px;
-  margin: 3px;
+  margin-bottom: 3px;
   width: max-content;
 }
 
-.column.is-half {
-  background-color: rgba(255, 255, 255, 0.88);
+.messages {
+  // background-color: rgba(255, 255, 255, 0.88);
   border-radius: 3px;
   height: max-content;
+  padding: 15px;
 }
 
 .profileName {
-  background-color: rgba(255, 255, 255, 0.88);
+  // background-color: rgba(255, 255, 255, 0.88);
   width: max-content;
   border-radius: 3px;
-  margin: 3px;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
 }
