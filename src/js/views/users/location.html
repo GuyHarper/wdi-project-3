@@ -1,5 +1,5 @@
 <div class="containerLocation">
-  <div class="columns">
+  <div class="columns locationCentered">
     <div class="column form-container">
       <form ng-submit="locationIndex.search(locationIndex.latLng)" name="locationIndex.locationForm" novalidate>
         <div class="columns is-centered">
@@ -11,7 +11,7 @@
           </label>
         </div>
         <div class="column location">
-          <label for="location" class="locationName">When last did you see it?</label>
+          <label for="location" class="locationName">Where did you see it?</label>
           <div class="control">
             <input autocomplete location="locationIndex.latLng" type="text" class="input" id="location" name="location" ng-model="locationIndex.user.address" required>
             <div ng-messages="locationIndex.location.$error" role="alert" ng-if="locationIndex.locationForm.$submitted || locationIndex.locationForm.location.$touched">
