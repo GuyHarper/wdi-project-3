@@ -1,0 +1,14 @@
+body.petsEdit{
+  background-image: url('/images/puppySofa.png');
+  background-size: cover;
+  width: auto;
+  height: auto;
+  .columns {
+    justify-content: flex-start;
+  }
+}
+.formLeft{
+  width: 370px;
+  margin-left: 90px;
+  margin-top: 20px;
+}
