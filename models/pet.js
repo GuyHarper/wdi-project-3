@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const s3 = require('../lib/s3');
 
 const petSchema = new mongoose.Schema({
-  name: {type: String, required: true},
+  name: {type: String},
   type: {type: String, required: true},
   image: {type: String, required: true},
   description: {type: String, required: true},

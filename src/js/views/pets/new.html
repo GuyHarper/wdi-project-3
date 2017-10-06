@@ -5,12 +5,9 @@
         <div class="field">
           <label for="name">Name</label>
           <div class="control">
-            <input type="text" class="input" id="name" name="name" ng-model="petsNew.pet.name" ng-pattern="/^[\w\s]+$/" required>
-            <div ng-messages="petsNew.newPetsForm.name.$error" role="alert" ng-if="petsNew.newPetsForm.$submitted || petsNew.newPetsForm.name.$touched">
-              <div ng-message="required" class="red">Please enter a value for this field.</div>
+            <input type="text" class="input" id="name" name="name" ng-model="petsNew.pet.name" ng-pattern="/^[\w\s]+$/">
             </div>
           </div>
-        </div>
         <div class="field">
           <label for="type">Type</label>
           <div class="control">
@@ -51,8 +48,8 @@
             <label for="lost">Lost <input type="radio" name="status" value="lost" ng-model="petsNew.pet.status" required></label>
             <label for="found">Found <input type="radio" name="status" value="found" ng-model="petsNew.pet.status"></label>
           </div>
-          <input type="submit" class="button is-info" value="Add">
-          <a href="/" class="button is-primary">Cancel</a>
+          <input type="submit" class="button is-primary" value="Add">
+          <a href="/" class="button is-info">Cancel</a>
         </form>
       </div>
     </div>

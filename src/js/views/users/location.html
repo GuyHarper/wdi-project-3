@@ -2,16 +2,12 @@
   <div class="columns locationCentered">
     <div class="column form-container">
       <form ng-submit="locationIndex.search(locationIndex.latLng)" name="locationIndex.locationForm" novalidate>
-        <div class="columns is-centered">
-          <label class="button is-info">Lost
-            <input type="radio" name="status" ng-model="locationIndex.status" value="found" hidden>
-          </label>
-          <label class="button is-info">Found
-            <input type="radio" name="status" ng-model="locationIndex.status" value="lost" hidden>
-          </label>
+        <div class="lostFoundButtons center">
+          <input id="lost-radio" type="radio" ng-model="locationIndex.status" value="found" hidden><label class="button is-info" for="lost-radio">Lost</label>
+          <input id="found-radio" type="radio" ng-model="locationIndex.status" value="lost" hidden><label class="button is-info" for="found-radio">Found</label>
         </div>
         <div class="column location">
-          <label for="location" class="locationName">Where did you see it?</label>
+          <label for="location" class="locationName">What's your location?</label>
           <div class="control">
             <input autocomplete location="locationIndex.latLng" type="text" class="input" id="location" name="location" ng-model="locationIndex.user.address" required>
             <div ng-messages="locationIndex.location.$error" role="alert" ng-if="locationIndex.locationForm.$submitted || locationIndex.locationForm.location.$touched">
