@@ -35,3 +35,10 @@ body.location{
    width: auto;
    height: auto;
 }
+
+.containerLocation {
+  input[type="radio"]:checked+label {
+    color: #fcfcfc;
+    background-color: #e66700;
+  }
+}

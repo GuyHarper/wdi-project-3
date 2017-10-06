@@ -87,7 +87,7 @@ function PetsIndexCtrl(Pet, $http, $scope, filterFilter, distanceFromFilter, $st
       // adding a new key of distance to the pet object and setting it to the calculated distance
       pet.distance = parseFloat(distance);
     });
-    
+
     filterPost();
     if(!$scope.$$phase) $scope.$apply();
   }
@@ -117,9 +117,19 @@ function PetsShowCtrl(Pet, $state, $auth) {
     .then((pet) => {
       vm.pet = pet;
       checkPet();
+      statusInformer(pet);
+      console.log(vm.lostStatus);
     });
 
   if($auth.getPayload()) vm.currentUserId = $auth.getPayload().userId;
+
+  function statusInformer(pet) {
+    if(pet.status === 'lost') {
+      vm.lostStatus = false;
+    } else {
+      vm.lostStatus = true;
+    }
+  }
 
   function checkPet() {
     if(vm.pet.postedBy.id === vm.currentUserId) vm.myPet = true;
@@ -144,6 +154,15 @@ function PetsShowCtrl(Pet, $state, $auth) {
     angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
   }
   vm.toggleMessageModal = toggleMessageModal;
+
+  function thatsMyPet() {
+    if(vm.currentUserId) {
+      toggleMessageModal();
+    } else {
+      $state.go('login');
+    }
+  }
+  vm.thatsMyPet = thatsMyPet;
 
 }
 

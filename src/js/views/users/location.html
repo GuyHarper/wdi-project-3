@@ -3,8 +3,8 @@
     <div class="column">
       <form ng-submit="locationIndex.search(locationIndex.latLng)" name="locationIndex.locationForm" novalidate>
         <div class="lostFoundButtons">
-          <label for="status">Lost a Pet</label><input type="radio" ng-model="locationIndex.status" value="found">
-          <label for="status">Or found one?</label><input type="radio" ng-model="locationIndex.status" value="lost">
+          <input id="lost-radio" type="radio" ng-model="locationIndex.status" value="found"><label for="lost-radio">Lost a Pet</label>
+          <input id="found-radio" type="radio" ng-model="locationIndex.status" value="lost"><label for="lost-radio">Or found one?</label>
         </div>
         <div class="column location">
           <label for="location" class="locationName">When last did you see it?</label>

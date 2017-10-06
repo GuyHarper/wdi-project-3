@@ -17,6 +17,8 @@ body.petsIndex{
     }
   }
 
+
+
 }
 .border{
   border: 1px solid #d15f00;
@@ -28,4 +30,11 @@ body.petsIndex{
 
 .index-filters {
   margin-bottom: 8px;
+}
+
+.index {
+  input[type="radio"]:checked+label {
+    color: #fcfcfc;
+    background-color: #e66700;
+  }
 }

@@ -27,9 +27,10 @@
           <google-map center="petsShow.pet.location"></google-map>
         </div>
       </div>
-      <a ng-if="petsShow.myPet" ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-info">Edit</a>
-      <button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-primary">Delete</button>
-      <button class="button is-info" ng-if="!petsShow.myPet" ng-click="petsShow.toggleMessageModal()">That's my pet!</button>
+      <a ng-if="petsShow.myPet" ui-sref="petsEdit({ id: petsShow.pet.id })" class="button is-primary">Edit</a>
+      <button ng-if="petsShow.myPet" ng-click="petsShow.delete()" class="button is-info">Delete</button>
+      <button class="button is-primary" ng-if="!petsShow.myPet && petsShow.lostStatus" ng-click="petsShow.thatsMyPet()">That's my pet!</button>
+      <button class="button is-primary" ng-if="!petsShow.myPet && !petsShow.lostStatus" ng-click="petsShow.thatsMyPet()">I've found your pet!</button>
     </div>
   </div>
   </div>
@@ -47,7 +48,8 @@
     <div class="modal-card">
       <section class="modal-card-body">
         <div class="level">
-          <div class="level-left"><strong>That's my pet!</strong></div>
+          <div class="level-left" ng-if="petsShow.lostStatus"><strong>That's my pet!</strong></div>
+          <div class="level-left" ng-if="!petsShow.lostStatus"><strong>I've found your pet!</strong></div>
           <button class="delete level-right" aria-label="close" ng-click="petsShow.toggleMessageModal()"></button>
         </div>
         <message-create></message-create>
