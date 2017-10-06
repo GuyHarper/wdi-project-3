@@ -2,15 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Lost & Found Pets</title>
+    <title>Lost &amp; Found Pets</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <header>
+      <h1>🐰 Lost &amp; Found Pets 🐶</h1>
+    </header>
     <p>
       Hello <%= pet.postedBy.name %>
     </p>
     <p>
-      This pet has just been found  <img src="<%= newPet.imageSRC %>" /> <%= newPet.name %> in <%= newPet.address %>
+      Found pet update! This pet has just been found in <%= newPet.address %>.
+    </p>
+    <img src="<%= newPet.imageSRC %>" />
+    <p>
+      Click <a href="<%= url %>/pets/<%= newPet.id %>">here</a> to view the post on Lost &amp; Found Pets.
     </p>
   </body>
 </html>
