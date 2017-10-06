@@ -55,7 +55,6 @@ function UsersShowCtrl(User, Message, $auth, $state, filterFilter) {
   function toggleMessageModal() {
     if(vm.additionalMessages.length > 0) $state.go('usersShow');
     angular.element( document.querySelector( '#message-modal' ) ).toggleClass('is-active');
-    angular.element( document.querySelector( 'body' ) ).toggleClass('modal-open');
   }
   vm.toggleMessageModal = toggleMessageModal;
 
